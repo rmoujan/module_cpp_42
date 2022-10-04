@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:02:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/04 09:27:39 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/04 11:04:19 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Zombie{
       private:
 	  std::string name;
 	  public:
+	  Zombie();//const
+	  ~Zombie();//destr
 	  void announce(void);
 	  std::string getName(void);
 	  void setName(std::string n);
