@@ -6,14 +6,14 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:02:00 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/04 08:38:04 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/07 09:15:10 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
-
+#include <iostream>
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
@@ -25,14 +25,14 @@ public:
 	typedef Account		t;
 
     //getters
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+	static int	getNbAccounts( void );//done
+	static int	getTotalAmount( void );//done
+	static int	getNbDeposits( void );//done
+	static int	getNbWithdrawals( void );//done
+	static void	displayAccountsInfos( void );//done
 
-	Account( int initial_deposit );//constructor
-	~Account( void );//destructor
+	Account( int initial_deposit );//constructor//done
+	~Account( void );//destructor//done
 
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
@@ -51,10 +51,10 @@ private:
 
 	int				_accountIndex;
 	int				_amount;
-	int				_nbDeposits;
+	int				_nbDeposits;//done
 	int				_nbWithdrawals;
 
-	Account( void );//constructor by default
+	Account( void );//constructor by default ==>Done
 
 };
 

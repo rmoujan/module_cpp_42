@@ -6,13 +6,12 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 12:23:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/03 15:02:24 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/05 10:32:23 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-
 
 void PhoneBook:: add(Contact ct_obj, PhoneBook *ph, int index)
 {
