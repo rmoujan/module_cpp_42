@@ -4,12 +4,12 @@ FALGS=-Wall -Wextra -werror -std=c++98
 RM=rm -rf
 SRC=main.cpp\
 	Zombie.cpp\
-	newZombie.cpp\
+	NewZombie.cpp\
 	RandomChump.cpp\
 
 OBJ=$(subst .cpp,.o,$(SRC))
 
-all:$(NAME)
+all:$(NAME) Zombie.hpp
 
 $(NAME):$(OBJ)
 	$(CPP) $(OBJ) -o $(NAME)

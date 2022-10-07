@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:02:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/04 11:04:19 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/07 13:49:25 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ class Zombie{
 	  void announce(void);
 	  std::string getName(void);
 	  void setName(std::string n);
-	  Zombie* newZombie(std::string name);
-	  void randomChump( std::string name );
 };
 
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
+// void announce(void);
+// void setName(std::string n);
+// std::string  getName(void);
 #endif

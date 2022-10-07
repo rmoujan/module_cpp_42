@@ -6,57 +6,29 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 08:25:59 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/05 09:51:58 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/07 13:52:34 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-using namespace std;
-
-class test{
-    public:
-    string name;
-    test()
-    {
-        cout<<"constructor without parameter is invoked"<<endl;
-    }
-    test(string n)
-    {
-        name = n;
-        cout<<"constructor with parameter is invoked"<<endl;
-    }
-    test(const test &t)
-    {
-        name =t.name;
-         cout<<"copy constructor is invoked"<<endl;
-    }
-    void display()
-    {
-        cout << "my name is    "<<name<<endl;
-    }
-    ~test()
-    {
-        cout<<"destructor without parameter is invoked"<<endl;
-    }
-      ~test()
-    {
-        cout<<"destructor without parameter is invoked"<<endl;
-    }
-};
+#include "Zombie.hpp"
 
 int main()
 {
-    test obj;
-    obj.name ="reshe";
-    obj.display();
+    // std::string  str = "AMAL";
+    Zombie *z = newZombie("AMAL");
+    Zombie *z2 = newZombie("faty");
     
-    test obj2("amal");
-    obj2.display();
+    // z.setName("Reshe");
+    //this not call o constructor and destructor
+    z->announce();
+    z2->announce();
     
-    test obj3(obj);//calling copy constructor
-    obj3.display();
-    
-    test obj4 = obj2;//calling copy constructor
-    obj4.display();
-    return 0;
+    //this call the instructor and destructor implicitly
+    // randomChump("layla");
+    // randomChump("resha");
+    // while (1);
+    //when u declare an object using new , u must free it using delete
+    delete z;
+    delete z2;
+    return (0);
 }

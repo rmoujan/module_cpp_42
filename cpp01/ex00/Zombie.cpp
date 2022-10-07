@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:16:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/04 11:11:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/07 13:09:48 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Zombie :: Zombie()
 //creating deconst
 Zombie :: ~Zombie()
 {
-    std::cout << "Default Destructor Invoked"<<std::endl;
+    // std::cout << "Default Destructor Invoked"<<std::endl;
+    std::cout << "the Object has name "<<this->getName()<<" is destroyed"<<std::endl;
 }
 //print the name of  Zombie :
 void Zombie :: announce(void)
@@ -34,18 +35,7 @@ void Zombie :: setName(std::string n)
     name = n;
 }
 
-//create a new Zombie and return it !!
-Zombie* Zombie :: newZombie( std::string name )
-{
-    Zombie *z;
-    z->setName(name);
-    return (z);
-}
-
-//It creates a zombie, name it, and the zombie announces itself:
-void Zombie :: randomChump( std::string name )
-{
-    Zombie z;
-    z.setName(name);
-    z.announce();
+std::string Zombie :: getName(void){
+    
+    return (name);
 }
