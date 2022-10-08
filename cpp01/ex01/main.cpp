@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:09:16 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/08 15:38:30 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/08 16:06:51 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 int main()
 {
-    Zombie *z = zombieHorde(6, "Reshe");
+    Zombie *z = zombieHorde(3, "Reshe");
     std::string str;
     int  i = 0;
+    
+    while (i < 3)
+    {
+        z[i].announce();
+        i++;
+    }
+    i = 0;
     //giving each object name using getline !!
-    while (i < 6)
+    while (i < 3)
     {
         getline(std::cin, str);
         z[i].setName(str);
@@ -28,10 +35,10 @@ int main()
     //outputing the objects 
     while (i < 6)
     {
-        // getline(std::cin, str);
         z[i].announce();
         i++;
     }
-    delete [] z;
+    // std::cout<<"hallo "<<z[1].getName()<<std::endl;
+    delete []z;
     return (0);
 }
