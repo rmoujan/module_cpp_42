@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:02:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/07 13:49:25 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/08 15:24:08 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 #define ZOMBIE_H
 
 #include <iostream>
+
 class Zombie{
+	
       private:
 	  std::string name;
 	  public:
@@ -27,6 +29,7 @@ class Zombie{
 	  void announce(void);
 	  std::string getName(void);
 	  void setName(std::string n);
+	  
 };
 
 Zombie* newZombie( std::string name );
