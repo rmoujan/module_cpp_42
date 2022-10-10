@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 10:43:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/03 14:31:34 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:18:30 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,23 @@
 //variables and its prototypes of its functions
 class Contact{
     
-    //attributes:
     private:
+    
     std::string first_name;
     std::string last_name;
     std::string nick_name;
-    int phone_number;
     std::string darkest_secret;
+    std::string  phone_number;
+    
     public:
-    void ini(std::string f, std::string l, std::string nm, int n, std::string d);//ini fct
-    void display();
+    
+    void ini(std::string f, std::string l, std::string nm, std::string  n, std::string d);
+
     std::string getFn();
     std::string getLn();
     std::string getNn();
-    int getPn();
     std::string getDs();
-    // ~ Contact();//destructor
+    std::string getPn();
 };
 
 #endif

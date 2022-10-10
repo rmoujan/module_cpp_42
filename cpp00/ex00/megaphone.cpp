@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 09:32:38 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/09/22 10:42:13 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/10 14:34:50 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
     int j;
     
     i = 1;
-
     if (argc > 1)
     {
         while (i < argc)
@@ -39,6 +38,10 @@ int main(int argc, char *argv[])
         }
     }
     else
+    {
         std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<std::endl;
+        return (0);
+    }
+    std::cout<<std::endl;
     return (0);
 }

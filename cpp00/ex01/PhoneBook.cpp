@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 12:23:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/05 10:32:23 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/10 18:19:30 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,22 @@ void PhoneBook:: add(Contact ct_obj, PhoneBook *ph, int index)
 {
         if (index >= 0 && index <= 7)
         {
-                // std::cout<<"*** index is "<<index<<std::endl;
                 (*ph).obj[index] = ct_obj;
         }
         else
         {
-                // std::cout<<"+++ index is "<<index<<std::endl;
                 (*ph).obj[0] = ct_obj;
         }
-        //add this ct_obj to the array Contact
-        // std::cout<<"the contact is added  "<<(*ph).obj[index].first_name<<std::endl;
 }
+
 void PhoneBook :: display(PhoneBook ph, int index)
 {
-		std::string str1;
-		std::string str2;
-		std::string str3;
-        int i = 0;
+	std::string str1;
+	std::string str2;
+	std::string str3;
+        int i;
+
+        i = 0;
         if (index >= 8)
                 index = 8;
 		std::cout << std::right << std::setw(15) << "Index|" << std::right << std::setw(15) << "FirstName|" << std::right
