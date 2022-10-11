@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 12:51:12 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/10 15:53:23 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/10 21:22:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int main()
     {
         std::cout<<"\033[92mPlease choose one of the choices above ***\033[0m \n";  
         std::getline(std::cin, choice);
+        if(std::cin.eof())
+            exit(1);
         if (choice.compare("ADD") == 0)
 			add(&ph, &ct, &index);
         else  if(choice.compare("SEARCH") == 0)
@@ -43,6 +45,7 @@ int main()
             break;
         }
     }
+    
 
     return (0);
 }

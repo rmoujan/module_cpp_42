@@ -13,6 +13,7 @@ all : $(NAME)
 
 $(NAME):${OBJ}
 	$(CPP) $(OBJ) -o $(NAME)
+	@echo "*** compilation done ***"
 
 %.o : %.cpp
 	${CPP} -c ${FLAGS} $< -o $@
@@ -22,5 +23,5 @@ clean:
 
 fclean:clean
 	$(RM) $(NAME)
-	
+	@echo "*** cleaning done ***"
 re :fclean all

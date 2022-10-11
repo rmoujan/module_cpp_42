@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:02:58 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/04 08:03:00 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/10 21:37:35 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 
 int		main( void ) {
+
+
+
 
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
