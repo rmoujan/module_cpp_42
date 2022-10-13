@@ -1,6 +1,6 @@
 NAME=BraiiiiiiinnnzzzZ
 CPP = c++
-FALGS=-Wall -Wextra -werror -std=c++98
+FALGS=-Wall -Wextra -werror #-std=c++98
 RM=rm -rf
 SRC=main.cpp\
 	Zombie.cpp\

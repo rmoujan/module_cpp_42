@@ -6,25 +6,22 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:16:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/07 13:09:48 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/13 14:46:11 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-//creating const
 Zombie :: Zombie()
 {
-    std::cout << "Default Constructor Invoked"<<std::endl;
+    std::cout << "\033[92m Default Constructor Invoked \033[0m "<<std::endl;
 }
 
-//creating deconst
 Zombie :: ~Zombie()
 {
-    // std::cout << "Default Destructor Invoked"<<std::endl;
-    std::cout << "the Object has name "<<this->getName()<<" is destroyed"<<std::endl;
+    std::cout << "\033[92m the Object has name "<<this->getName()<<" is destroyed by destructor  \033[0m "<<std::endl;
 }
-//print the name of  Zombie :
+
 void Zombie :: announce(void)
 {
     std::cout <<getName()<<": BraiiiiiiinnnzzzZ..."<<std::endl;
