@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:16:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/13 14:46:11 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/13 14:56:44 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Zombie :: Zombie()
 {
-    std::cout << "\033[92m Default Constructor Invoked \033[0m "<<std::endl;
+    std::cout <<"\033[92m Default Constructor Invoked \033[0m "<<std::endl;
 }
 
 Zombie :: ~Zombie()
 {
-    std::cout << "\033[92m the Object has name "<<this->getName()<<" is destroyed by destructor  \033[0m "<<std::endl;
+    std::cout <<"\033[92m the Object has name "<<this->getName()<<" is destroyed by destructor  \033[0m "<<std::endl;
 }
 
 void Zombie :: announce(void)
