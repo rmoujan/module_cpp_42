@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:06:58 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/08 18:51:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/16 20:07:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int main()
     char *stringPTR = str;
     char*& stringREF = str;
 
-    std::cout <<"|| OUTPUTING THE MEMORY ADDRESS ||"<<std::endl;
-    std::cout <<"***********************************"<<std::endl<<std::endl;
-    std::cout<< "The memory address of the string variable ::: "<<static_cast<void*>(str)<<std::endl;
-    std::cout<< "The memory address held by stringPTR      ::: "<<static_cast<void*>(stringPTR)<<std::endl;
-    std::cout<< "The memory address held by stringREF      ::: "<<static_cast<void*>(stringREF)<<std::endl<<std::endl;
+    std::cout <<"\033[31m|| OUTPUTING THE MEMORY ADDRESS ||\033[0m"<<std::endl;
+    // std::cout <<"\033[92m***********************************\033[0m"<<std::endl<<std::endl;
+    std::cout<< "\033[34m The memory address of the string variable ::: \033[0m"<<&str<<std::endl;
+    std::cout<< "\033[34m The memory address held by stringPTR      ::: \033[0m"<<static_cast<void*>(stringPTR)<<std::endl;
+    std::cout<< "\033[34m The memory address held by stringREF      ::: \033[0m"<<static_cast<void*>(stringREF)<<std::endl<<std::endl;
 
-    std::cout <<"|| OUTPUTING THE VALUES ||"<<std::endl;
-    std::cout <<"***********************************"<<std::endl<<std::endl;
-    std::cout<< "The memory address of the string variable ::: "<<str<<std::endl;
-    std::cout<< "The memory address held by stringPTR      ::: "<<stringPTR<<std::endl;
-    std::cout<< "The memory address held by stringREF      ::: "<<stringREF<<std::endl;
-
+    std::cout <<"\033[31m|| OUTPUTING THE VALUES ||\033[0m"<<std::endl;
+    // std::cout <<"\033[92m***********************************\033[0m"<<std::endl<<std::endl;
+    std::cout<< "\033[34m The value of the string variable       ::: \033[0m"<<str<<std::endl;
+    std::cout<< "\033[34m The value pointed to by stringPTR      ::: \033[0m"<<stringPTR<<std::endl;
+    std::cout<< "\033[34m The value pointed to by stringREF      ::: \033[0m"<<stringREF<<std::endl;
+    
     return 0;
 }

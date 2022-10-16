@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:05:42 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/08 18:11:06 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/16 18:17:03 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ int main()
     // printf("ptr == %s\n", ptr);
     printf("str == %p\n", &str);
     // printf("ptr == %p\n", &ptr);
+
+
+    
     return 0;
 }

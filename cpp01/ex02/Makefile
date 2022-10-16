@@ -1,6 +1,6 @@
 NAME= HI_THIS_IS_BRAIN
 CPP= c++
-FALGS=-Wall -Wextra -werror -std=c++98
+FALGS=-Wall -Wextra -werror #-std=c++98
 
 RM=rm -rf
 
