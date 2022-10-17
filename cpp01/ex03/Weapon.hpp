@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:50:18 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/16 20:45:03 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/10/17 20:30:11 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ class Weapon{
     private:
     std::string type;
     public:
+    Weapon();
     Weapon(std::string value);
-    std::string getType();
+    std::string const &getType();
+    // std::string& Weapon ::getType();
+
     void setType(std::string value);
 };
 
