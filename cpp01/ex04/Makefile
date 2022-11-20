@@ -1,6 +1,6 @@
 NAME=Sed_is_for_losers
 CPP=c++
-FLAGS=-Wall -Wextra -Werror
+FLAGS=-Wall -Wextra -Werror -std=c++98
 Rm = rm -rf
 
 
@@ -18,4 +18,4 @@ clean:
 fclean:clean
 	$(RM) $(NAME)
 
-re :fclean re
+re :fclean all
