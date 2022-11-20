@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 08:25:59 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/13 14:45:26 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/19 15:11:13 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int main()
     std::cout <<"\033[31m ***** create Object using randomChump ***\033[0m"<<std::endl;
     std::cout<< "\033[34m *** Before Random Chump ***\033[0m"<<std::endl;
     randomChump("Katy");
+    std::cout<< "\033[34m *** ||||| ***\033[0m"<<std::endl;
     randomChump("Reshe");
     std::cout<< "\033[34m *** After Random Chump ***\033[0m"<<std::endl;
-
     
     std::cout <<"\033[31m***** create Object using New Zombie *****\033[0m"<<std::endl;
     std::cout<< "\033[34m*** Before New Zombie  ***\033[0m"<<std::endl;

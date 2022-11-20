@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:09:16 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/13 15:04:54 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/19 17:22:51 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
     Zombie *z = zombieHorde(3, "Reshe");
     std::string str;
     int  i = 0;
-    std::cout <<"\033[31m ***** Announicing 3 Object  ***\033[0m"<<std::endl;
+    std::cout <<"\033[31m ***** Announncing 3 Object  ***\033[0m"<<std::endl;
 
     while (i < 3)
     {
@@ -42,7 +42,6 @@ int main()
         z[i].announce();
         i++;
     }
-    std::cout <<"the first object has the name :: "<<z[2].getName()<<std::endl;
     delete []z;
     return (0);
 }
