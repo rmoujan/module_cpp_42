@@ -1,63 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main_waynot_work.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:23:13 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/20 12:51:24 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/20 11:38:45 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
+// void process(std::string line, std::ofstream new_file)
+// {
+//     std::cout <<line << std:: endl;
+//     //process of replacing str1 by str2
+//     new_file << line << std::endl;  
+// }
+
 int main(int argc, char *argv[]) {
 
     std::ifstream read_file;
     std::ofstream new_file; 
-    
     std::string line;
-    std::string new_str;
-    
     size_t found ;
     size_t len;
-    
     int i = 0;
     int pos = 0;
-
     len = strlen(argv[2]);
     new_file.open("new_file");
-
     if (argc == 4)
     {
+        //do the work 
         read_file.open(argv[1]);
         if (read_file)
         {
+            //if file exists :
             while (getline(read_file, line))
             {
-                i = 0;
-                while (line[i])
-                {
-                    new_str = line.substr(i, strlen(argv[2]));
-                    std::cout<<" new str is |"<<new_str<<"| len is "<< strlen(argv[2])<<std::endl;
-                    std::cout<<new_str<<std::endl;
-                    if (new_str.compare(argv[2]) == 0)
+                // i     = strlen(argv[2]);
+                // found = line.find(argv[2], 0, len);
+                // std::cout <<line << std:: endl;
+                //process of replacing str1 by str2
+                // std::cout<<pos<<std::endl;
+                // while (line[i])
+                // {
+                    // std::cout<<"unside while"<<pos<<std::endl;
+                    if(line[i] == argv[2][0])
                     {
-                        new_file<<argv[3];
-                        i += strlen(argv[2]);
+                        bool found = line.find(argv[2], pos + len) != std::string::npos;
+                        pos = line.find(argv[2]);
+                        if (found)
+                            new_file<<argv[2];
+                        i = pos + strlen(argv[2]) - 1;
                     }
                     else
                     {
                         new_file<<line[i];
-                        i ++;
                     }
-                    if (i > line.length())
-                        break;
-                }
-                printf("*******\n");
-                new_file<<std::endl;
+                    std::cout <<i<<" and pos is " <<pos<<std::endl;
+                    i++;
+                //    std:: cout<<'|'<<line[i]<<'|'<<std::endl;
+                // }
+                // exit(0);
+                // new_file << line << std::endl;
+                // exit (0);      
             }   
         }
         return (0);

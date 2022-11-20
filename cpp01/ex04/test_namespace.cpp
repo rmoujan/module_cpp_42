@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 09:45:44 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/20 10:45:03 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/20 12:25:01 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int main()
     else {
         std::cout << "String not found " <<found<< std::endl;
     }
- 
+
     return 0;
 }
