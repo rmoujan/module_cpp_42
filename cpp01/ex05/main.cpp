@@ -6,13 +6,13 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:04:07 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/21 11:30:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/21 11:35:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main(int argc, char *argv[])
+int main()
 {
     Harl h;
     std::string level;

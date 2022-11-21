@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:49:00 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/17 20:31:53 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/21 18:12:49 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Weapon::Weapon()
 {
-    // std::cout<<"an object Weapon has been created by constructor by default"<<std::endl;
+    //  std::cout<<"an object Weapon has been created by constructor by default"<<std::endl;
 }
 
 Weapon::Weapon(std::string value)
@@ -35,4 +35,8 @@ void Weapon :: setType(std::string value)
     type = value;
 }
 
+Weapon::~Weapon()
+{
+    //  std::cout<<"the object has name "<<getType()<<" is destroyed by destructor"<<std::endl;
+}
 

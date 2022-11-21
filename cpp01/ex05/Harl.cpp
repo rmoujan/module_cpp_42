@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:04:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/21 11:29:25 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/21 11:34:12 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void Harl :: error(void)
 }
 
 //still need understand pointers to member of functions !!!
-//does not work
 void Harl :: complain(std::string level)
 {
     typedef void (Harl :: *ptr)(void);
@@ -59,44 +58,3 @@ void Harl :: complain(std::string level)
     else
         std::cout<<"\033[31mThe NUmber That u Entered is Out of the rang\033[0m"<<std::endl;
 }
-
-
-
-
-
-
-
-// void Harl :: complain(std::string level)
-// {
-//     // void (Harl :: *pf)(void);
-//     typedef void (Harl :: *fptr)(void);
-//     fptr ftab[4];
-//     // void (*pf)(void);
-//     // debug();
-//     // pf = &Harl :: debug;
-//     ftab[0]=&Harl :: debug;
-//     ftab[1]=&Harl :: info;
-//     ftab[2]=&Harl :: warning;
-//     ftab[3]=&Harl :: error;
-//     int nm;
-//     nm = atoi(level.c_str());
-//     printf("%d\n", nm);
-//     // nm = atoi(level);
-//     if (nm >=0 && nm <= 3)
-//     {
-//         std::cout<<"inside if"<<std::endl;
-//         std::cout<<((ftab[nm]));
-        
-//     }
-//     else
-//         std::cout<<" THE Number that u are looking for is out of range"<<std::endl;
-        
-//     // typedef int (*fptr)(int, int);
-//     // fptr ftab[4];
-//     //pf =&level;
-//     //pf =&level;
-// }
-
-// //read this articles mzn:
-// http://websites.umich.edu/~eecs381/handouts/Pointers_to_memberfuncs.pdf
-// https://fr.wikibooks.org/wiki/Programmation_C-C%2B%2B/Pointeurs_et_r%C3%A9f%C3%A9rences_de_fonctions#:~:text=Un%20pointeur%20de%20fonction%20contient,les%20fonctions%20comme%20des%20variables.
