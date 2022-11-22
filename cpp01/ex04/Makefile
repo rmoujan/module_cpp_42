@@ -3,8 +3,6 @@ CPP=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 Rm = rm -rf
 
-
-
 all:$(NAME)
 $(NAME):main.o
 	$(CPP) main.o -o $(NAME)

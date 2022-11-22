@@ -2,7 +2,7 @@ NAME=Moar_brainz
 
 CPP = c++
 
-FALGS=-Wall -Wextra -werror -std=c++98
+FALGS=-Wall -Wextra -werror #-std=c++98
 
 RM=rm -rf
 
@@ -13,7 +13,7 @@ SRC=main.cpp\
 
 OBJ = $(subst .cpp,.o,$(SRC))
 
-all:$(NAME) Zombie.hpp
+all:$(NAME)
 
 $(NAME):$(OBJ)
 	$(CPP) $(OBJ) -o $(NAME)

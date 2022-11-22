@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 08:25:59 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/19 15:11:13 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/22 14:55:36 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
     Zombie *z2 = newZombie("faty");
     z2->announce();
     std::cout<< "\033[34m*** After New Zombie  ***\033[0m"<<std::endl;
-    //when u declare an object using new , u must free it using delete
+
     delete z2;
     delete z;
     return (0);

@@ -1,6 +1,6 @@
 NAME=BraiiiiiiinnnzzzZ
 CPP = c++
-FALGS=-Wall -Wextra -werror #-std=c++98
+FLAGS=-Wall -Wextra -Werror #-std=c++98
 RM=rm -rf
 SRC=main.cpp\
 	Zombie.cpp\
@@ -9,7 +9,7 @@ SRC=main.cpp\
 
 OBJ=$(subst .cpp,.o,$(SRC))
 
-all:$(NAME) Zombie.hpp
+all:$(NAME)
 
 $(NAME):$(OBJ)
 	$(CPP) $(OBJ) -o $(NAME)

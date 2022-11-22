@@ -6,16 +6,12 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 09:02:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/13 14:19:01 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/22 16:08:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-// #ifndef HEADER_FILE
-// #define HEADER_FILE
-
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -24,8 +20,8 @@ class Zombie{
       private:
 	  std::string name;
 	  public:
-	  Zombie();//const
-	  ~Zombie();//destr
+	  Zombie();
+	  ~Zombie();
 	  void announce(void);
 	  std::string getName(void);
 	  void setName(std::string n);

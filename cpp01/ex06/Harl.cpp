@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:04:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/22 12:43:12 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/22 17:51:22 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void Harl :: complain(std::string level)
         warning();
     case 3:
         error();
+        break;
     default:
         std::cout<<"\033[31m this choice doesn't exist \033[0m"<<std::endl;
     }  
