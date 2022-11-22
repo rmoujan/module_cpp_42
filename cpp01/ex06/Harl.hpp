@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:04:12 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/21 12:47:24 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/22 12:21:01 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@
 
 #include <iostream>
 using namespace std;
-
-enum levels { DEBUG = 1, INFO = 2, WARNING = 3, ERROR = 4};
-
-// int main() {
-
-//     levels l;
-
-//     l = level;
-//     cout << "Summer = " << s << endl;
-
-//     return 0;
-// }
-
 
 class Harl{
 

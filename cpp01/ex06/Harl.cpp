@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:04:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/21 14:08:05 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/22 12:43:12 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,31 @@ void Harl :: error(void)
 
 void Harl :: complain(std::string level)
 {
-    levels l;
-
-    l = level;
-    switch(l){
+    string tab[4];
+    tab[0]= "DEBUG";
+    tab[1]= "INFO";
+    tab[2]= "WARNING";
+    tab[3]= "ERROR";
+    int i;
+    i = 0;
+    while (i < 4)
+    {
+        if (level.compare(tab[i]) == 0)
+        {
+            break;
+        }
+        i++;
+    }
+    switch(i){
+    case 0:
+        debug();
     case 1:
-        this.debug();
-        thisinfo();
-        this.warning();
-        this.error();
-        break;
+        info();
     case 2:
-        this.info();
-        this.warning();
-        this.error();
-        break;
+        warning();
     case 3:
-        this.warning();
-        this.error();
-        break;
-    case 4:
-        this.error();
-        break;
-    
-        
+        error();
+    default:
+        std::cout<<"\033[31m this choice doesn't exist \033[0m"<<std::endl;
+    }  
 }
