@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:49:00 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/21 18:12:49 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/22 10:16:24 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ Weapon::Weapon(std::string value)
     type = value;
     // std::cout<<"an object Weapon has been created by constructor paramter"<<std::endl;
 }
-
+ 
 std::string const & Weapon ::getType()
 {
-    std::string const &typeREF = type;
-    return type;
+    // std::string const &typeREF = type;
+    return this->type;
 }
 
 void Weapon :: setType(std::string value)
