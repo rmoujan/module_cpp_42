@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:49:00 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/22 11:34:23 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 10:08:45 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Weapon::Weapon(std::string value)
 {
     type = value;
 }
- 
-std::string const & Weapon ::getType()
+
+std::string const & Weapon ::getType()//const
 {
     return this->type;
 }

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:23:13 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/22 16:08:35 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 13:10:09 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int main(int argc, char *argv[]) {
     
     std::string line;
     std::string new_str;
-
+    std::string name;
+    std::string s = ".replace";
     size_t i = 0;
 
     if (argc == 4)
@@ -28,7 +29,8 @@ int main(int argc, char *argv[]) {
         read_file.open(argv[1]);
         if (read_file)
         {
-            new_file.open("new_file");
+            name = argv[1] + s;
+            new_file.open(name);
             while (getline(read_file, line))
             {
                 i = 0;
@@ -43,7 +45,7 @@ int main(int argc, char *argv[]) {
                     else
                     {
                         new_file<<line[i];
-                        i ++;
+                        i++;
                     }
                     if (i > line.length())
                         break;

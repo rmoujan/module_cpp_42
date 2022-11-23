@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 20:28:13 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/22 11:39:44 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 13:03:28 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ HumanB::HumanB()
 HumanB::HumanB(std::string value)
 {
     name = value;
+    this->obj = NULL;
 }
 
 void HumanB::setName(std::string value)
 {
-     name = value;
+    name = value;
 }
 
-void HumanB::setObj(Weapon &value)
+void HumanB::setWeapon(Weapon &value)
 {
     obj = &value;
 }
@@ -43,7 +44,8 @@ Weapon* HumanB::getObj()
 
 void HumanB::attack()
 {
-    std::cout<<getName()<<" attack with their "<<getObj()->getType()<<std::endl;
+    if (this->obj)
+        std::cout<<getName()<<" attack with their "<<getObj()->getType()<<std::endl;
 }
 
 HumanB :: ~HumanB()

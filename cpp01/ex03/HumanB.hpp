@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 20:27:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/22 11:25:17 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 13:07:04 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class HumanB{
     HumanB();
     HumanB(std::string value);
     void setName(std::string value);
-    void setObj(Weapon &value);
+    void setWeapon(Weapon &value);
     std::string getName();
     Weapon* getObj();
-    void attack();//??
+    void attack();
     ~HumanB();
 };
 
