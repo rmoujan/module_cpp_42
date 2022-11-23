@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:04:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/22 21:36:29 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 14:45:00 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,33 @@ void Harl :: error(void)
     std::cout<<" This is unacceptable ! I want to speak to the manager now."<<std::endl;
 }
 
-//still need understand pointers to member of functions !!!
 void Harl :: complain(std::string level)
 {
     typedef void (Harl :: *ptr)(void);
-    ptr tab[5];
-    int number;
+    ptr tab[4];
+    std::string data[4];
+    int i = 0;
 
-    tab[1]=&Harl::debug;
-    tab[2]=&Harl::info;
-    tab[3]=&Harl::warning;
-    tab[4]=&Harl::error;
+    data[0]= "DEBUG";
+    data[1]= "INFO";
+    data[2]= "WARNING";
+    data[3]= "ERROR";
 
-    number = atoi(level.c_str());
-    std::cout<<std::endl;
-    if (number >= 1 && number <= 4)
-        (this->*tab[number])();
+    while (i < 4)
+    {
+        if(level.compare(data[i]) == 0)
+        {
+            break;
+        }
+        i++;
+    }
+
+    tab[0]=&Harl::debug;
+    tab[1]=&Harl::info;
+    tab[2]=&Harl::warning;
+    tab[3]=&Harl::error;
+   if (i >= 0 && i < 4)
+        (this->*tab[i])();
     else
-        std::cout<<"\033[31mThe NUmber That u Entered is Out of the rang\033[0m"<<std::endl;
+        std::cout<<"\033[31m [ Probably complaining about insignificant problems ] \033[0m"<<std::endl;
 }
