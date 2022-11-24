@@ -6,12 +6,13 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:23:13 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/23 13:10:09 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 17:06:55 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "headerfile.hpp"
+#include <iostream>
+#include <fstream>
 
 int main(int argc, char *argv[]) {
 

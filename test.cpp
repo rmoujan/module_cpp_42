@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 09:16:13 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/10/11 18:50:55 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/11/23 17:03:19 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,33 +51,33 @@ using namespace std;
 // };
 
 
-int main()
-{
-    // Test *t = new Test();    //not Object 
+// int main()
+// {
+//     // Test *t = new Test();    //not Object 
     
-    // t->height = 10;
-    // t->width = 10;
+//     // t->height = 10;
+//     // t->width = 10;
     
-    // delete t;
-	std::string searched;
-    int nbr;
-    int i = 0;
+//     // delete t;
+// 	std::string searched;
+//     int nbr;
+//     int i = 0;
 
-    do{
-        std::cout << "Enter a the index of the user that u looking for :\n";
-        getline(std::cin, searched);
-        if(std::cin.eof())
-            exit(1);
-    }while(searched.empty());
-    while (i < searched.length())
-    {
-        if (!isdigit(searched[i]))
-            exit(0);
-        i++;
-    }
-    nbr = std :: atoi(searched.c_str());
-    std::cout<<"before :: nbr is "<<searched<<std::endl;
-    std::cout<<"after  :: nbr is "<<nbr<<std::endl;
+//     do{
+//         std::cout << "Enter a the index of the user that u looking for :\n";
+//         getline(std::cin, searched);
+//         if(std::cin.eof())
+//             exit(1);
+//     }while(searched.empty());
+//     while (i < searched.length())
+//     {
+//         if (!isdigit(searched[i]))
+//             exit(0);
+//         i++;
+//     }
+//     nbr = std :: atoi(searched.c_str());
+//     std::cout<<"before :: nbr is "<<searched<<std::endl;
+//     std::cout<<"after  :: nbr is "<<nbr<<std::endl;
     
     // Test *first = new Test(30,40);
     // string str, ptr;
@@ -118,5 +118,37 @@ int main()
     // cout <<"enter ur str"<<endl;
     // cin >>str;
     // cout<<"\n the str is "<<str<<endl;
-    return (1);
+//     return (1);
+// }
+class test{
+    public:
+    int a;
+    test()
+    {
+        std::cout<<"koko"<<std::endl;
+    }
+        test(int a)
+    {
+        std::cout<<"hallo"<<std::endl;
+    }
+};
+
+int main()
+{
+    test *a = new test[3];
 }
+
+
+
+# Resources :
+# Notes : that $< is patterned to match prerequisites and $@ matches the target
+# this site explaint it :
+# https://unix.stackexchange.com/questions/116547/what-do-and-in-a-makefile-mean
+# Still need to understand what $< -o $@ means well 
+# $@ is:
+
+# The file name of the target of the rule. If the target is an archive member, then ‘$@’ is the name of the archive file. In a pattern rule that has multiple targets (see Introduction to Pattern Rules), ‘$@’ is the name of whichever target caused the rule's recipe to be run.
+
+# $< is:
+
+# The name of the first prerequisite. If the target got its recipe from an implicit rule, this will be the first prerequisite added by the implicit rule.

@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 13:49:00 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/23 17:04:00 by rmoujan          ###   ########.fr       */
+/*   Created: 2022/11/24 10:55:05 by rmoujan           #+#    #+#             */
+/*   Updated: 2022/11/24 11:09:18 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
+#include <iostream>
 
-Weapon::Weapon()
-{
-}
 
-Weapon::Weapon(std::string value)
-{
-    type = value;
-}
+class Fixed{
+    private:
+    int number;
+    static const int fractional = 8;
+    public:
+    Fixed();
+    Fixed(Fixed& obj);
+    Fixed& operator=(Fixed& ref_obj);
+    ~Fixed();
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+};
 
-std::string const & Weapon ::getType()
-{
-    return this->type;
-}
-
-void Weapon :: setType(std::string value)
-{
-    type = value;
-}
-
-Weapon::~Weapon()
-{
-}
-
+#endif

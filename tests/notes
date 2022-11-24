@@ -1,0 +1,6 @@
+1-syntaxe of declaring pointer to member function :
+**return_type (class_name::*pointer_name) (parameter types)
+2-Setting a member function pointer to point to a member function:
+pointer_name = &class_name::member_function_name;
+3.Calling the member function on an object using a pointer-to-member-function
+result = (object.*pointer_name)(arguments);
