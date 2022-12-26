@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   test_const.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 10:55:05 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/26 12:30:30 by rmoujan          ###   ########.fr       */
+/*   Created: 2022/11/26 13:10:34 by rmoujan           #+#    #+#             */
+/*   Updated: 2022/11/26 15:36:53 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
 #include <iostream>
-
-
-class Fixed{
-
+using namespace std;
+class Test{
     private:
-    int number;//to store the fixed-point number value !!
-    static const int fractional = 8;//to store the number of fractional bits
+    int n;
     public:
-    Fixed();
-    Fixed(Fixed& obj);
-    Fixed& operator=(Fixed& ref_obj);
-    ~Fixed();
-    int getRawBits(void) const;// A read-only function
-    void setRawBits(int const raw);
+    Test(int v)
+    {
+        n = v;
+        cout<<" const is called "<<std::endl;
+    }
+    const int getn()
+    {
+         n = 77;
+        return (n);
+    }   
 };
 
-#endif
+int main()
+{
+    Test t(10);
+    cout<<t.getn()<<endl;
+ t.getn() = 44;    //test_const.cpp:35:11: error: expression is not assignable ==>neswl laila 3lih but wth refrence is correct
+    cout<<t.getn()<<endl;
+    
+}
