@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:55:05 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/11/26 12:30:30 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/12/27 09:48:06 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Fixed{
     public:
     Fixed();
     Fixed(Fixed& obj);
-    Fixed& operator=(Fixed& ref_obj);
+    // Fixed& operator=(Fixed& ref_obj); 
+    void operator=(Fixed& ref_obj); // ==>the both worked
     ~Fixed();
     int getRawBits(void) const;// A read-only function
     void setRawBits(int const raw);
