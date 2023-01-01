@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 19:02:03 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/12/27 21:33:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/12/29 10:15:28 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,18 @@ class Test{
         a = x;
         b = y;
     }
-    friend void operator<<(ostream &o, Test &obj);
+    friend ostream& operator<<(ostream &o, Test &obj);
 };
 
-    void operator<<(ostream &o, Test &obj)
+    ostream& operator<<(ostream &o, Test &obj)
     {
         o<<"a is "<<obj.a<<" b is "<<obj.b<<endl;
+        return o;
     }
     
 int main()
 {
     Test a(10,20);
-    cout<<a;
+    Test b(15,1);
+    cout<<a<<b;
 }
