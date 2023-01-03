@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:43:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/03 15:51:09 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:30:27 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ class Fixed{
     public:
     //const:
     Fixed();
-    Fixed(Fixed& ref);
-    Fixed& operator=(Fixed& obj);
+    Fixed(const Fixed& obj);
+    Fixed(const int value); 
+    Fixed (const float value);
+    Fixed& operator=(const Fixed& ref_obj);
     ~Fixed();
     //member functions:
     int getinteger()const;
     void setinteger(int value);
-
+    float toFloat(void) const;
+    int toInt(void) const;
     //overloading operators of comparison :
 
     bool operator == (Fixed& obj1);
@@ -45,7 +48,6 @@ class Fixed{
     Fixed operator-(const Fixed& ref)const;
     Fixed operator*(const Fixed& ref)const;
     Fixed operator/(const Fixed& ref)const;
-    
     //the 4 increment :
     
     Fixed& operator--();
@@ -53,9 +55,16 @@ class Fixed{
     
     Fixed operator++(int);   //postfixe:
     Fixed operator--(int);
+    
+    //min max::
+    static Fixed& min(Fixed& obj1, Fixed& obj2);
+    static const Fixed& min(const Fixed& obj1, const Fixed& obj2);
+    //max 
+    static Fixed& max(Fixed& obj1, Fixed& obj2);
+    static const Fixed& max(const Fixed& obj1, const Fixed& obj2);
 };
 //overloading oeprator of insertion :
-std::ostream& operator<<(std::ostream& COUT, Fixed& obj);
+std::ostream& operator<<(std::ostream& COUT, const Fixed& obj);
 
 
 

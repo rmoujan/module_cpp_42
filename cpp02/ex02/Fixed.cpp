@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:43:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/03 15:52:57 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:34:09 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,49 @@
 
 Fixed::Fixed()
 {
-    std::cout <<" Default constructor called"<<std::endl;
+    // std::cout <<" Default constructor called"<<std::endl;
     this->integer = 0;
 }
 
-Fixed::Fixed(Fixed& obj)
+Fixed::Fixed(const Fixed& obj)
 {
-    std::cout<<" Copy Constructor called "<<std::endl;
+    // std::cout<<" Copy Constructor called "<<std::endl;
     this->operator=(obj);
 }
 
-Fixed& Fixed ::  operator=(Fixed &ref)
+Fixed& Fixed ::  operator=(const Fixed &ref)
 {
-    std::cout<<" Copy assignment operator called "<<std::endl;
+    // std::cout<<" Copy assignment operator called "<<std::endl;
     this->integer = ref.getinteger();
     return (*this);
 }
 
+Fixed :: Fixed(const int value)
+{
+    // std::cout<<"Int constructor called"<<std::endl;
+    integer = value << fractional; // integer = value * (256 == 2^8 == (<< fractinal))
+}
+
+
+Fixed :: Fixed(const float value)
+{
+    // std::cout<<"Float constructor called"<<std::endl;
+    integer = roundf((value) * (1 << fractional)); // (value) * (256)
+    std::cout<<"from const copy  "<<integer<<std::endl;
+}
+
+float Fixed :: toFloat(void) const{
+    
+    return (float(integer) / (1 << fractional)); // float(integer) / (256) || / (2^8)
+}
+
+int Fixed :: toInt(void) const{
+    return (integer >> fractional); // integre / 256 || integer / (2^8)
+}
+
 Fixed :: ~Fixed()
 {
-    std::cout <<"Destructor called"<<std::endl;
+    // std::cout <<"Destructor called"<<std::endl;
 }
 
 int Fixed:: getinteger()const
@@ -120,10 +143,13 @@ Fixed Fixed::operator - (const Fixed &ref)const
 Fixed Fixed::operator * (const Fixed &ref)const
 {
     Fixed new_obj;
-
+    std::cout<<"this->integer " << this->integer<<std::endl;
+    std::cout<<"this->integer " << ref.getinteger()<<std::endl;
     new_obj.integer = this->integer * ref.getinteger();
+     std::cout<<"new_obj.integer  " << new_obj.getinteger()<<std::endl;
     return (new_obj);
 }
+
 
 Fixed Fixed::operator / (const Fixed &ref)const
 {
@@ -161,8 +187,42 @@ Fixed Fixed :: operator--(int )
     return temp;
 }
 
-std::ostream & operator<<(std::ostream& COUT, Fixed& obj)
+Fixed& Fixed :: min(Fixed& obj1,Fixed& obj2)
 {
-    COUT<<obj.getinteger();
+    if (obj1.getinteger() < obj2.getinteger())
+        return (obj1);
+    else
+        return (obj2);
+}
+
+const Fixed& Fixed :: min(const Fixed& obj1,const Fixed& obj2)
+{
+    if (obj1.getinteger() < obj2.getinteger())
+        return (obj1);
+    else
+        return (obj2);
+}
+
+Fixed& Fixed :: max(Fixed& obj1,Fixed& obj2)
+{
+    if (obj1.getinteger() > obj2.getinteger())
+        return (obj1);
+    else
+        return (obj2);
+}
+
+const Fixed& Fixed :: max(const Fixed& obj1,const Fixed& obj2)
+{
+    if (obj1.getinteger() > obj2.getinteger())
+        return (obj1);
+    else
+        return (obj2);
+}
+
+std::ostream& operator<<(std::ostream& COUT, const Fixed& obj)
+{
+    COUT<<obj.toFloat();
     return COUT;
 }
+
+
