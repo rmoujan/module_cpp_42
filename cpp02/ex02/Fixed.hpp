@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:43:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/03 18:30:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/04 21:16:20 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ class Fixed{
     //overloading operators of arithmetic :
     Fixed operator+(const Fixed& ref)const;
     Fixed operator-(const Fixed& ref)const;
-    Fixed operator*(const Fixed& ref)const;
+    Fixed operator*(const Fixed& ref);
     Fixed operator/(const Fixed& ref)const;
     //the 4 increment :
     
     Fixed& operator--();
-    Fixed& operator++();//prefix
+    Fixed& operator++();     //prefix
     
     Fixed operator++(int);   //postfixe:
     Fixed operator--(int);
