@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:11:37 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/03 18:19:30 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/05 20:51:36 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ Fixed& Fixed :: operator=(const Fixed& ref_obj)//const
 }
 
 float Fixed :: toFloat(void) const{
-    
     return (float(integer) / (1 << fractional)); // float(integer) / (256) || / (2^8)
 }
 

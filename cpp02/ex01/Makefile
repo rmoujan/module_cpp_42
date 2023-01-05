@@ -1,6 +1,6 @@
 NAME=FIXED_POINT
 CPP=c++
-FLAGS= #-Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror
 RM=rm -rf
 # SRC=main.cpp\
 # 	Fixed.cpp\

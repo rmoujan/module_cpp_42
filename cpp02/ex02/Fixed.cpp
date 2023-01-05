@@ -6,12 +6,11 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:43:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/04 21:35:34 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/05 21:00:28 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
 
 Fixed::Fixed()
 {
@@ -143,12 +142,8 @@ Fixed Fixed::operator - (const Fixed &ref)const
 Fixed Fixed::operator * (const Fixed &ref)
 {
     Fixed new_obj;
-    // this->integer = this->integer / (1 << fractional);
-    // std::cout<<"this->integer " << this->integer<<std::endl;
-    // std::cout<<"this->integer " << ref.getinteger()<<std::endl;
     new_obj.integer = this->integer * ref.getinteger();
     new_obj.integer = new_obj.integer  / (1 << fractional);
-    //  std::cout<<"new_obj.integer  " << new_obj.getinteger()<<std::endl;
     return (new_obj);
 }
 
@@ -156,7 +151,13 @@ Fixed Fixed::operator / (const Fixed &ref)const
 {
     Fixed new_obj;
     //must ref.getinteger() != zero
-    new_obj.integer = this->integer / ref.getinteger();
+    if (ref.getinteger() != 0)
+    {
+        new_obj.integer = this->integer / ref.getinteger();
+        new_obj.integer = new_obj.integer << new_obj.fractional;
+    }
+    else
+        new_obj.integer = 0;
     return (new_obj);
 }
 
