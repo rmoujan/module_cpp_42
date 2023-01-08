@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:11:37 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/05 20:51:36 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/06 02:32:58 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ Fixed& Fixed :: operator=(const Fixed& ref_obj)//const
 {
     std::cout<<" Copy assignment operator called "<<std::endl;
     this->integer = ref_obj.getRawBits();
-    return *this;
-}
-
-float Fixed :: toFloat(void) const{
+    return *thtoFloat(void) const{
     return (float(integer) / (1 << fractional)); // float(integer) / (256) || / (2^8)
 }
 

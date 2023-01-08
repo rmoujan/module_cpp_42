@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 09:43:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/05 21:00:28 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/06 01:05:24 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,7 @@ const Fixed& Fixed :: max(const Fixed& obj1,const Fixed& obj2)
 
 std::ostream& operator<<(std::ostream& COUT, const Fixed& obj)
 {
-    COUT<<obj.toFloat();
+    COUT<<obj.getinteger();
     return COUT;
 }
 
