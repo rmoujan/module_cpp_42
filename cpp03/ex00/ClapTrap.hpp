@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:51:29 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 12:13:30 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/09 14:17:02 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class ClapTrap{
   std::string name;
   int hit_points;
   int energy_points;
-  int att_damage;//ou dommages infligés en attaquant
+  int att_damage;
 
   public:
   

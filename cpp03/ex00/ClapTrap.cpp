@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:51:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 12:48:46 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/09 14:24:00 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ ClapTrap::ClapTrap(const ClapTrap &ref)
 
 ClapTrap& ClapTrap ::  operator=(const ClapTrap & ref)
 {
+    std::cout <<"copt assignment operator has been invoked "<<std::endl;
     this->name = ref.name;
     this->hit_points = ref.hit_points;
-    this->energy_points = ref.hit_points;
+    this->energy_points = ref.energy_points;
     this->att_damage = ref.att_damage;
     return (*this);
 } 
@@ -76,7 +77,13 @@ void ClapTrap :: setName(std::string value)
 
 void ClapTrap :: attack(const std :: string & target)
 {
-    std::cout << "ClapTrap "<<getName()<<" attacks "<<target<<", causing "<<getAttDamage()<< " points of damage !"<<std::endl; 
+    if (this->getHitPoints() > 0 && this->getEnergyPoints() > 0)
+    {
+        std::cout << "\033[92mClapTrap "<<getName()<<" attacks "<<target<<", causing "<<getAttDamage()<< " points of damage !\033[0m"<<std::endl; 
+        this->energy_points = this->energy_points  - 1;
+    }
+    else
+        std::cout <<"\033[31mU cannot do anything, cuz u don't have hit points or energy points \033[0m"<<std::endl;
 }
 
 void ClapTrap :: takeDamage(unsigned int amount)
@@ -84,22 +91,21 @@ void ClapTrap :: takeDamage(unsigned int amount)
     if (this->getHitPoints() > 0 && this->getEnergyPoints() > 0)
     {
         this->hit_points = this->hit_points - amount; 
-        this->energy_points = this->energy_points  - 1;
-        this->att_damage = this->hit_points;
-        std::cout <<"Losing Hit Points "<<std::endl;  
+        std::cout <<"\033[92mLosing Hit Points \033[0m"<<std::endl;  
     }
     else
-        std::cout <<"U cannot do anything, cuz u don't have hit points or energy points "<<std::endl;
+        std::cout <<"\033[31mU cannot do anything, cuz u don't have hit points or energy points \033[0m"<<std::endl;
 }
-//seems OK
+
+
 void ClapTrap :: beRepaired(unsigned int amount)
 {
     if (this->getHitPoints() > 0 && this->getEnergyPoints() > 0)
     {
         this->hit_points = this->hit_points + amount; 
-        this->energy_points = this->energy_points  + 1;
-        std::cout <<"Repairing Hit Points "<<std::endl;    
+        this->energy_points = this->energy_points - 1;
+        std::cout <<"\033[92mRepairing Hit Points \033[0m"<<std::endl;    
     }
     else
-        std::cout <<"U cannot do anything, cuz u don't have hit points or energy points "<<std::endl;
+        std::cout <<"\033[31mU cannot do anything, cuz u don't have hit points or energy points \033[0m"<<std::endl;
 }
