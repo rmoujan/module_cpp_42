@@ -6,24 +6,31 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:47 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 11:40:13 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/09 16:35:27 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 
 class ClapTrap{
-  private:
+
+  protected:
+  
   std::string name;
-  int hit_points = 10;
-  int energy_points = 10;
-  int att_damage = 0;
+  int hit_points;
+  int energy_points;
+  int att_damage;
+
   public:
+  
   //constructor ::
   ClapTrap();
   ClapTrap(std::string value);
   ClapTrap(const ClapTrap &ref);
-  ClapTrap & operator=(ClapTrap &ref);
+  ClapTrap & operator=(const ClapTrap &ref);
   ~ClapTrap();
   //member functions ::
   void attack (const std :: string& target);
@@ -34,4 +41,8 @@ class ClapTrap{
   int getEnergyPoints()const;
   int getAttDamage()const;
   std::string getName() const;
+  void setName(std::string value);
 };
+
+
+#endif

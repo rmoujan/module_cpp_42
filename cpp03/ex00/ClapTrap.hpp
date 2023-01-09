@@ -6,9 +6,12 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:51:29 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 14:17:02 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/09 14:29:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 
@@ -40,3 +43,5 @@ class ClapTrap{
   std::string getName() const;
   void setName(std::string value);
 };
+
+#endif
