@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:44 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 11:13:34 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:50:30 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ClapTrap::ClapTrap(const ClapTrap &ref)
 
 ClapTrap& ClapTrap ::  operator=(const ClapTrap & ref)
 {
-    std::cout <<"copt assignment operator of ClapTrap has been invoked "<<std::endl;
+    std::cout <<"copy assignment operator of ClapTrap has been invoked "<<std::endl;
     this->name = ref.name;
     this->hit_points = ref.hit_points;
     this->energy_points = ref.energy_points;

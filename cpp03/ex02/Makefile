@@ -6,8 +6,8 @@ RM=rm -rf
 
 all:$(NAME)
 
-$(NAME) : main.o ClapTrap.o ScavTrap.o
-	$(CPP) main.o ClapTrap.o ScavTrap.o -o $(NAME)
+$(NAME) : main.o ClapTrap.o ScavTrap.o FragTrap.o
+	$(CPP) main.o ClapTrap.o ScavTrap.o FragTrap.o -o $(NAME)
 
 main.o : main.cpp 
 	$(CPP) -c $(FLAGS) main.cpp  -o main.o
@@ -18,8 +18,11 @@ ClapTrap.o : ClapTrap.cpp
 ScavTrap.o : ScavTrap.cpp 
 	$(CPP) -c $(FLAGS) ScavTrap.cpp -o ScavTrap.o
 
+FragTrap.o : FragTrap.cpp 
+	$(CPP) -c $(FLAGS) FragTrap.cpp -o FragTrap.o
+
 clean:
-	$(RM) main.o ClapTrap.o ScavTrap.o
+	$(RM) main.o ClapTrap.o ScavTrap.o FragTrap.o
 
 fclean:clean
 	$(RM) $(NAME)
