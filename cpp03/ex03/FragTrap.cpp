@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:20:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 17:12:30 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:43:22 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void FragTrap :: attack(const std :: string & target)
 
 void FragTrap :: highFivesGuys(void)
 {
-    std::cout<< "FragTrap Positive HighFive" <<std::endl;
+    std::cout<< "FragTrap ???" <<std::endl;
 }

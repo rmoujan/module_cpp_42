@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:51:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 18:51:03 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:50:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout <<"Default constructor has been invoked "<<std::endl;
+    std::cout <<"Default constructor of ClapTrap has been invoked "<<std::endl;
     hit_points = 10;
     energy_points = 10;
     att_damage = 0;
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string value)
 {
-    std::cout <<"Constructor by parameter has been invoked "<<std::endl;
+    std::cout <<"Constructor by parameter of ClapTrap has been invoked "<<std::endl;
     this->name = value;
     hit_points = 10;
     energy_points = 10;
@@ -31,13 +31,13 @@ ClapTrap::ClapTrap(std::string value)
 
 ClapTrap::ClapTrap(const ClapTrap &ref)
 {
-    std::cout <<"copy constructor has been invoked "<<std::endl;
+    std::cout <<"copy constructor of ClapTrap has been invoked "<<std::endl;
     *this = ref;
 }
 
 ClapTrap& ClapTrap ::  operator=(const ClapTrap & ref)
 {
-    std::cout <<"copt assignment operator has been invoked "<<std::endl;
+    std::cout <<"copy assignment operator of ClapTrap has been invoked "<<std::endl;
     this->name = ref.name;
     this->hit_points = ref.hit_points;
     this->energy_points = ref.energy_points;
@@ -47,7 +47,7 @@ ClapTrap& ClapTrap ::  operator=(const ClapTrap & ref)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout <<"Destructor has been invoked "<<std::endl;
+    std::cout <<"Destructor of ClapTrap has been invoked "<<std::endl;
 }
 
 int ClapTrap :: getHitPoints() const
@@ -109,3 +109,4 @@ void ClapTrap :: beRepaired(unsigned int amount)
     else
         std::cout <<"\033[31mU cannot do anything, cuz u don't have hit points or energy points \033[0m"<<std::endl;
 }
+
