@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:54 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 17:33:02 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:22:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 ScavTrap::ScavTrap()
 {
-    std::cout <<"Default constructor of ClapTrap has been invoked "<<std::endl;
+    std::cout <<"Default constructor of ScavTrap has been invoked "<<std::endl;
     hit_points = 100;
     energy_points = 50;
     att_damage = 20;
@@ -23,17 +23,29 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string value)
 {
-    std::cout <<"Constructor by parameter of ClapTrap has been invoked "<<std::endl;
+    std::cout <<"Constructor by parameter of ScavTrap has been invoked "<<std::endl;
     this->name = value;
     hit_points = 100;
     energy_points = 50;
     att_damage = 20;
 }
 
+ScavTrap :: ~ScavTrap()
+{
+    std::cout <<"Destructor of ScavTrap has been invoked "<<std::endl;
+}
+
 void ScavTrap :: attack(const std :: string & target)
 {
-    std::cout << "target "<<target<<std::endl;
+    if (this->getHitPoints() > 0 && this->getEnergyPoints() > 0)
+    {
+        std::cout << "\033[92mScavTrap "<<getName()<<" attacks "<<target<<", causing "<<getAttDamage()<< " points of damage !\033[0m"<<std::endl; 
+        this->energy_points = this->energy_points  - 1;
+    }
+    else
+        std::cout <<"\033[31mU cannot do anything, cuz u don't have hit points or energy points \033[0m"<<std::endl;
 }
+
 
 void ScavTrap :: guardGate()
 {

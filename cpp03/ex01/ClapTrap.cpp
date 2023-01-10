@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:44 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 16:12:15 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:13:34 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ ClapTrap::ClapTrap(std::string value)
 
 ClapTrap::ClapTrap(const ClapTrap &ref)
 {
-    std::cout <<"copy constructor has been invoked "<<std::endl;
+    std::cout <<"copy constructor of ClapTrap has been invoked "<<std::endl;
     *this = ref;
 }
 
 ClapTrap& ClapTrap ::  operator=(const ClapTrap & ref)
 {
-    std::cout <<"copt assignment operator has been invoked "<<std::endl;
+    std::cout <<"copt assignment operator of ClapTrap has been invoked "<<std::endl;
     this->name = ref.name;
     this->hit_points = ref.hit_points;
     this->energy_points = ref.energy_points;
@@ -48,7 +48,7 @@ ClapTrap& ClapTrap ::  operator=(const ClapTrap & ref)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout <<"Destructor has been invoked "<<std::endl;
+    std::cout <<"Destructor of ClapTrap has been invoked "<<std::endl;
 }
 
 int ClapTrap :: getHitPoints() const

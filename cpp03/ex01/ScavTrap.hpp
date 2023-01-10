@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/09 15:50:49 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/10 11:23:00 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class ScavTrap : public ClapTrap{
     public:
     ScavTrap();
     ScavTrap(std::string value);
+    ~ScavTrap();
+    void attack (const std :: string& target);
     void guardGate();
 };
 
