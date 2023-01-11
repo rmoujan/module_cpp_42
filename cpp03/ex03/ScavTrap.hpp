@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 11:23:00 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 13:36:55 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : virtual public ClapTrap{
     public:
     ScavTrap();
     ScavTrap(std::string value);

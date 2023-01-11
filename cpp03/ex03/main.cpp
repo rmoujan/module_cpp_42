@@ -6,36 +6,21 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:51:32 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 11:48:58 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 13:46:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
 
-    std::cout << "Test Inheritance "<< std::endl;
-    FragTrap obj("Reshe");
-    std::cout << "Name           == "<<obj.getName()<<std::endl;
-    std::cout << "Hit Points     == "<<obj.getHitPoints()<<std::endl;
-    std::cout << "Energey Points == "<<obj.getEnergyPoints()<<std::endl;
-    std::cout << "Attack Damage  == "<<obj.getAttDamage()<<std::endl;
-    obj.attack("Rima");
-    std::cout << "Name           == "<<obj.getName()<<std::endl;
-    std::cout << "Hit Points     == "<<obj.getHitPoints()<<std::endl;
-    std::cout << "Energey Points == "<<obj.getEnergyPoints()<<std::endl;
-    std::cout << "Attack Damage  == "<<obj.getAttDamage()<<std::endl;
-    FragTrap copy("TEST");
-    copy.beRepaired(800);
-    std::cout << "Name           == "<<obj.getName()<<std::endl;
-    std::cout << "Hit Points     == "<<obj.getHitPoints()<<std::endl;
-    std::cout << "Energey Points == "<<obj.getEnergyPoints()<<std::endl;
-    std::cout << "Attack Damage  == "<<obj.getAttDamage()<<std::endl;
-    obj.highFivesGuys();
-    obj = copy;
-    std::cout << "Name           == "<<obj.getName()<<std::endl;
-    std::cout << "Hit Points     == "<<obj.getHitPoints()<<std::endl;
-    std::cout << "Energey Points == "<<obj.getEnergyPoints()<<std::endl;
-    std::cout << "Attack Damage  == "<<obj.getAttDamage()<<std::endl;
+    std::cout << "Test Multiple Inheritance "<< std::endl;
+    DiamondTrap obj("Reshe", "Father");
+    obj.whoAmI();
+    std::cout << "Name                    == "<<obj.getName()<<std::endl;
+    std::cout << "Name of ClapTrap        == "<<obj.ClapTrap::getName()<<std::endl;
+    std::cout << "Hit Points              == "<<obj.getHitPoints()<<std::endl;
+    std::cout << "Energey Points          == "<<obj.getEnergyPoints()<<std::endl;
+    std::cout << "Attack Damage           == "<<obj.getAttDamage()<<std::endl;//why give me 20 and not 30 !!!
 }

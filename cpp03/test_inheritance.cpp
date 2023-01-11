@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:05:25 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 16:53:38 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:21:50 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,34 +67,74 @@
 
 class Base
 {
+protected:
+    int a;
+    std::string field;
 public:
-    int m_id {};
-
-    Base(int id=0)
-        : m_id{ id }
+    Base()
     {
-        
-std::cout << "Default constructor of Base has been invoked"<<std::endl;
+        std::cout<<"Base default \n";
     }
-
-    int getId() const { return m_id; }
+    Base(int x, std::string ff)
+    {
+        a = x;
+        field = ff;
+        std::cout<<"Base parameter \n";
+    }
+    void display()
+    {
+        std::cout<< "age is "<<a<<" and Field is "<< field<<std::endl;
+    }
 };
 
 class Derived: public Base
 {
-public:
-    double m_cost {};
+    private:
+            std::string name;
+    public:
+            Derived()
+            {
+                // Base(10);
+                std::cout<<"Derived default \n";
+            }
+            Derived(int aa, std::string value, std::string ff):Base(aa, ff)//calling the base constructor to initialize the inherit member variables
+            {
+                name = value;
+                std::cout<<"Derived parameter \n";
+            }
+            int getId()
+            {
+                return a;
+            }
+            std::string getName()
+            {
+                return name;
+            }
+            std::string getField()
+            {
+                return field;
+            }
+            void display()
+            {
+                Base::display();//call to the dispaly that inside base class
+                std::cout << "Name is "<<name<<std::endl;
+            }
+        //     double m_cost {};
 
-    Derived(double cost=0.0)
-        : m_cost{ cost }
-    {
-        std::cout << "Default constructor of Derived has been invoked"<<std::endl;
-    }
+        //     Derived(double cost=0.0)
+        //         : m_cost{ cost }
+        //     {
+        //         std::cout << "Default constructor of Derived has been invoked"<<std::endl;
+        //     }
 
-    double getCost() const { return m_cost; }
+        //     double getCost() const { return m_cost; }
 };
 
 int main()
 {
-    Derived d(10.10);
+    Derived d(10, "Reshe", "IT");
+    d.display();
+    // std::cout << " a is " << d.getId();
+    // std::cout << " name is " << d.getName();
+    // std::cout << " field is " << d.getField();
 }
