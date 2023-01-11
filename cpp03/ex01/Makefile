@@ -1,4 +1,4 @@
-NAME=LOVE
+NAME=SERENA_LOVE
 CPP=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 RM=rm -rf

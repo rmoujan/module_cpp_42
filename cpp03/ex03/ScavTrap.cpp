@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:54 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 11:22:57 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 20:53:54 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,22 @@ ScavTrap::ScavTrap(std::string value)
     hit_points = 100;
     energy_points = 50;
     att_damage = 20;
+}
+
+ScavTrap :: ScavTrap(const ScavTrap &ref)
+{
+    std::cout <<"Constructor by copy of ScavTrap has been invoked "<<std::endl;
+    *this= ref;
+}
+
+ScavTrap& ScavTrap :: operator=(const ScavTrap &ref)
+{
+    std::cout <<"copy assignment operator of ScavTrap has been invoked "<<std::endl;
+    this->name = ref.name;
+    this->hit_points = ref.hit_points;
+    this->energy_points = ref.energy_points;
+    this->att_damage = ref.att_damage;
+    return (*this);
 }
 
 ScavTrap :: ~ScavTrap()

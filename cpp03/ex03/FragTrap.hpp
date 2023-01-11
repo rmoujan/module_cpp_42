@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:20:25 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/11 13:37:06 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 20:51:23 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class FragTrap : virtual public ClapTrap{
     public:
     FragTrap();
     FragTrap(std::string value);
+    FragTrap (const FragTrap &ref);
+    FragTrap& operator=(const FragTrap &ref);
     ~FragTrap();
     void attack (const std :: string& target);
     void highFivesGuys(void);

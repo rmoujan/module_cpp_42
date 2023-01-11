@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:20:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/10 17:12:30 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 20:44:59 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ FragTrap::FragTrap(std::string value)
     hit_points = 100;
     energy_points = 100;
     att_damage = 30;
+}
+
+FragTrap::FragTrap(const FragTrap &ref)
+{
+    std::cout <<"Constructor by copy of FragTrap has been invoked "<<std::endl;
+    *this = ref;
+}
+
+FragTrap & FragTrap :: operator=(const FragTrap &ref)
+{
+    std::cout <<"copy assignment operator of FragTrap has been invoked "<<std::endl;
+    this->name = ref.name;
+    this->hit_points = ref.hit_points;
+    this->energy_points = ref.energy_points;
+    this->att_damage = ref.att_damage;
+    return (*this);
 }
 
 FragTrap :: ~FragTrap()

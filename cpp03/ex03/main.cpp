@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:51:32 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/11 13:46:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/11 17:30:07 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int main()
 {
 
     std::cout << "Test Multiple Inheritance "<< std::endl;
-    DiamondTrap obj("Reshe", "Father");
+    DiamondTrap obj("Reshe", "Motheer");
     obj.whoAmI();
-    std::cout << "Name                    == "<<obj.getName()<<std::endl;
+    std::cout << "Name                    == "<<obj.DiamondTrap::getName()<<std::endl;
     std::cout << "Name of ClapTrap        == "<<obj.ClapTrap::getName()<<std::endl;
     std::cout << "Hit Points              == "<<obj.getHitPoints()<<std::endl;
     std::cout << "Energey Points          == "<<obj.getEnergyPoints()<<std::endl;
