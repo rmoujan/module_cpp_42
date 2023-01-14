@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:39:54 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/11 20:53:54 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/14 16:41:44 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ScavTrap::ScavTrap()
     hit_points = 100;
     energy_points = 50;
     att_damage = 20;
+    energy_pts_sacvtrap = energy_points;
 }
 
 ScavTrap::ScavTrap(std::string value)
@@ -28,6 +29,7 @@ ScavTrap::ScavTrap(std::string value)
     hit_points = 100;
     energy_points = 50;
     att_damage = 20;
+    energy_pts_sacvtrap = energy_points;
 }
 
 ScavTrap :: ScavTrap(const ScavTrap &ref)
@@ -55,7 +57,7 @@ void ScavTrap :: attack(const std :: string & target)
 {
     if (this->getHitPoints() > 0 && this->getEnergyPoints() > 0)
     {
-        std::cout << "\033[92mScavTrap "<<getName()<<" attacks "<<target<<", causing "<<getAttDamage()<< " points of damage !\033[0m"<<std::endl; 
+        std::cout << "\033[92mScavTrap "<<getName()<<" attacks "<<target<<", causing "<<getEnergy_pts_ScavTrap()<< " points of damage !\033[0m"<<std::endl; 
         this->energy_points = this->energy_points  - 1;
     }
     else
@@ -66,4 +68,8 @@ void ScavTrap :: attack(const std :: string & target)
 void ScavTrap :: guardGate()
 {
     std::cout<< "ScavTrap is now in Gate keeper mode" <<std::endl;
+}
+
+int ScavTrap :: getEnergy_pts_ScavTrap ()const {
+    return (this->energy_pts_sacvtrap);
 }

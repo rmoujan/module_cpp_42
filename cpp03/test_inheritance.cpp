@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:05:25 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/11 18:19:40 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/14 12:14:52 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,59 +147,96 @@
 // Create a Banana class that also inherits Fruit. Banana has no additional members.
 
 
-class Fruit{
-    private:
-    std::string name;
-    std::string color;
-    public:
-    Fruit(std::string const n,  std::string const c)
-    {
-        name = n ;
-        color = c;
-    }
-    std::string getName()const
-    {
-        return (name);
-    }
-    std::string getColor()const 
-    {
-        return (color);
-    }
-};
-class Apple : public Fruit{
-    private:
-    double fiber;
-    public:
-    Apple(std::string const v_name,  std::string const v_color, const double f):Fruit(v_name, v_color){
-        fiber = f;
-    }
-    double getFiber()const 
-    {
-        return (fiber);
-    }
-    // std::ostream& operator<<(std::ostream& COUT, const Apple& obj)
-};
-std::ostream& operator<<(std::ostream& COUT, const Apple& obj)
-{
-    COUT<<obj.getName()<<std::endl;
-    COUT<<obj.getColor()<<std::endl;
-    COUT<<obj.getFiber()<<std::endl;
-    return COUT;
-}
+// class Fruit{
+//     private:
+//     std::string name;
+//     std::string color;
+//     public:
+//     Fruit(std::string const n,  std::string const c)
+//     {
+//         name = n ;
+//         color = c;
+//     }
+//     std::string getName()const
+//     {
+//         return (name);
+//     }
+//     std::string getColor()const 
+//     {
+//         return (color);
+//     }
+// };
+// class Apple : public Fruit{
+//     private:
+//     double fiber;
+//     public:
+//     Apple(std::string const v_name,  std::string const v_color, const double f):Fruit(v_name, v_color){
+//         fiber = f;
+//     }
+//     double getFiber()const 
+//     {
+//         return (fiber);
+//     }
+//     // std::ostream& operator<<(std::ostream& COUT, const Apple& obj)
+// };
+// std::ostream& operator<<(std::ostream& COUT, const Apple& obj)
+// {
+//     COUT<<obj.getName()<<std::endl;
+//     COUT<<obj.getColor()<<std::endl;
+//     COUT<<obj.getFiber()<<std::endl;
+//     return COUT;
+// }
 
 
-class Banana : public Fruit{
-};
+// class Banana : public Fruit{
+// };
+
+// #include <iostream>
+
+// int main()
+// {
+// 	const Apple a("Red delicious", "red", 4.2 );
+// 	std::cout << a << '\n';
+
+// 	// const Banana b{ "Cavendish", "yellow" };
+// 	// std::cout << b << '\n';
+
+// 	return 0;
+// }
 
 #include <iostream>
+using namespace std;
 
-int main()
-{
-	const Apple a("Red delicious", "red", 4.2 );
-	std::cout << a << '\n';
+class A {
+  public:
+    A() {
+        cout << "Constructor A\n";
+    }
+    void display() {
+      cout << "Hello form Class A \n";
+    }
+};
 
-	// const Banana b{ "Cavendish", "yellow" };
-	// std::cout << b << '\n';
+class B:  virtual public A {
+     public:
+        B() {
+         cout << "Constructor B\n";
+    }
 
-	return 0;
+};
+
+class C:  virtual public A {
+     public:
+        C() {
+         cout << "Constructor C\n";
+    }
+
+};
+
+class D: public B, public C {
+};
+
+int main() {
+  D object;
+   object.display();
 }

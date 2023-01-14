@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:20:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/11 20:51:46 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/14 08:58:41 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,14 @@ void FragTrap :: attack(const std :: string & target)
 void FragTrap :: highFivesGuys(void)
 {
     std::cout<< "FragTrap ???" <<std::endl;
+}
+
+int FragTrap :: getHitPoints() const
+{
+    return (this->hit_points);
+}
+
+int FragTrap :: getAttDamage() const
+{
+    return (this->att_damage);
 }
