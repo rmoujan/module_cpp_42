@@ -23,7 +23,7 @@ class Cat : public Animal{
     Cat(const Cat &ref);
     Cat& operator=(const Cat &ref);
     ~Cat();
-     const void makeSound();
+    virtual void makeSound()const;
 };
 
 #endif

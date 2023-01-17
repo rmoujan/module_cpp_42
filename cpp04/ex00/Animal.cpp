@@ -36,7 +36,7 @@ Animal :: ~Animal()
      std::cout << "\033[31mDestructor of Animal has been invoked \033[0m"<<std::endl;
 }
 
- const void Animal :: makeSound()
+void Animal :: makeSound()const
 {
     std::cout << "\033[31mTHERE IS NO SOUND \033[0m"<<std::endl;
 }

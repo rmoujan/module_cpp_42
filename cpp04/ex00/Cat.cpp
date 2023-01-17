@@ -36,7 +36,7 @@ Cat :: ~Cat()
      std::cout << "\033[92mDestructor of Cat has been invoked \033[0m"<<std::endl;
 }
 
-const void Cat :: makeSound()
+void Cat :: makeSound()const
 {
     std::cout << "\033[92mmiw miw \033[0m"<<std::endl;
 }

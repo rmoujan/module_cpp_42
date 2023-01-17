@@ -17,15 +17,12 @@
 
 class Dog : public Animal{
 
-    protected:
-    std::string type;
-    
     public:
     Dog();
     Dog(const Dog &ref);
     Dog& operator=(const Dog &ref);
     ~Dog();
-       const void makeSound();
+    virtual void makeSound() const;
 
 };
 
