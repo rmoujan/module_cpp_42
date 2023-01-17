@@ -1,4 +1,4 @@
-NAME=POLY_1
+NAME=POLY_2
 CPP=c++
 FALGS=-Wall -Wextra -Werror -std=c++98
 RM=rm -rf
