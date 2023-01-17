@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:19:29 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 10:01:57 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/17 11:25:10 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ class Animal{
     Animal(const Animal &ref);
     Animal& operator=(const Animal &ref);
     ~Animal();
-    void makeSound();
+    virtual  const void makeSound();
+    // void makeSound();
     std::string getType()const;
-    void setType();
+    void setType(std::string value);
 };
 
 

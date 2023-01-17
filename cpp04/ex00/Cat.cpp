@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:22:43 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 09:54:53 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/17 10:49:06 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 Cat::Cat()
 {
-    std::cout << "Default Constructor of Cat hs been invoked "<<std::endl;
+    std::cout << "\033[92mDefault Constructor of Cat has been invoked \033[0m"<<std::endl;
     this->type = "Cat";
 }
 
 Cat :: Cat(const Cat &ref)
 {
-     std::cout << "Copy Constructor of Cat hs been invoked "<<std::endl;
+     std::cout << "\033[92mCopy Constructor of Cat has been invoked\033[0m"<<std::endl;
      *this= ref;
 }
 
 Cat& Cat :: operator= (const Cat &ref)
 {
-     std::cout << "copy Assignement of Cat hs been invoked "<<std::endl;
+     std::cout << "\033[92mcopy Assignement of Cat has been invoked \033[0m"<<std::endl;
      this->type = ref.type;
+     return (*this);
 }
 
 Cat :: ~Cat()
 {
-     std::cout << "Destructor of Cat hs been invoked "<<std::endl;
+     std::cout << "\033[92mDestructor of Cat has been invoked \033[0m"<<std::endl;
 }
 
-void Cat :: makeSound()
+const void Cat :: makeSound()
 {
-    std::cout << "miw miw "<<std::endl;
+    std::cout << "\033[92mmiw miw \033[0m"<<std::endl;
 }

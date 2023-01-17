@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:22:40 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 09:55:31 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/17 11:25:20 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,7 @@ class Cat : public Animal{
     Cat(const Cat &ref);
     Cat& operator=(const Cat &ref);
     ~Cat();
+     const void makeSound();
 };
+
+#endif
