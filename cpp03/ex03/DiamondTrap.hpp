@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:31:52 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/14 16:27:28 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/15 13:09:15 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class DiamondTrap : public ScavTrap ,public FragTrap
     
     public:
     DiamondTrap();
-    // DiamondTrap(std::string diamond_name, std::string clap_name);
     DiamondTrap(std::string diamond_name);
     DiamondTrap(const DiamondTrap &ref);
     DiamondTrap& operator=(const DiamondTrap &ref);
