@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:22:40 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 09:24:43 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/17 09:19:29 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/17 10:01:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
-class Cat{
+
+class Animal{
+
+    protected:
+    std::string type;
+    
     public:
-    
-    
+    Animal();
+    Animal(const Animal &ref);
+    Animal& operator=(const Animal &ref);
+    ~Animal();
+    void makeSound();
+    std::string getType()const;
+    void setType();
 };
+
+
+
+#endif
