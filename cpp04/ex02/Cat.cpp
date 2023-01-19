@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:22:43 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/19 15:59:36 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/19 14:51:39 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Cat& Cat :: operator= (const Cat &ref)
 {
      std::cout << "\033[92mcopy Assignement of Cat has been invoked \033[0m"<<std::endl;
      this->type = ref.type;
-     this->b = new Brain();
+     this->b = ref.b;
      return (*this);
 }
 

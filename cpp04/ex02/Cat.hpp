@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:05:19 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/19 14:50:14 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/17 09:22:40 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/19 13:36:01 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include <iostream>
+#include "Animal.hpp"
 
-class Brain{
-	
-	std::string ideas[100];
-	
+
+class Cat : public Animal{
+    
+    Brain *b;
     public:
-	Brain();
-    Brain(const Brain &ref);
-    Brain& operator=(const Brain &ref);
-    ~Brain();
+    Cat();
+    Cat(const Cat &ref);
+    Cat& operator=(const Cat &ref);
+    ~Cat();
+    virtual void makeSound()const;
 };
 
 #endif
