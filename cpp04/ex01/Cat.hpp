@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:22:40 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 13:14:39 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/19 13:36:01 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Cat : public Animal{
     
-    Brain b;
+    Brain *b;
     public:
     Cat();
     Cat(const Cat &ref);

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:23:45 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 11:25:17 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/19 13:36:16 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class Dog : public Animal{
 
+    Brain *b;
     public:
     Dog();
     Dog(const Dog &ref);

@@ -5,6 +5,7 @@ RM=rm -rf
 SRC=Animal.cpp\
 	Dog.cpp\
 	Cat.cpp\
+	Brain.cpp\
 	main.cpp\
 
 OBJ=$(subst .cpp,.o,$(SRC))

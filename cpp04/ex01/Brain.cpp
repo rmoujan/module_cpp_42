@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:05:16 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/17 13:13:58 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/19 14:38:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Brain :: Brain(const Brain &ref)
 Brain& Brain :: operator= (const Brain &ref)
 {
      std::cout << "\033[92mcopy Assignement of Brain has been invoked \033[0m"<<std::endl;
-     this->ideas = ref.ideas;
+     // this->ideas = ref.ideas;
      return (*this);
 }
 
