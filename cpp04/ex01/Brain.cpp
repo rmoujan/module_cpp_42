@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:05:16 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 15:24:32 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/20 18:47:20 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ Brain& Brain :: operator= (const Brain &ref)
       if (this == &ref)
             return *this;
      // std::strcpy(this->ideas,ref.ideas);
-     delete []ideas;
+     if (ideas)
+          delete []ideas;
      if (ref.ideas)
      {
           this->ideas = new std::string[100];
@@ -49,7 +50,7 @@ Brain :: ~Brain()
 {
      std::cout << "\033[92mDestructor of Brain has been invoked \033[0m"<<std::endl;
      delete []ideas;
-     std::cout << "  111111  "<<std::endl<<std::endl;
+
 }
 // std::string Brain :: getIdeas()const{
 //      return this->ideas;

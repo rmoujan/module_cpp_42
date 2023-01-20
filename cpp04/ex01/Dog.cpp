@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:23:42 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 09:02:03 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/20 18:16:27 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ Dog :: Dog(const Dog &ref)
 
 Dog& Dog :: operator= (const Dog &ref)
 {
-     std::cout << "\033[34mcopy Assignement of Dog has been invoked \033[0m"<<std::endl;
+     std::cout << "\033[92mcopy Assignement of Dog has been invoked \033[0m"<<std::endl;
+     if (this == &ref)
+          return *this;
      this->type = ref.type;
-     this->b = ref.b;
+     if (ref.b)
+     {
+          this->b = new Brain();
+          this->b->operator=(*ref.b);
+     }
+     else
+          this->b = nullptr;
      return (*this);
 }
 
