@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:23:42 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/19 14:52:11 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/20 09:02:03 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Dog::Dog()
 {
     std::cout << "\033[34mDefault Constructor of Dog has been invoked \033[0m"<<std::endl;
     this->type = "Dog";
-    b = new Brain();
+    this->b = new Brain();
 }
 
 Dog :: Dog(const Dog &ref)
@@ -36,7 +36,7 @@ Dog& Dog :: operator= (const Dog &ref)
 Dog :: ~Dog()
 {
      std::cout << "\033[34mDestructor of Dog has been invoked \033[0m"<<std::endl;
-     delete b;
+     delete this->b;
 }
 
 void Dog :: makeSound()const

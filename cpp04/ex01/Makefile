@@ -1,6 +1,6 @@
 NAME=POLY_2
 CPP=c++
-FALGS=-Wall -Wextra -Werror -std=c++98
+FALGS=-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM=rm -rf
 SRC=Animal.cpp\
 	Dog.cpp\

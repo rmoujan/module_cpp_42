@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:03:33 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/19 10:20:01 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/20 09:10:39 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,24 @@ class Cat : public Animal{
 
 int main()
 {
-    Animal *d = new Animal();
-    std::cout<<std::endl;
-    d->output();
-    // std::cout <<"Type is " <<d->output()<<std::endl;
-    d = new Cat();
-     d->output();
+    // Animal *d = new Animal();
+    // std::cout<<std::endl;
+    // d->output();
+    // // std::cout <<"Type is " <<d->output()<<std::endl;
+    // d = new Cat();
+    //  d->output();
     // std::cout<<std::endl;
     // std::cout <<"Type is " <<d->output()<<std::endl;
     // delete c;
     // delete d;
+    std::string data[5]={"reshe", "faty", "nina", "ali", "hhh"};
+    int i = 0;
+    while (i < 5)
+    {
+        std::cout << "Data is "<<data[i]<<std::endl;
+        i++;
+    }
+    std::string halo[5];
+    halo = data;
     return (0);
 }
