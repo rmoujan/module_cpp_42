@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:23:42 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 18:16:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/20 20:09:07 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Dog& Dog :: operator= (const Dog &ref)
      {
           this->b = new Brain();
           this->b->operator=(*ref.b);
+          // this->b = (ref.b);
      }
      else
           this->b = nullptr;

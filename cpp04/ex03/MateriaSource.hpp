@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:19:29 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 19:16:24 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/22 10:13:35 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/22 14:52:50 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-#include <iostream>
-#include "Brain.hpp"
-class Animal{
+class MateriaSource :public IMateriaSource{
 
-    protected:
-    std::string type;
-    
+    AMateria *inventory;
+    int index;
     public:
-    Animal();
-    Animal(const Animal &ref);
-    Animal& operator=(const Animal &ref);
-    virtual ~Animal();
-    // virtual  void makeSound()const ;
-    // pure virtual fct :
-    virtual void makeSound()const = 0;
-    std::string getType()const;
-    void setType(std::string value);
+    MateriaSource();
+    MateriaSource(const MateriaSource&ref);
+    MateriaSource&operator=(const MateriaSource&ref);
+    virtual ~MateriaSource();
+    void learnMateria(Amateria*obj);
+     Amateria* createMateria(std::string & type);
 };
-
 
 
 #endif

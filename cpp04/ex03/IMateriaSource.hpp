@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:19:29 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 19:16:24 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/22 09:46:56 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/22 14:41:48 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
 #include <iostream>
-#include "Brain.hpp"
-class Animal{
 
-    protected:
-    std::string type;
-    
-    public:
-    Animal();
-    Animal(const Animal &ref);
-    Animal& operator=(const Animal &ref);
-    virtual ~Animal();
-    // virtual  void makeSound()const ;
-    // pure virtual fct :
-    virtual void makeSound()const = 0;
-    std::string getType()const;
-    void setType(std::string value);
+class IMateriaSource{
+  public:
+  IMateriaSource();
+  IMateriaSource(const IMateriaSource&ref);
+  IMateriaSource&operator=(Const IMateriaSource &ref);
+  virtual ~IMateriaSource();
+   virtual  void learnMateria(Amateria*obj) = 0;
+    virtual Amateria* createMateria(std::string & type) = 0;
+
 };
-
-
 
 #endif

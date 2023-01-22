@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:22:40 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 09:36:06 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/22 09:13:23 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/22 12:29:33 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
+class Cure : public AMateria{
+  
+	public:
 
-class Cat : public Animal{
-    
-    Brain *b;
-    public:
-    Cat();
-    Cat(const Cat &ref);
-    Cat& operator=(const Cat &ref);
-    ~Cat();
-    virtual void makeSound()const;
+	Cure();
+	Cure(std::string const & type);
+	Cure(const Cure& ref);
+	Cure&operator=(const Cure& ref);
+	~Cure();
+	Amateria* clone()const;
+	void use(ICharacter& target);
+	
 };
 
-#endif
+#endif;

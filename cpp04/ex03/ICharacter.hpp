@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Icharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:19:29 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 19:16:24 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/22 10:34:37 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/22 13:01:44 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
 #include <iostream>
-#include "Brain.hpp"
-class Animal{
 
-    protected:
-    std::string type;
-    
+class ICharacter {
+
     public:
-    Animal();
-    Animal(const Animal &ref);
-    Animal& operator=(const Animal &ref);
-    virtual ~Animal();
-    // virtual  void makeSound()const ;
-    // pure virtual fct :
-    virtual void makeSound()const = 0;
-    std::string getType()const;
-    void setType(std::string value);
-};
+    ICharacter();
+    ICharacter(const ICharacter&ref);
+    ICharacter&operator=(const ICharacter&ref);
+    virtual ~ICharacter() {}
+    virtual std::string const & getName() const = 0;
+    virtual void equip(AMateria* m) = 0;
+    virtual void unequip(int idx) = 0;
+    virtual void use(int idx, ICharacter& target) = 0;
 
+};
 
 
 #endif

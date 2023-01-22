@@ -1,12 +1,14 @@
-NAME=PURE_VIRTUAL
+NAME=INTERFACES
 CPP=c++
 FALGS=-Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM=rm -rf
-SRC=Animal.cpp\
-	Dog.cpp\
-	Cat.cpp\
-	Brain.cpp\
-	main.cpp\
+SRC=AMateria.cpp\
+	Character.cpp\
+	Cure.cpp\
+	Ice.cpp\
+	ICharacter.cpp\
+	IMateriaSource.cpp\
+	MateriaSource.cpp\
 
 OBJ=$(subst .cpp,.o,$(SRC))
 

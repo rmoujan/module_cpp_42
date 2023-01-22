@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:22:40 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 09:36:06 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/22 09:28:02 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/22 12:33:52 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
 
-class Cat : public Animal{
+class Ice :public AMateria{
+
+  public:
+  Ice();
+  Ice(const Ice& ref);
+  Ice(std::string const & type);
+  Ice&operator=(Const Ice &ref);
+  ~Ice();
+    Amateria* clone()const;
+   void use(ICharacter& target);
     
-    Brain *b;
-    public:
-    Cat();
-    Cat(const Cat &ref);
-    Cat& operator=(const Cat &ref);
-    ~Cat();
-    virtual void makeSound()const;
 };
-
-#endif

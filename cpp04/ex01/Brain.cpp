@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:05:16 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 18:47:20 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/22 09:08:59 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,16 @@ Brain& Brain :: operator= (const Brain &ref)
       // self-assignment guard, to prevent from copying the object itself
       if (this == &ref)
             return *this;
-     // std::strcpy(this->ideas,ref.ideas);
      if (ideas)
           delete []ideas;
      if (ref.ideas)
      {
           this->ideas = new std::string[100];
-          int i = 0;
           for (int i = 0; i<100 ; i++)
                this->ideas[i] = ref.ideas[i];
      }
      else
           this->ideas = nullptr;
-     // strcpy(this->ideas,ref.ideas);  //????????
      return (*this);
 }
 
