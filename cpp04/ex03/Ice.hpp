@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:28:02 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 14:19:26 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:27:46 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Ice : public AMateria{
 	//memeber functions 
 	AMateria* clone()const;
 	void use(ICharacter& target);
+	std::string getType()const;
 };
 
 #endif

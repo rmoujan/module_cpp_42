@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:18:43 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 15:06:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:28:02 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,13 @@ AMateria* Cure ::  clone()const{
 
 void Cure :: use(ICharacter& target)
 {
-    std::cout <<"* heals "<<target.getName()<<"'s wounds *"<<std::endl;   
+    std::cout <<"cure  * heals "<<target.getName()<<"'s wounds *"<<std::endl;   
 }
 
 Cure :: ~Cure()
 {
     // std::cout <<"Destructor of Cure has been invoked"<<std::endl;
+}
+std::string Cure :: getType()const{
+    return this->type;
 }

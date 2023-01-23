@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 10:34:37 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 14:57:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:28:56 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class ICharacter {
     virtual void equip(AMateria * m) = 0;
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter& target) = 0;
+    virtual void output_inventory() = 0;
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:13:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 09:46:02 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:27:52 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Cure : public AMateria{
 	~Cure();
 	AMateria* clone()const;
 	void use(ICharacter& target);
+	std::string getType()const;
 	
 };
 

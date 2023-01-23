@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 10:13:33 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 15:04:42 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 18:01:50 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,25 @@ MateriaSource& MateriaSource :: operator=(const MateriaSource &ref)
 {
     // std::cout <<"copy assignment operator of MateriaSource had been invoked"<<std::endl;
     //starting deep copy :
-    // if (this->inventory)
-    //     delete []inventory;
-    // if (ref.inventory)
-    // {
-        // this->inventory = new AMateria[4];
+    if (this->inventory[0] != nullptr)
+    {
+        for(int i = 0; i <this->index ; i++)
+        {
+            if (this->inventory[i] != nullptr)
+                delete this->inventory[i];
+        }
+    }
+    if (ref.inventory[0])
+    {
         this->index = 0;
         while (this->index < ref.index)
         {
             this->inventory[this->index] = ref.inventory[this->index];
             this->index++;
         }
-    // }
-    // else
-    //     this->inventory = nullptr;
+    }
+    else
+        this->inventory[0] = nullptr;
     return (*this);
 }
 

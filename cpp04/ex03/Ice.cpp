@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:37:25 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 15:06:52 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:27:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@ AMateria* Ice ::  clone()const{
 
 void Ice :: use(ICharacter& target)
 {
-    std :: cout <<"* shoots an ice bolt at "<<target.getName()<<" *"<<std::endl;
+    std :: cout <<"ICE * shoots an ice bolt at "<<target.getName()<<" *"<<std::endl;
 
 }
 
 Ice :: ~Ice()
 {
     // std::cout <<"Destructor of Ice has been invoked"<<std::endl;
+}
+std::string Ice :: getType()const{
+    return this->type;
 }
