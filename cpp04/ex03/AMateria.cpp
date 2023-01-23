@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:22:20 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 09:43:13 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 11:56:08 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ AMateria::AMateria(std::string const & type){
 AMateria::AMateria(const AMateria &ref){
 
     std::cout <<"Copy constructor of AMateria has been invoked"<<std::endl;
-    this=*ref;
+    *this = ref;
 }
 
 AMateria& AMateria :: operator=(const AMateria &ref)
@@ -43,9 +43,9 @@ AMateria::~AMateria()
     std::cout <<"Destructor of AMateria has been invoked"<<std::endl;
 }
 
-std::string const & getType()const
+std::string const & AMateria:: getType()const
 {
-    return (type);
+    return (this->type);
 }
 //I think balama implemetiha !!!
 void use(ICharacter & target)

@@ -6,9 +6,17 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:20:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/20 19:32:56 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 11:50:52 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "AMateria.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "Character.hpp"
+#include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

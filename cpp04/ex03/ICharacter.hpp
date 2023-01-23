@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 10:34:37 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 10:00:22 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 11:58:58 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define ICHARACTER_HPP
 
 #include <iostream>
-#include "AMateria.hpp"
 
+#include "AMateria.hpp"
 //abstract class :
 class ICharacter {
     protected:
@@ -28,7 +28,7 @@ class ICharacter {
     virtual ~ICharacter();
     //member fctes :
     virtual std::string const & getName() const = 0;
-    virtual void equip(AMateria* m) = 0;
+    virtual void equip( AMateria * m) = 0;
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter& target) = 0;
 };
