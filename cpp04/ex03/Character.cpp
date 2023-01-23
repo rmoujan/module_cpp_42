@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 10:26:59 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 10:54:36 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,27 @@ Character :: Character(const Character &ref){
     std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
     this=*ref;
 }
-
+//deep copy Donnnnnnnnne
 Character& Character :: operator=(const Character &ref)
 {
     std::cout <<"copy assignment operator of Character has been invoked"<<std::endl;
     this->name = ref.name;
-    this->index = ref.index;
-    //deep cp of inventory
+    // this->index = ref.index;
+    //deep cp of inventory :(must delete the old ones bft copy the new ones in this->inventory):
+    if (this->inventory)
+        delete []inventory;
+    if (ref.inventory)
+    {
+        this->inventory = new AMateria[4];
+        this->index = 0;
+        while (this->index < ref.index)
+        {
+            this->inventory[this->index] = ref.inventory[this->index];
+            this->index++;    
+        }   
+    }
+    else
+        this->inventory = nullptr;
 }
 
 Character :: ~Character()
@@ -60,6 +74,7 @@ void Character :: equip(AMateria *m)
 
 //delete an existing materia from the inventory 
 //they said , don't delete an materia, so hooooow !!!!!
+
 void Character :: unequip(int idx)
 {
     if (idx >= 0 && idx <= 3)
@@ -68,11 +83,14 @@ void Character :: unequip(int idx)
         std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
     }
 }
-//ScavTrap::attack(target);
+
+//Name_class::name_fct(target);
 void Character :: use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx <= 3)
     {
         this->inventory[idx].use(target);//don't specify the class, cus u have dervied classes
     }
+    else
+        std::cout <<"Index out of rang "<<std::endl;
 }
