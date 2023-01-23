@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 11:21:10 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:57:27 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ Character :: Character(){
 
     std::cout <<"Default constructor of Character has been invoked"<<std::endl;
     this->name = "Character";
-    the->index = 0;
-    this->inventory = new AMateria[4];
+    this->index = 0;
+    // this->inventory = new AMateria[4];
+    // this->inventory = nullptr;
 }
 
 Character :: Character(const std::string name)
@@ -25,13 +26,14 @@ Character :: Character(const std::string name)
     std::cout<<"Constructor by parameter of Character has been invoked"<<std::endl;
     this->name = name;
     this->index = 0;
-    this->inventory = new AMateria[4];
+    // this->inventory = new AMateria[4];
+    // this->inventory = nullptr;
 }
 
 Character :: Character(const Character &ref){
 
     std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
-    this=*ref;
+    *this=ref;
 }
 //deep copy Donnnnnnnnne
 Character& Character :: operator=(const Character &ref)
@@ -40,26 +42,27 @@ Character& Character :: operator=(const Character &ref)
     this->name = ref.name;
     // this->index = ref.index;
     //deep cp of inventory :(must delete the old ones bft copy the new ones in this->inventory):
-    if (this->inventory)
-        delete []inventory;
-    if (ref.inventory)
-    {
-        this->inventory = new AMateria[4];
+    // if (this->inventory)
+    //     delete []inventory;
+    // if (ref.inventory)
+    // {
+        // this->inventory = new AMateria[4];
         this->index = 0;
         while (this->index < ref.index)
         {
             this->inventory[this->index] = ref.inventory[this->index];
             this->index++;    
         }   
-    }
-    else
-        this->inventory = nullptr;
+    // }
+    // else
+    //     this->inventory = nullptr;
+    return (*this);
 }
 
 Character :: ~Character()
 {
     std::cout <<"Destructor of Character has been invoked"<<std::endl;
-    delete []inventory;
+    // delete []inventory;
 }
 
 //add a materia to the inventory of character
@@ -91,8 +94,12 @@ void Character :: use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx <= 3)
     {
-        this->inventory[idx].use(target);//don't specify the class, cus u have dervied classes
+        this->inventory[idx]->use(target);//don't specify the class, cus u have dervied classes
     }
     else
         std::cout <<"Index out of rang "<<std::endl;
+}
+
+std::string const & Character :: getName() const{
+    return this->name;
 }

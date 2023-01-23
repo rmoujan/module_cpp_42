@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:22:20 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 11:56:08 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:59:19 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::string const & AMateria:: getType()const
     return (this->type);
 }
 //I think balama implemetiha !!!
-void use(ICharacter & target)
+void AMateria:: use(ICharacter & target)
 {
     std::cout <<" NOTHING FROM AMATERIA "<<std::endl;
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 ICharacter::ICharacter(){
 
@@ -21,7 +22,7 @@ ICharacter::ICharacter(){
 ICharacter::ICharacter(const ICharacter &ref){
 
     std::cout <<"Copy constructor of ICharacter has been invoked"<<std::endl;
-    this=*ref;
+    *this=ref;
 }
 
 ICharacter& ICharacter :: operator=(const ICharacter &ref)
@@ -29,6 +30,7 @@ ICharacter& ICharacter :: operator=(const ICharacter &ref)
     std::cout <<"copy assignment operator of ICharacter has been invoked"<<std::endl;
     //no operations to do 
     this->name = ref.name;
+    return (*this);
 }
 
 ICharacter::~ICharacter()
@@ -36,18 +38,18 @@ ICharacter::~ICharacter()
     std::cout <<"Destructor of ICharacter has been invoked"<<std::endl;
 }
 
-std::string const & ICharacter :: getName() const{
-    return this->name;
-}
+// std::string const & ICharacter :: getName() const{
+//     return this->name;
+// }
 
-void ICharacter :: equip(AMateria* m) {
+// void ICharacter :: equip(AMateria* m) {
 
-}
+// }
 
-void ICharacter :: unequip(int idx) {
+// void ICharacter :: unequip(int idx) {
 
-}
+// }
 
-void  ICharacter :: use(int idx, ICharacter& target) {
+// void  ICharacter :: use(int idx, ICharacter& target) {
     
-}
+// }

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:46:58 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 11:11:50 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:48:39 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ IMateriaSource :: IMateriaSource(){
 IMateriaSource :: IMateriaSource(const IMateriaSource &ref){
 
     std::cout <<"Copy constructor of IMateriaSource has been invoked"<<std::endl;
-    this=*ref;
+    *this=ref;
 }
 
 IMateriaSource& IMateriaSource :: operator=(const IMateriaSource &ref)
 {
     std::cout <<"copy assignment operator of IMateriaSource has been invoked"<<std::endl;
     //must do operation here !!!
+    return(*this);
 }
 
 IMateriaSource::~IMateriaSource()
@@ -35,10 +36,11 @@ IMateriaSource::~IMateriaSource()
     std::cout <<"Destructor of IMateriaSource has been invoked"<<std::endl;
 }
 
-AMateria* IMateriaSource:: clone() const{
-    //
-}
 
-void IMateriaSource:: use(ICharacter& target){
-    //
-}
+// void IMateriaSource :: learnMateria(AMateria *obj){
+    
+// }
+
+// AMateria* IMateriaSource :: createMateria(std::string & type){
+//     return (0);
+// }

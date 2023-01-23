@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:18:43 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 09:46:04 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:18:33 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Cure::Cure(std::string const & type){
 Cure :: Cure(const Cure &ref){
 
     std::cout <<"Copy constructor of Cure has been invoked"<<std::endl;
-    this=*ref;
+    *this=ref;
 }
 
 Cure& Cure :: operator=(const Cure &ref)
@@ -44,7 +44,7 @@ AMateria* Cure ::  clone()const{
 
 void Cure :: use(ICharacter& target)
 {
-    std::cout <<"Cure:''* heals "<<target->getName()<<"'s wounds *"<<std::endl;   
+    std::cout <<"Cure:''* heals "<<target.getName()<<"'s wounds *"<<std::endl;   
 }
 
 Cure :: ~Cure()

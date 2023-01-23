@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:28:02 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 09:29:15 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:19:26 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class Ice : public AMateria{
 	Ice();//Deafault const
 	Ice(const Ice& ref);//const by copy
 	Ice(std::string const & type);
-	Ice&operator=(Const Ice &ref);//copy ass
+	Ice&operator=(const Ice &ref);//copy ass
 	~Ice();//destructor
 
 	//memeber functions 
-	Amateria* clone()const;
+	AMateria* clone()const;
 	void use(ICharacter& target);
 };
 

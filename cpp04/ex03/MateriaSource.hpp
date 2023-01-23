@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 10:13:35 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 11:14:43 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:46:23 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class MateriaSource : public IMateriaSource{
 
-    AMateria *inventory;
+    AMateria *inventory[4];
     int index;
     public:
 
@@ -28,8 +28,8 @@ class MateriaSource : public IMateriaSource{
     ~MateriaSource();
 
 	//member fctes :
-    void learnMateria(AMateria *obj);
-    AMateria* createMateria(std::string const & type);
+    virtual void learnMateria(AMateria *obj);
+    virtual AMateria* createMateria(std::string const & type);
 };
 
 

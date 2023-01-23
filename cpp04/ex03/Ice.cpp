@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:37:25 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 09:40:51 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:19:09 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Ice :: Ice(std::string const & type){
 Ice :: Ice(const Ice &ref){
 
     std::cout <<"Copy constructor of Ice has been invoked"<<std::endl;
-    this=*ref;
+    *this=ref;
 }
 
 Ice& Ice :: operator=(const Ice &ref)
@@ -44,7 +44,7 @@ AMateria* Ice ::  clone()const{
 
 void Ice :: use(ICharacter& target)
 {
-    std :: cout <<"Ice:''* shoots an ice bolt at "<<target->getName()<<"*''"<<std::endl;
+    std :: cout <<"Ice:''* shoots an ice bolt at "<<target.getName()<<"*''"<<std::endl;
 
 }
 

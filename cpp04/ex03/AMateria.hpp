@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:22:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 11:12:29 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 12:51:25 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "ICharacter.hpp"
 
 //abstract class 
+class ICharacter;
 class AMateria {
 
     protected:

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:20:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 11:50:52 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:58:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int main()
 {
 
-    IMateriaSource* src = new MateriaSource(); 
+    IMateriaSource * src = new MateriaSource(); 
     src->learnMateria(new Ice()); 
     src->learnMateria(new Cure());
     ICharacter* me = new Character("me");
@@ -38,5 +38,5 @@ int main()
     delete me;
     delete src;
 
-    return 0;
+    return (0);
 }
