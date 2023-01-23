@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 14:57:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 15:02:24 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character :: Character(){
 
-    std::cout <<"Default constructor of Character has been invoked"<<std::endl;
+    // std::cout <<"Default constructor of Character has been invoked"<<std::endl;
     this->name = "Character";
     this->index = 0;
     // this->inventory = new AMateria[4];
@@ -23,7 +23,7 @@ Character :: Character(){
 
 Character :: Character(const std::string name)
 {
-    std::cout<<"Constructor by parameter of Character has been invoked"<<std::endl;
+    // std::cout<<"Constructor by parameter of Character has been invoked"<<std::endl;
     this->name = name;
     this->index = 0;
     // this->inventory = new AMateria[4];
@@ -32,13 +32,13 @@ Character :: Character(const std::string name)
 
 Character :: Character(const Character &ref){
 
-    std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
+    // std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
     *this=ref;
 }
 //deep copy Donnnnnnnnne
 Character& Character :: operator=(const Character &ref)
 {
-    std::cout <<"copy assignment operator of Character has been invoked"<<std::endl;
+    // std::cout <<"copy assignment operator of Character has been invoked"<<std::endl;
     this->name = ref.name;
     // this->index = ref.index;
     //deep cp of inventory :(must delete the old ones bft copy the new ones in this->inventory):
@@ -61,7 +61,7 @@ Character& Character :: operator=(const Character &ref)
 
 Character :: ~Character()
 {
-    std::cout <<"Destructor of Character has been invoked"<<std::endl;
+    // std::cout <<"Destructor of Character has been invoked"<<std::endl;
     // delete []inventory;
 }
 
@@ -71,10 +71,10 @@ void Character :: equip(AMateria *m)
     if (this->index >= 0 && this->index <= 3)
     {
         this->inventory[this->index++] = m;
-        std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;
+        // std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;
     }
-    else
-        std::cout <<"the inventory is full "<<std::endl;
+    // else
+    //     std::cout <<"the inventory is full "<<std::endl;
 }
 
 //delete an existing materia from the inventory 
@@ -85,7 +85,7 @@ void Character :: unequip(int idx)
     if (idx >= 0 && idx <= 3)
     {
         // this->inventory[this->index++] = m;
-        std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
+        // std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
     }
 }
 
@@ -96,8 +96,8 @@ void Character :: use(int idx, ICharacter& target)
     {
         this->inventory[idx]->use(target);//don't specify the class, cus u have dervied classes
     }
-    else
-        std::cout <<"Index out of rang "<<std::endl;
+    // else
+    //     std::cout <<"Index out of rang "<<std::endl;
 }
 
 std::string const & Character :: getName() const{

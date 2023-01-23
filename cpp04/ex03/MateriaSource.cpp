@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 10:13:33 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 14:38:00 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 15:04:42 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 MateriaSource::MateriaSource(){
 
-    std::cout <<"Default constructor of MateriaSource had been invoked"<<std::endl;
+    // std::cout <<"Default constructor of MateriaSource had been invoked"<<std::endl;
     // this->type = "MateriaSource"; ??
     // this->inventory = new AMateria[4];
     // this->inventory = nullptr;
@@ -23,13 +23,13 @@ MateriaSource::MateriaSource(){
 
 MateriaSource::MateriaSource(const MateriaSource &ref){
 
-    std::cout <<"Copy constructor of MateriaSource had been invoked"<<std::endl;
+    // std::cout <<"Copy constructor of MateriaSource had been invoked"<<std::endl;
     *this=ref;
 }
 
 MateriaSource& MateriaSource :: operator=(const MateriaSource &ref)
 {
-    std::cout <<"copy assignment operator of MateriaSource had been invoked"<<std::endl;
+    // std::cout <<"copy assignment operator of MateriaSource had been invoked"<<std::endl;
     //starting deep copy :
     // if (this->inventory)
     //     delete []inventory;
@@ -50,7 +50,7 @@ MateriaSource& MateriaSource :: operator=(const MateriaSource &ref)
 
 MateriaSource::~MateriaSource()
 {
-    std::cout <<"Destructor of MateriaSource has been invoked"<<std::endl;
+    // std::cout <<"Destructor of MateriaSource has been invoked"<<std::endl;
     // delete []inventory;
 }
 
@@ -64,10 +64,10 @@ void MateriaSource :: learnMateria(AMateria *obj){
     {
         //get the copy of obj ana put it into inventory !!!
         this->inventory[this->index++] = obj;
-        std::cout <<"A Materia was added to the inventory of MateriaSource successfully"<<std::endl;
+        // std::cout <<"A Materia was added to the inventory of MateriaSource successfully"<<std::endl;
     }
-    else
-        std::cout <<"the inventory is full "<<std::endl;
+    // else
+    //     std::cout <<"the inventory is full "<<std::endl;
 }
 
 
@@ -91,7 +91,7 @@ AMateria*  MateriaSource :: createMateria(std::string const & type){
     }
     else
     {
-        std::cout <<" There is no Materia matching this type in the inventory "<<std::endl;
+        // std::cout <<" There is no Materia matching this type in the inventory "<<std::endl;
         return (0);
     }
     return (0);
