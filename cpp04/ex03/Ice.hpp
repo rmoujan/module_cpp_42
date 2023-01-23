@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:28:02 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 12:33:52 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 09:29:15 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 
 #include "AMateria.hpp"
 
+class Ice : public AMateria{
 
-class Ice :public AMateria{
+	public:	
 
-  public:
-  Ice();
-  Ice(const Ice& ref);
-  Ice(std::string const & type);
-  Ice&operator=(Const Ice &ref);
-  ~Ice();
-    Amateria* clone()const;
-   void use(ICharacter& target);
-    
+	Ice();//Deafault const
+	Ice(const Ice& ref);//const by copy
+	Ice(std::string const & type);
+	Ice&operator=(Const Ice &ref);//copy ass
+	~Ice();//destructor
+
+	//memeber functions 
+	Amateria* clone()const;
+	void use(ICharacter& target);
 };
+
+#endif

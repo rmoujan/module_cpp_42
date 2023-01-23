@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:18:43 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 12:37:59 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 09:46:04 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cure::Cure(){
 
     std::cout <<"Default constructor of Cure has been invoked"<<std::endl;
-    this->type = "Cure";
+    this->type = "cure";
 }
 
 Cure::Cure(std::string const & type){
@@ -34,11 +34,11 @@ Cure& Cure :: operator=(const Cure &ref)
 {
     std::cout <<"copy assignment operator of Cure has been invoked"<<std::endl;
     this->type = ref.type;
-    return (*type);
+    return (*this);
 }
 
 //return a pointer to an instance of type Cure !!
-Amateria* Cure ::  clone()const{
+AMateria* Cure ::  clone()const{
     return (new Cure());
 }
 

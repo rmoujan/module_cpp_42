@@ -6,21 +6,21 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 13:00:26 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 10:26:59 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(){
+Character :: Character(){
 
     std::cout <<"Default constructor of Character has been invoked"<<std::endl;
-    this->type = "Character";
+    this->name = "Character";
     the->index = 0;
     this->inventory = new AMateria[4];
 }
 
-Character::Character(const std::string name)
+Character :: Character(const std::string name)
 {
     std::cout<<"Constructor by parameter of Character has been invoked"<<std::endl;
     this->name = name;
@@ -28,7 +28,7 @@ Character::Character(const std::string name)
     this->inventory = new AMateria[4];
 }
 
-Character::Character(const Character &ref){
+Character :: Character(const Character &ref){
 
     std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
     this=*ref;
@@ -42,13 +42,14 @@ Character& Character :: operator=(const Character &ref)
     //deep cp of inventory
 }
 
-Character::~Character()
+Character :: ~Character()
 {
     std::cout <<"Destructor of Character has been invoked"<<std::endl;
+    delete []inventory;
 }
 
-//add a materia to the inventory 
-void equip(AMateria *m)
+//add a materia to the inventory of character
+void Character :: equip(AMateria *m)
 {
     if (this->index >= 0 && this->index <= 3)
     {
@@ -59,7 +60,7 @@ void equip(AMateria *m)
 
 //delete an existing materia from the inventory 
 //they said , don't delete an materia, so hooooow !!!!!
-void unequip(int idx)
+void Character :: unequip(int idx)
 {
     if (idx >= 0 && idx <= 3)
     {
@@ -68,7 +69,7 @@ void unequip(int idx)
     }
 }
 //ScavTrap::attack(target);
-void use(int idx, ICharacter& target)
+void Character :: use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx <= 3)
     {

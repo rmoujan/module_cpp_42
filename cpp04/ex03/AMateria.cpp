@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Amateria.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:22:20 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 12:19:48 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 09:43:13 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ std::string const & getType()const
 {
     return (type);
 }
-//???
+//I think balama implemetiha !!!
 void use(ICharacter & target)
 {
-    
+    std::cout <<" NOTHING FROM AMATERIA "<<std::endl;
 }

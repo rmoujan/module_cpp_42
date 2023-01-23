@@ -6,25 +6,25 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:37:25 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/22 12:37:46 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 09:40:51 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(){
+Ice :: Ice(){
 
     std::cout <<"Default constructor of Ice has been invoked"<<std::endl;
-    this->type = "Ice";
+    this->type = "ice";
 }
 
-Ice::Ice(std::string const & type){
+Ice :: Ice(std::string const & type){
 
     std::cout <<" Constructor by parameter of Ice has been invoked"<<std::endl;
     this->type = type;
 }
 
-Ice::Ice(const Ice &ref){
+Ice :: Ice(const Ice &ref){
 
     std::cout <<"Copy constructor of Ice has been invoked"<<std::endl;
     this=*ref;
@@ -37,18 +37,18 @@ Ice& Ice :: operator=(const Ice &ref)
     return (*this);
 }
 
-//return a pointer to an instance of type Ice !!
-Amateria* Ice ::  clone()const{
+// return a pointer to an instance of type Ice !!
+AMateria* Ice ::  clone()const{
     return (new Ice());
 }
 
-void Ice::use(ICharacter& target)
+void Ice :: use(ICharacter& target)
 {
-    std::cout <<"Ice:''* shoots an ice bolt at "<<target->getName()<<"*''"<<std::endl;
+    std :: cout <<"Ice:''* shoots an ice bolt at "<<target->getName()<<"*''"<<std::endl;
 
 }
 
-Ice::~Ice()
+Ice :: ~Ice()
 {
     std::cout <<"Destructor of Ice has been invoked"<<std::endl;
 }

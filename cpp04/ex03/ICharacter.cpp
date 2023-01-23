@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Icharacter.hpp"
+#include "ICharacter.hpp"
 
 ICharacter::ICharacter(){
 
     std::cout <<"Default constructor of ICharacter has been invoked"<<std::endl;
-    this->type = "ICharacter";
+    this->name = "ICharacter"; 
 }
 
 ICharacter::ICharacter(const ICharacter &ref){
@@ -27,6 +27,8 @@ ICharacter::ICharacter(const ICharacter &ref){
 ICharacter& ICharacter :: operator=(const ICharacter &ref)
 {
     std::cout <<"copy assignment operator of ICharacter has been invoked"<<std::endl;
+    //no operations to do 
+    this->name = ref.name;
 }
 
 ICharacter::~ICharacter()
@@ -36,4 +38,16 @@ ICharacter::~ICharacter()
 
 std::string const & ICharacter :: getName() const{
     return this->name;
+}
+
+void ICharacter :: equip(AMateria* m) {
+
+}
+
+void ICharacter :: unequip(int idx) {
+
+}
+
+void  ICharacter :: use(int idx, ICharacter& target) {
+    
 }
