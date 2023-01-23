@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:22:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 09:51:03 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 11:12:29 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include "Icharacter.hpp"
+#include "ICharacter.hpp"
 
 //abstract class 
 class AMateria {

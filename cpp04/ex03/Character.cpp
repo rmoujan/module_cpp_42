@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 10:54:36 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/23 11:21:10 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ void Character :: equip(AMateria *m)
     if (this->index >= 0 && this->index <= 3)
     {
         this->inventory[this->index++] = m;
-        std::cout <<"A Materia was added to the inventory successfully"<<std::endl;
+        std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;
     }
+    else
+        std::cout <<"the inventory is full "<<std::endl;
 }
 
 //delete an existing materia from the inventory 
