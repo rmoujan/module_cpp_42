@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/24 11:44:20 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/24 12:31:14 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,6 @@ void Character :: equip(AMateria *m)
     //     std::cout <<"the inventory is full "<<std::endl;
 }
 
-//delete an existing materia from the inventory 
-//they said , don't delete an materia, so hooooow !!!!!
-
 void Character :: unequip(int idx)
 {
     if (idx >= 0 && idx <= 3)
@@ -116,29 +113,25 @@ void Character :: unequip(int idx)
             this->inventory[idx] = nullptr;
             // std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
         }
-        // this->inventory[this->index++] = m;
     }
     else
         std::cout <<"this materia is not exist in the inventory"<<std::endl;
 }
 
-//Name_class::name_fct(target);
 void Character :: use(int idx, ICharacter& target)
 {
-    // std::cout <<"this index is "<<this->index<<std::endl;
-    if (idx >= this->index && idx <= this->index)
+    if (idx >= 0 && idx < this->index)
     {
-        if (this->inventory[0] != nullptr)
+        if (this->inventory[idx] != nullptr)
         {
-            this->inventory[idx - 1]->use(target);//don't specify the class, cus u have dervied classes
+            this->inventory[idx]->use(target);
             
         }
-        else
-            std::cout<<"the inventory is empty "<<std::endl;
     }
     else
         std::cout <<"Index out of rang / or this Materia does not exist "<<std::endl;
 }
+
 
 std::string const & Character :: getName() const{
     
@@ -146,10 +139,7 @@ std::string const & Character :: getName() const{
 }
 
 void Character :: output_inventory()
-{
-    // std::cout<<"Index is "<<this->index<<std::endl;
-    // std::cout <<"OUTPUT THE INVENTORY OF CHARS "<<std::endl;
-    
+{ 
     for(int i = 0; i < this->index ; i++)
     {
         if (this->inventory[i] != nullptr)
@@ -158,7 +148,3 @@ void Character :: output_inventory()
         }
     }
 }
-
-// AMateria const ** Character ::  getInventory()const{
-//     return this->inventory;
-// }

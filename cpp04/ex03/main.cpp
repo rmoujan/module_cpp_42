@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:20:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/24 11:36:32 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/24 14:51:04 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,45 +117,105 @@
 // }
 //MAIN D AYOUB 3ANDI KAY SEGFAULTI FIHA
 
-int main()
-{
-  AMateria *obj1 = new Cure();
-  AMateria *obj2 = new Ice();
-  AMateria *obj3  = new Cure();
-  AMateria *obj4 = new Ice();
+// int main()
+// {
+//   AMateria *obj1 = new Cure();
+//   AMateria *obj2 = new Ice();
+//   AMateria *obj3  = new Cure();
+//   AMateria *obj4 = new Ice();
   
 
-  Character *test = new Character("Reshe");
+//   Character *test = new Character("Reshe");
 
-  test->equip(obj1);
-  test->equip(obj2);
-  test->equip(obj3);
-  test->equip(obj4);
-  test->unequip(0);
-  std::cout <<"OUTPUT TEST "<<std::endl;
-  test->output_inventory();
-  Character *save = new Character("Rimma");
-  *save = *test;
-  std::cout <<"OUTPUT SAVE "<<std::endl;
-  save->output_inventory();
-  // test->output_inventory();
-  Character *ss = new Character("liina");
-  *ss = *save;
-  // test->output_inventory();
-  // save->output_inventory();
-  std::cout <<"OUTPUT SS "<<std::endl;
-  ss->output_inventory();
+//   test->equip(obj1);
+//   test->equip(obj2);
+//   test->equip(obj3);
+//   test->equip(obj4);
+//   test->unequip(0);
+//   std::cout <<"OUTPUT TEST "<<std::endl;
+//   test->output_inventory();
+//   Character *save = new Character("Rimma");
+//   *save = *test;
+//   std::cout <<"OUTPUT SAVE "<<std::endl;
+//   save->output_inventory();
+//   // test->output_inventory();
+//   Character *ss = new Character("liina");
+//   *ss = *save;
+//   // test->output_inventory();
+//   // save->output_inventory();
+//   std::cout <<"OUTPUT SS "<<std::endl;
+//   ss->output_inventory();
 
-  delete test;
-  delete save;
-  delete ss;
+//   delete test;
+//   delete save;
+//   delete ss;
+
 
   
+//   // Character *save = new Character("Reshe");
+//   // Character *test = new Character("rimmma");
+//   // //calling copy assignement operator of char
+//   // *test = *save;
+//   // delete save;
+//   // delete test;
+// }
+
+
+// int main()
+// {
+//   AMateria *obj1 = new Cure();
+//   AMateria *obj2 = new Ice();
+//   AMateria *obj3  = new Cure();
+//   AMateria *obj4 = new Ice();
+
+//   IMateriaSource *test = new MateriaSource();
+//   test->learnMateria(obj1);
+//   test->learnMateria(obj1);
+//   test->learnMateria(obj1);
+//   test->learnMateria(obj1);
+//   delete test;
+//   delete obj1;
+// }
+
+int main(void) {
+
+  AMateria* ice = new Ice;
+  AMateria* cure = new Cure;
+  IMateriaSource *src = new MateriaSource();
+
+  src->learnMateria(ice);
+  src->learnMateria(cure);
+  delete ice;
+  delete cure;
+  src->output_inventory();
+
+  ICharacter *mark = new Character("mark");
+  ICharacter *bob = new Character("bob");
+
+  auto ddd = src->createMateria("ice");
+  mark->equip(ddd);
+  // mark->equip(ddd);
+  // mark->equip(ddd);
+
+  std::cout << "Name: " << mark->getName() << std::endl;
+  std::cout << "Name: " << bob->getName() << std::endl;
+
+  std::cout << "----------" << std::endl;
+
+  mark->use(0, *bob);
+  mark->use(1, *bob);
+  mark->use(3, *bob);
+
+  std::cout << "----------" << std::endl;
   
-  // Character *save = new Character("Reshe");
-  // Character *test = new Character("rimmma");
-  // //calling copy assignement operator of char
-  // *test = *save;
-  // delete save;
-  // delete test;
+  *(mark) = *(bob);
+
+  std::cout << "Name: " << mark->getName() << std::endl;
+  std::cout << "Name: " << bob->getName() << std::endl;
+
+  // std::cout << "----------" << std::endl;
+
+  delete src;
+  delete mark;//hena kay segfauulti
+  delete bob;
 }
