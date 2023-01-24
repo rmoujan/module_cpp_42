@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:20:56 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 17:53:10 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/24 11:36:32 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@
 
 //     return (0);
 // }
-int main()
-{
+// int main()
+// {
     //Test Amateria :
     // AMateria    *obj1 = new Cure();
     // AMateria     *obj2 = new Cure();
@@ -92,6 +92,70 @@ int main()
 // //    test1->use(-1, *test1);
 
 //****** Test MATERIASOURCE ********* ::
-
+// IMateriaSource * test = new MateriaSource();
     
+//     AMateria    *obj1 = new Cure();
+//     AMateria     *obj2 = new Cure();
+//     AMateria     *obj3 = new Ice();
+//     AMateria     *obj4 = new Ice();
+//     AMateria     *obj5 = new Cure();
+//     // AMateria *value = test->createMateria("hh");
+//     test->learnMateria(obj1);
+//     AMateria *value = test->createMateria("cure");
+//     std::cout <<"name is "<<value->getType()<<std::endl;
+//     // AMateria *value1 = test->createMateria("ice");
+//     test->learnMateria(obj4);
+//     AMateria *value1 = test->createMateria("ice");
+//     std::cout <<"name is "<<value1->getType()<<std::endl;
+//     AMateria *value2 = test->createMateria("dd");
+//     test->learnMateria(obj2);
+//     test->learnMateria(obj3);
+    
+//     test->learnMateria(obj5);
+//     test->output_inventory();
+    
+// }
+//MAIN D AYOUB 3ANDI KAY SEGFAULTI FIHA
+
+int main()
+{
+  AMateria *obj1 = new Cure();
+  AMateria *obj2 = new Ice();
+  AMateria *obj3  = new Cure();
+  AMateria *obj4 = new Ice();
+  
+
+  Character *test = new Character("Reshe");
+
+  test->equip(obj1);
+  test->equip(obj2);
+  test->equip(obj3);
+  test->equip(obj4);
+  test->unequip(0);
+  std::cout <<"OUTPUT TEST "<<std::endl;
+  test->output_inventory();
+  Character *save = new Character("Rimma");
+  *save = *test;
+  std::cout <<"OUTPUT SAVE "<<std::endl;
+  save->output_inventory();
+  // test->output_inventory();
+  Character *ss = new Character("liina");
+  *ss = *save;
+  // test->output_inventory();
+  // save->output_inventory();
+  std::cout <<"OUTPUT SS "<<std::endl;
+  ss->output_inventory();
+
+  delete test;
+  delete save;
+  delete ss;
+
+  
+  
+  // Character *save = new Character("Reshe");
+  // Character *test = new Character("rimmma");
+  // //calling copy assignement operator of char
+  // *test = *save;
+  // delete save;
+  // delete test;
 }

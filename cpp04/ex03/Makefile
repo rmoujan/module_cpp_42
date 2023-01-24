@@ -1,6 +1,6 @@
 NAME=INTERFACES
 CPP=c++
-FALGS=-Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+FALGS= -Wall -Wextra -Werror -std=c++98  #-fsanitize=address
 RM=rm -rf
 
 SRC= AMateria.cpp\

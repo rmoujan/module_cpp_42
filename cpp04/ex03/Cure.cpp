@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:18:43 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 16:28:02 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/24 09:49:23 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ Cure& Cure :: operator=(const Cure &ref)
 
 //return a pointer to an instance of type Cure !!
 AMateria* Cure ::  clone()const{
+    std::cout<<"test cure"<<std::endl;
     return (new Cure());
 }
 

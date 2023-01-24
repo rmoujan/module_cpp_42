@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:22:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 12:51:25 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/24 09:37:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class AMateria {
     std::string const & getType() const; //Returns the materia type
     virtual AMateria* clone() const = 0;//pure virtual fct
     virtual void use(ICharacter& target);
+    void setType(std::string name); 
 };
 
 #endif

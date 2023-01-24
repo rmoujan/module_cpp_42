@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 17:48:49 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/24 11:44:20 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 Character :: Character(){
 
-    // std::cout <<"Default constructor of Character has been invoked"<<std::endl;
+    std::cout <<"Default constructor of Character has been invoked"<<std::endl;
     this->name = "Character";
     this->index = 0;
-    // this->inventory = new AMateria[4];
+     this->inventory[0] = nullptr;
     // this->inventory = nullptr;
 }
 
 Character :: Character(const std::string name)
 {
-    // std::cout<<"Constructor by parameter of Character has been invoked"<<std::endl;
+    std::cout<<"Constructor by parameter of Character has been invoked"<<std::endl;
     this->name = name;
     this->index = 0;
-    // this->inventory = new AMateria[4];
+     this->inventory[0] = nullptr;
     // this->inventory = nullptr;
 }
 
@@ -39,35 +39,34 @@ Character :: Character(const Character &ref){
 //deep copy Donnnnnnnnne
 Character& Character :: operator=(const Character &ref)
 {
-    // std::cout <<"copy assignment operator of Character has been invoked"<<std::endl;
+    std::cout <<"copy assignment operator of Character has been invoked"<<std::endl;
     this->name = ref.name;
-    // this->index = ref.index;
-    //deep cp of inventory :(must delete the old ones bfr copy the new ones in this->inventory):
-    if (this->inventory[0] != nullptr)
-    {
         for (int i = 0; i < this->index; i++)
         {
             if (this->inventory[i] != nullptr)
                 delete this->inventory[i];
         }
-    }
-    if (ref.inventory[0])
-    {
         this->index = 0;
-        while (this->index < ref.index)
+        for (int i = 0; i < ref.index; i++)
         {
-            this->inventory[this->index] = ref.inventory[this->index];
-            this->index++;    
-        }   
-    }
-    else
-        this->inventory[0] = nullptr;
+            std::cout <<"inside while "<<std::endl;
+            if (ref.inventory[i] != nullptr)
+            {
+                this->inventory[i] = (ref.inventory[i])->clone();
+                this->index++; 
+            }
+            else
+            {
+                this->inventory[i] = nullptr;
+                this->index++;
+            }
+        }  
     return (*this);
 }
 
 Character :: ~Character()
 {
-    // std::cout <<"Destructor of Character has been invoked"<<std::endl;
+    std::cout <<"Destructor of Character has been invoked"<<std::endl;
     for (int i = 0; i < this->index; i++)
     {
         if (this->inventory[i] != nullptr)
@@ -78,10 +77,28 @@ Character :: ~Character()
 //add a materia to the inventory of character
 void Character :: equip(AMateria *m)
 {
+    int flag;
+    flag = 0;
     if (this->index >= 0 && this->index <= 3)
     {
-        this->inventory[this->index++] = m;
-        // std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;
+        for(int i = 0; i < this->index; i++)
+        {
+            if (this->inventory[i] != nullptr)
+            {
+                if (this->inventory[i] == m)
+                {
+                    flag  = 1;
+                    std::cout <<"this Materia is already exist in inventory "<<std::endl;
+                    break;
+                }
+                    
+            }
+        }
+        if (flag == 0)
+        {
+            this->inventory[this->index++] = m;
+            // std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;   
+        }
     }
     // else
     //     std::cout <<"the inventory is full "<<std::endl;
@@ -94,9 +111,15 @@ void Character :: unequip(int idx)
 {
     if (idx >= 0 && idx <= 3)
     {
+        if (this->inventory[idx] != nullptr)
+        {
+            this->inventory[idx] = nullptr;
+            // std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
+        }
         // this->inventory[this->index++] = m;
-        // std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
     }
+    else
+        std::cout <<"this materia is not exist in the inventory"<<std::endl;
 }
 
 //Name_class::name_fct(target);
@@ -124,10 +147,15 @@ std::string const & Character :: getName() const{
 
 void Character :: output_inventory()
 {
-    std::cout<<"Index is "<<this->index<<std::endl;
+    // std::cout<<"Index is "<<this->index<<std::endl;
+    // std::cout <<"OUTPUT THE INVENTORY OF CHARS "<<std::endl;
+    
     for(int i = 0; i < this->index ; i++)
     {
-        std::cout<<"Type is  "<<this->inventory[i]->getType()<<std::endl;
+        if (this->inventory[i] != nullptr)
+        {
+            std::cout<<"Type is  "<<this->inventory[i]->getType()<<std::endl;
+        }
     }
 }
 
