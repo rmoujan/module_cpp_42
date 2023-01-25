@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 09:57:34 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/24 12:31:14 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/25 09:23:30 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Character :: Character(const std::string name)
 
 Character :: Character(const Character &ref){
 
-    // std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
+    std::cout <<"Copy constructor of Character has been invoked"<<std::endl;
     *this=ref;
 }
 
@@ -61,6 +61,7 @@ Character& Character :: operator=(const Character &ref)
                 this->index++;
             }
         }  
+        // std::cout <<"FROOOOOOM CHARACTEEEER"<<std::endl;
     return (*this);
 }
 
@@ -96,12 +97,43 @@ void Character :: equip(AMateria *m)
         }
         if (flag == 0)
         {
-            this->inventory[this->index++] = m;
-            // std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;   
+             this->inventory[this->index++] = m;
+            std::cout <<"A Materia was added to the inventory of Character successfully"<<std::endl;   
         }
     }
-    // else
-    //     std::cout <<"the inventory is full "<<std::endl;
+    //khasni negadha had condition bash negadha mazeeyan
+    else if (this->index == 4)
+    {
+        for(int i = 0; i < this->index; i++)
+        {
+            if (this->inventory[i] == nullptr)
+            {
+                if (this->inventory[i] == m)
+                {
+                    flag  = 1;
+                    std::cout <<"this Materia is already exist in inventory "<<std::endl;
+                    break;
+                }
+                    
+            }
+        }
+        if (flag == 0)
+        {
+            for(int i = 0; i < this->index; i++)
+            {
+                if (this->inventory[i] == nullptr)
+                {
+                        this->inventory[i] = m;
+                        std::cout <<"this Materia is already exist in inventory "<<std::endl;
+                        break;
+                }
+                
+             }
+        }
+    }
+
+    else
+        std::cout <<"the inventory is full "<<std::endl;
 }
 
 void Character :: unequip(int idx)
@@ -111,7 +143,7 @@ void Character :: unequip(int idx)
         if (this->inventory[idx] != nullptr)
         {
             this->inventory[idx] = nullptr;
-            // std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
+                std::cout <<"A Materia was delete from the inventory successfully"<<std::endl;
         }
     }
     else
@@ -127,6 +159,8 @@ void Character :: use(int idx, ICharacter& target)
             this->inventory[idx]->use(target);
             
         }
+        else
+            std::cout <<"this materia is no longer exist in the inventory"<<std::endl;
     }
     else
         std::cout <<"Index out of rang / or this Materia does not exist "<<std::endl;
@@ -139,7 +173,9 @@ std::string const & Character :: getName() const{
 }
 
 void Character :: output_inventory()
-{ 
+{
+    std::cout <<"Index is "<<this->index<<std::endl;
+    std::cout <<"Output From CHAR inventory "<<std::endl;
     for(int i = 0; i < this->index ; i++)
     {
         if (this->inventory[i] != nullptr)

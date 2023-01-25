@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 10:34:37 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/23 16:28:56 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/25 09:23:15 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ICharacter {
     public:
     ICharacter();//default const
     ICharacter(const ICharacter&ref);
-    ICharacter&operator=(const ICharacter&ref);
+    virtual ICharacter&operator=(const ICharacter&ref);
     virtual ~ICharacter();
     //member fctes :
     //pure virtual fctes 

@@ -15,19 +15,19 @@
 
 ICharacter::ICharacter(){
 
-    // std::cout <<"Default constructor of ICharacter has been invoked"<<std::endl;
+    std::cout <<"Default constructor of ICharacter has been invoked"<<std::endl;
     this->name = "ICharacter"; 
 }
 
 ICharacter::ICharacter(const ICharacter &ref){
 
-    // std::cout <<"Copy constructor of ICharacter has been invoked"<<std::endl;
+    std::cout <<"Copy constructor of ICharacter has been invoked"<<std::endl;
     *this=ref;
 }
 
 ICharacter& ICharacter :: operator=(const ICharacter &ref)
 {
-    // std::cout <<"copy assignment operator of ICharacter has been invoked"<<std::endl;
+    std::cout <<"copy assignment operator of ICharacter has been invoked"<<std::endl;
     //no operations to do 
     this->name = ref.name;
     return (*this);
@@ -35,7 +35,7 @@ ICharacter& ICharacter :: operator=(const ICharacter &ref)
 
 ICharacter::~ICharacter()
 {
-    // std::cout <<"Destructor of ICharacter has been invoked"<<std::endl;
+    std::cout <<"Destructor of ICharacter has been invoked"<<std::endl;
 }
 
 // std::string const & ICharacter :: getName() const{
