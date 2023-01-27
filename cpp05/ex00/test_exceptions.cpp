@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test_exceptions.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 13:33:28 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/27 18:07:18 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/01/27 17:51:28 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/01/27 17:53:31 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include <iostream>
 
 int main()
 {
-    Bureaucrat b("reshe", 150);
-    std::cout<<b;
-    b.decrement_grade();
-    std::cout <<"------------------------------------"<<std::endl;
-    std::cout<<b;
-
-
-    return (0);
-}
+    int f = 10;
+    try
+    {
+        // Statements that may throw exceptions you want to handle go here
+        if (f== 10)
+            throw -1; // here's a trivial example
+    }
+    catch (exception e)
+    {
+        std::cout <<e;
+        // Any exceptions of type int thrown within the above try block get sent here
+      
+}}
