@@ -6,12 +6,26 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/27 18:03:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/29 12:05:09 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+
+void Bureaucrat :: throw_exception(int x)
+{
+    if (x < 1 || x > 15)
+        throw x;
+}
+
+void Bureaucrat :: handle_exception(int x)
+{
+    if (x < 1)
+        GradeTooHighException();
+    else if (x > 150)
+        GradeTooLowException();
+}
 
 Bureaucrat::Bureaucrat()
 {
@@ -24,21 +38,12 @@ Bureaucrat::Bureaucrat(std::string const name_v, int value)
 {
     std::cout <<"constructor By Parameter of Bureaucrat has been invoked "<<std::endl;
     this->name = name_v;
-
     try{
-        if (value < 1 || value > 150)
-        {
-  
-                throw value;
-        }
-        else
-            this->grade = value;
+        throw_exception(value);
+        this->grade = value;
     } 
     catch(int x){
-        if (x < 1)
-            GradeTooHighException();
-        else if (x > 150)
-            GradeTooLowException();
+        handle_exception(x);
     }
 }
 
@@ -54,45 +59,26 @@ void Bureaucrat ::increment_grade()
 {
     int result;
     result = this->grade - 1;
-    try
-    {
-        if (result < 1 || result > 150)
-        {
-            throw result;
-        }
-        else
-            this->grade = result;
+    try{
+        throw_exception(result);
+        this->grade = result;
     } 
-    catch(int x)
-    {
-        if (x < 1)
-            GradeTooHighException();
-        else if (x > 150)
-            GradeTooLowException();
-    }
-    
+    catch(int x){
+        handle_exception(x);
+    } 
 }
 
 void Bureaucrat ::decrement_grade()
 {
     int result;
     result = this->grade + 1;
-    try
-    {
-        if (result < 1 || result > 150)
-        {
-            throw result;
-        }
-        else
-            this->grade = result;
+    try{
+        throw_exception(result);
+        this->grade = result;
     } 
-    catch(int x)
-    {
-        if (x < 1)
-            GradeTooHighException();
-        else if (x > 150)
-            GradeTooLowException();
-    }
+    catch(int x){
+        handle_exception(x);
+    } 
 }
 
 Bureaucrat::~Bureaucrat()

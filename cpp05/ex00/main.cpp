@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:28 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/27 18:07:18 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/29 12:07:15 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-    Bureaucrat b("reshe", 150);
+    Bureaucrat b("reshe", 0);
     std::cout<<b;
-    b.decrement_grade();
+    b.increment_grade();
     std::cout <<"------------------------------------"<<std::endl;
     std::cout<<b;
 
