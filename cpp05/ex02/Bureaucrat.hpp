@@ -6,16 +6,15 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/29 15:55:04 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/29 13:22:25 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-
 #include <iostream>
 #include <stdexcept>
-
+#include "Form.hpp"
 class Bureaucrat{
 
     const std::string  name; 
@@ -33,6 +32,7 @@ class Bureaucrat{
     void GradeTooLowException();
     void throw_exception(int x);
     void handle_exception(int x);
+    void signForm(Form & obj);
     
 };
 

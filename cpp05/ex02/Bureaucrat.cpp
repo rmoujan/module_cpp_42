@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/29 12:54:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/29 13:23:33 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,7 @@ std::ostream & operator<<(std::ostream &out, const Bureaucrat &obj)
 {
     out <<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<std::endl;
     return (out);
+}
+void Form  :: signForm(Form & obj){
+    std::cout <<this->getName()<<" signed "<<obj->getName()<<std::endl; 
 }
