@@ -6,71 +6,50 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:57:05 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/29 13:42:51 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 18:38:28 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form :: Form()
+Form :: Form():name("Form"),grade_signed(150),grade_executed(150)
 {
-    std::cout <<"Default Constructor of Form has been invoked" <<std::endl;
+		// std::cout << "\033[92mDefault Constructor of Bureaucrat has been invoked \033[0m"<<std::endl;
+
+    std::cout <<"\033[92mDefault Constructor of Form has been invoked\033[0m" <<std::endl;
     this->status = 0;
+	
 }
 
 Form  :: Form(std::string name_v, int g_s_v, int g_e_v):name(name_v),grade_signed(g_s_v), grade_executed(g_e_v){
-    std::cout <<"Constructor by parameter of Form has been invoked" <<std::endl;
+    std::cout <<"\033[92mConstructor by parameter of Form has been invoked \033[0m" <<std::endl;
     this->status = 0;
-    try{
-        throw_exception(value);
-        this->grade = value;
-    } 
-    catch(int x){
-        handle_exception(x);
-    }
 }
 
-
-
-
-
-
-
-
-void Form :: throw_exception(int x)
+Form :: Form(const Form &ref):name(ref.name),grade_signed(ref.grade_signed), grade_executed(ref.grade_executed)
 {
-    if (x < 1 || x > 15)
-        throw x;
+	std::cout <<"\033[92mconstructor By Copy of Form has been invoked \033[0m"<<std::endl;
+	this->status = ref.status;
 }
 
-void Form :: handle_exception(int x)
+Form & Form :: operator=(const Form & ref)
 {
-    if (x < 1)
-        GradeTooHighException();
-    else if (x > 150)
-        GradeTooLowException();
+	std::cout << "\033[92mCopy  Assignement of Form has been invoked \033[0m"<<std::endl;
+	this->status = ref.status;
+	return (*this);
 }
 
 Form::~Form()
 {
-    std::cout <<"Destructor of Form has been invoked "<<std::endl;
+    std::cout <<"\033[92mDestructor of Form has been invoked \033[0m"<<std::endl;
 }
 
-void Form :: GradeTooHighException()
-{
-    std::cout<<"the grade is less than 1 "<<std::endl;
-}
-
-void Form :: GradeTooLowException()
-{
-    std::cout<<"the grade is more than 150"<<std::endl;
-}
 
 const std::string Form :: getName()const{
     return (this->name);
 }
 
-const int Form :: getSigned_var()const{
+const int Form :: getGradeSigned()const{
     return (this->grade_signed);
 }
 
@@ -78,12 +57,31 @@ const int Form :: getGradeExecuted()const{
     return (this->grade_executed);
 }
 
-void Form :: beSigned(Bureaucrat &obj){
-    
+bool Form :: getStatus()const{
+    return (this->status);
 }
+
+void Form :: beSigned(Bureaucrat &obj){
+
+    try{
+        if (obj.getGrade() <= this->getGradeSigned())
+            this->status = 1;
+        else
+            throw Form :: GradeTooLowException();
+    }
+    catch(std::exception &e){
+        std::cout <<e.what()<<std::endl;
+    }
+}
+
 
 std::ostream & operator<<(std::ostream &out, const Form &obj)
 {
-    out <<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<std::endl;
+	// return ("\033[1;31mgrade is too low\033[0m");
+    out <<"\033[33mForm's Informations :    "<<std::endl;
+	out <<"Form's Name is           "<<obj.getName()<<std::endl;
+	out <<"Form's grade_signed is   "<<obj.getGradeSigned()<<std::endl;
+	out <<"Form's grade_executed is "<<obj.getGradeExecuted()<<std::endl;
+	out <<"Form's status is         "<<obj.getStatus()<<"\033[0m"<<std::endl;
     return (out);
 }

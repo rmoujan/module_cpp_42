@@ -1,10 +1,11 @@
-NAME=EXCEPTION
+NAME=FORM
 CPP=c++
 FALGS= -Wall -Wextra -Werror -std=c++98  #-fsanitize=address
 RM=rm -rf
 
-SRC= Bureaucrat.cpp\
-	 main.cpp\
+SRC=Bureaucrat.cpp\
+	Form.cpp\
+	main.cpp\
 
 OBJ=$(subst .cpp,.o,$(SRC))
 

@@ -6,45 +6,33 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/29 13:23:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 18:50:03 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-
-void Bureaucrat :: throw_exception(int x)
-{
-    if (x < 1 || x > 15)
-        throw x;
-}
-
-void Bureaucrat :: handle_exception(int x)
-{
-    if (x < 1)
-        GradeTooHighException();
-    else if (x > 150)
-        GradeTooLowException();
-}
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat():name("Bureaucrat")
 {
-    std::cout <<"Default constructor of Bureaucrat has been invoked "<<std::endl;
-    // this->name = "Bureaucrat";
+	std::cout << "\033[92mDefault Constructor of Bureaucrat has been invoked \033[0m"<<std::endl;
     this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(std::string const name_v, int value):name(name_v)
 {
-    std::cout <<"constructor By Parameter of Bureaucrat has been invoked "<<std::endl;
-    // this->name = name_v;
-    try{
-        throw_exception(value);
-        this->grade = value;
-    } 
-    catch(int x){
-        handle_exception(x);
-    }
+    std::cout <<"\033[92mconstructor By Parameter of Bureaucrat has been invoked \033[0m"<<std::endl;
+    this->grade = value;
+}
+Bureaucrat::Bureaucrat(const Bureaucrat & ref )
+{
+    std::cout <<"\033[92mconstructor By Copy of Bureaucrat has been invoked \033[0m"<<std::endl;
+    *this = ref;
+}
+Bureaucrat & Bureaucrat ::  operator=(const Bureaucrat& ref){
+	std::cout << "\033[Copy  Assignement of Bureaucrat has been invoked \033[0m"<<std::endl;
+	this->grade = ref.grade;
+	return (*this);
 }
 
 std::string Bureaucrat :: getName()const{
@@ -55,53 +43,61 @@ int Bureaucrat :: getGrade()const{
     return (this->grade);
 }
 
-void Bureaucrat ::increment_grade()
+void Bureaucrat ::decrease_grade()
 {
     int result;
     result = this->grade - 1;
+
     try{
-        throw_exception(result);
-        this->grade = result;
-    } 
-    catch(int x){
-        handle_exception(x);
-    } 
+		if (result < 1 )
+			throw Bureaucrat :: GradeTooHighException();
+		else if (result > 150)
+			throw Bureaucrat :: GradeTooLowException();
+		this->grade = result;
+		std::cout <<"\033[34mthe Grade is incremented successfully\033[0m"<<std::endl;
+    }
+    catch(std::exception &e){
+        std::cout <<"\033[1;31mU cannot incremented the grade cuz \033[0m"<< e.what()<<std::endl;
+    }
 }
 
-void Bureaucrat ::decrement_grade()
+void Bureaucrat ::increase_grade()
 {
     int result;
     result = this->grade + 1;
+
     try{
-        throw_exception(result);
-        this->grade = result;
-    } 
-    catch(int x){
-        handle_exception(x);
-    } 
+		if (result < 1 )
+			throw Bureaucrat :: GradeTooHighException();
+		else if (result > 150)
+			throw Bureaucrat :: GradeTooLowException();
+		this->grade = result;
+		std::cout <<"\033[34mthe Grade is decremented successfully\033[0m"<<std::endl;
+    }
+    catch(std::exception &e){
+        std::cout <<"\033[1;31mU cannot decremented the grade cuz \033[0m"<<e.what()<<std::endl;
+    }
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout <<"Destructor of Bureaucrat has been invoked "<<std::endl;
-}
-
-void Bureaucrat :: GradeTooHighException()
-{
-    std::cout<<"the grade is less than 1 "<<std::endl;
-}
-
-void Bureaucrat :: GradeTooLowException()
-{
-    std::cout<<"the grade is more than 150"<<std::endl;
+    std::cout <<"\033[92mDestructor of Bureaucrat has been invoked \033[0m"<<std::endl;
 }
 
 
 std::ostream & operator<<(std::ostream &out, const Bureaucrat &obj)
 {
-    out <<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<std::endl;
+    out <<"\033[95m"<<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<"\033[0m"<<std::endl;
     return (out);
 }
-void Form  :: signForm(Form & obj){
-    std::cout <<this->getName()<<" signed "<<obj->getName()<<std::endl; 
+
+void Bureaucrat  :: signForm(Form & obj){
+
+    if (obj.getStatus())
+    {
+        std::cout <<"\033[95m"<<this->getName()<<" signed "<<obj.getName()<<"\033[0m"<<std::endl;  
+    }
+    else{
+        std::cout <<"\033[95m"<<this->getName()<<" couldn't sign "<<obj.getName()<<" because its form was not signed \033[0m"<<std::endl;
+    }
 }
