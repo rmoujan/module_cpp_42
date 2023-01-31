@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/29 12:54:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 10:01:16 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ void Bureaucrat :: handle_exception(int x)
 Bureaucrat::Bureaucrat():name("Bureaucrat")
 {
     std::cout <<"Default constructor of Bureaucrat has been invoked "<<std::endl;
-    // this->name = "Bureaucrat";
     this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(std::string const name_v, int value):name(name_v)
 {
     std::cout <<"constructor By Parameter of Bureaucrat has been invoked "<<std::endl;
-    // this->name = name_v;
     try{
         throw_exception(value);
         this->grade = value;
@@ -88,12 +86,12 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat :: GradeTooHighException()
 {
-    std::cout<<"the grade is less than 1 "<<std::endl;
+    std::cout<<"the grade is high than 1 "<<std::endl;
 }
 
 void Bureaucrat :: GradeTooLowException()
 {
-    std::cout<<"the grade is more than 150"<<std::endl;
+    std::cout<<"the grade is low than 150"<<std::endl;
 }
 
 

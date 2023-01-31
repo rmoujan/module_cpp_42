@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:57:05 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 10:19:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/29 13:42:51 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ Form::~Form()
 
 void Form :: GradeTooHighException()
 {
-    std::cout<<"the grade is high "<<std::endl;
+    std::cout<<"the grade is less than 1 "<<std::endl;
 }
 
 void Form :: GradeTooLowException()
 {
-    std::cout<<"the grade is low "<<std::endl;
+    std::cout<<"the grade is more than 150"<<std::endl;
 }
 
 const std::string Form :: getName()const{
@@ -78,24 +78,9 @@ const int Form :: getGradeExecuted()const{
     return (this->grade_executed);
 }
 
-bool Form :: getStatus()const{
-    return (this->status);
-}
-
 void Form :: beSigned(Bureaucrat &obj){
-
-    try{
-        if (obj.getGrade() <= this->getGradeSigned())
-            this->status = 1;
-        else
-            throw 0;
-    }
-    catch(int x)
-    {
-        GradeTooLowException();
-    }
+    
 }
-
 
 std::ostream & operator<<(std::ostream &out, const Form &obj)
 {
