@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 15:35:18 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:42:58 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ class Bureaucrat{
     class GradeTooHighException : public std :: exception{
         public:
         virtual const char* what()const throw(){
-            return ("grade is too high ");
+            return ("\033[31mgrade is too high \033[0m");
         }
     };
     class GradeTooLowException : public std :: exception{
         public:
         virtual const char* what()const throw(){
-            return ("grade is too low");
+            return ("\033[31mgrade is too low\033[0m");
         }
     };  
 };

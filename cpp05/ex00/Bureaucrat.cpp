@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 15:32:50 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:54:26 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 Bureaucrat::Bureaucrat():name("Bureaucrat")
 {
-    std::cout <<"Default constructor of Bureaucrat has been invoked "<<std::endl;
+	    std::cout << "\033[92mDefault Constructor of Bureaucrat has been invoked \033[0m"<<std::endl;
+
     this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(std::string const name_v, int value):name(name_v)
 {
-    std::cout <<"constructor By Parameter of Bureaucrat has been invoked "<<std::endl;
+    std::cout <<"\033[92mconstructor By Parameter of Bureaucrat has been invoked \033[0m"<<std::endl;
     this->grade = value;
 }
 
@@ -43,10 +44,10 @@ void Bureaucrat ::decrease_grade()
 		else if (result > 150)
 			throw Bureaucrat :: GradeTooLowException();
 		this->grade = result;
-		std::cout <<"the Grade is incremented successfully"<<std::endl;
+		std::cout <<"\033[34mthe Grade is incremented successfully\033[0m"<<std::endl;
     }
     catch(std::exception &e){
-        std::cout <<"U cannot incremented the grade cuz "<< e.what()<<std::endl;
+        std::cout <<"\033[31m U cannot incremented the grade cuz \033[0m"<< e.what()<<std::endl;
     }
 }
 
@@ -61,20 +62,20 @@ void Bureaucrat ::increase_grade()
 		else if (result > 150)
 			throw Bureaucrat :: GradeTooLowException();
 		this->grade = result;
-		std::cout <<"the Grade is decremented successfully"<<std::endl;
+		std::cout <<"\033[34mthe Grade is decremented successfully\033[0m"<<std::endl;
     }
     catch(std::exception &e){
-        std::cout <<"U cannot decremented the grade cuz "<<e.what()<<std::endl;
+        std::cout <<"\033[31m U cannot decremented the grade cuz \033[0m"<<e.what()<<std::endl;
     }
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout <<"Destructor of Bureaucrat has been invoked "<<std::endl;
+    std::cout <<"\033[92mDestructor of Bureaucrat has been invoked \033[0m"<<std::endl;
 }
 
 std::ostream & operator<<(std::ostream &out, const Bureaucrat &obj)
 {
-    out <<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<std::endl;
+    out <<"\033[36m "<<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<"\033[0m"<<std::endl;
     return (out);
 }

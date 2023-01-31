@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:28 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 15:37:42 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:55:38 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
     int grade;
 
 	std::cout <<"DAS BEGIN"<<std::endl;
+	std::cout <<"-----------------------------------"<<std::endl;
     try{
 
         std::cout << "Enter your Grade ";
@@ -32,7 +33,7 @@ int main()
 		obj.decrease_grade();
 		obj.increase_grade();
 		std::cout <<"-----------------------------------"<<std::endl;
-		std::cout << "grade is "<<obj.getGrade()<<std::endl;
+		std::cout<<obj<<std::endl;
 		
     }
     catch(std::exception &e){
