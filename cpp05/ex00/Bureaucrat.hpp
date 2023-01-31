@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 09:48:58 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:35:18 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,23 @@ class Bureaucrat{
     std::string getName()const;
     int getGrade()const;
 
-    void increment_grade();
-    void decrement_grade();
-
-    void GradeTooHighException();
-    void GradeTooLowException();
+    void decrease_grade();
+    void increase_grade();
     
-    void throw_exception(int x);0
-    void handle_exception(int x);
-    
+    class GradeTooHighException : public std :: exception{
+        public:
+        virtual const char* what()const throw(){
+            return ("grade is too high ");
+        }
+    };
+    class GradeTooLowException : public std :: exception{
+        public:
+        virtual const char* what()const throw(){
+            return ("grade is too low");
+        }
+    };  
 };
 
 std::ostream& operator <<(std::ostream& out, const Bureaucrat & obj);
-
-
 
 #endif

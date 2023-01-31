@@ -6,26 +6,11 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 10:01:16 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 15:32:50 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-
-void Bureaucrat :: throw_exception(int x)
-{
-    if (x < 1 || x > 15)
-        throw x;
-}
-
-void Bureaucrat :: handle_exception(int x)
-{
-    if (x < 1)
-        GradeTooHighException();
-    else if (x > 150)
-        GradeTooLowException();
-}
 
 Bureaucrat::Bureaucrat():name("Bureaucrat")
 {
@@ -36,13 +21,7 @@ Bureaucrat::Bureaucrat():name("Bureaucrat")
 Bureaucrat::Bureaucrat(std::string const name_v, int value):name(name_v)
 {
     std::cout <<"constructor By Parameter of Bureaucrat has been invoked "<<std::endl;
-    try{
-        throw_exception(value);
-        this->grade = value;
-    } 
-    catch(int x){
-        handle_exception(x);
-    }
+    this->grade = value;
 }
 
 std::string Bureaucrat :: getName()const{
@@ -53,47 +32,46 @@ int Bureaucrat :: getGrade()const{
     return (this->grade);
 }
 
-void Bureaucrat ::increment_grade()
+void Bureaucrat ::decrease_grade()
 {
     int result;
     result = this->grade - 1;
+
     try{
-        throw_exception(result);
-        this->grade = result;
-    } 
-    catch(int x){
-        handle_exception(x);
-    } 
+		if (result < 1 )
+			throw Bureaucrat :: GradeTooHighException();
+		else if (result > 150)
+			throw Bureaucrat :: GradeTooLowException();
+		this->grade = result;
+		std::cout <<"the Grade is incremented successfully"<<std::endl;
+    }
+    catch(std::exception &e){
+        std::cout <<"U cannot incremented the grade cuz "<< e.what()<<std::endl;
+    }
 }
 
-void Bureaucrat ::decrement_grade()
+void Bureaucrat ::increase_grade()
 {
     int result;
     result = this->grade + 1;
+
     try{
-        throw_exception(result);
-        this->grade = result;
-    } 
-    catch(int x){
-        handle_exception(x);
-    } 
+		if (result < 1 )
+			throw Bureaucrat :: GradeTooHighException();
+		else if (result > 150)
+			throw Bureaucrat :: GradeTooLowException();
+		this->grade = result;
+		std::cout <<"the Grade is decremented successfully"<<std::endl;
+    }
+    catch(std::exception &e){
+        std::cout <<"U cannot decremented the grade cuz "<<e.what()<<std::endl;
+    }
 }
 
 Bureaucrat::~Bureaucrat()
 {
     std::cout <<"Destructor of Bureaucrat has been invoked "<<std::endl;
 }
-
-void Bureaucrat :: GradeTooHighException()
-{
-    std::cout<<"the grade is high than 1 "<<std::endl;
-}
-
-void Bureaucrat :: GradeTooLowException()
-{
-    std::cout<<"the grade is low than 150"<<std::endl;
-}
-
 
 std::ostream & operator<<(std::ostream &out, const Bureaucrat &obj)
 {
