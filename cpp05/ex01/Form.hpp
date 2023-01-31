@@ -6,12 +6,15 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:57:03 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 10:07:51 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 17:55:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostram>
+#include <iostream>
+#include <stdexcept>
 #include "Bureaucrat.hpp"
+
+// class Bureaucrat;
 
 class Form{
     
@@ -31,15 +34,21 @@ class Form{
     const int getGradeSigned()const;
     const int getGradeExecuted()const;
     bool  getStatus()const;
-    
+
     void beSigned(Bureaucrat &obj);
-
-    void GradeTooHighException();
-    void GradeTooLowException();
-
-    void throw_exception(int x);
-    void handle_exception(int x);
-    
-}
+	
+    class GradeTooHighException : public std :: exception{
+        public:
+        virtual const char* what()const throw(){
+            return ("\033[31mone of the grades is too high \033[0m");
+        }
+    };
+    class GradeTooLowException : public std :: exception{
+        public:
+        virtual const char* what()const throw(){
+            return ("\033[31m one of the grades is too low\033[0m");
+        }
+    };  
+};
 
 std::ostream& operator <<(std::ostream& out, const Form & obj);

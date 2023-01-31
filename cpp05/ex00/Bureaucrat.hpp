@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 15:42:58 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 16:07:03 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Bureaucrat{
     Bureaucrat();
     Bureaucrat(std::string const name, int range);
     Bureaucrat(const Bureaucrat& ref);
+	Bureaucrat & operator=(const Bureaucrat& ref);
     ~Bureaucrat();
 
     std::string getName()const;

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 15:54:26 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 16:11:02 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 Bureaucrat::Bureaucrat():name("Bureaucrat")
 {
-	    std::cout << "\033[92mDefault Constructor of Bureaucrat has been invoked \033[0m"<<std::endl;
-
+	std::cout << "\033[92mDefault Constructor of Bureaucrat has been invoked \033[0m"<<std::endl;
     this->grade = 150;
 }
 
@@ -23,6 +22,16 @@ Bureaucrat::Bureaucrat(std::string const name_v, int value):name(name_v)
 {
     std::cout <<"\033[92mconstructor By Parameter of Bureaucrat has been invoked \033[0m"<<std::endl;
     this->grade = value;
+}
+Bureaucrat::Bureaucrat(const Bureaucrat & ref )
+{
+    std::cout <<"\033[92mconstructor By Parameter of Bureaucrat has been invoked \033[0m"<<std::endl;
+    *this = ref;
+}
+Bureaucrat & Bureaucrat ::  operator=(const Bureaucrat& ref){
+	std::cout << "\033[Copy  Assignement of Bureaucrat has been invoked \033[0m"<<std::endl;
+	this->grade = ref.grade;
+	return (*this);
 }
 
 std::string Bureaucrat :: getName()const{
