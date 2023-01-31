@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 17:49:47 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 18:50:03 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void Bureaucrat ::decrease_grade()
 		std::cout <<"\033[34mthe Grade is incremented successfully\033[0m"<<std::endl;
     }
     catch(std::exception &e){
-        std::cout <<"\033[31m U cannot incremented the grade cuz \033[0m"<< e.what()<<std::endl;
+        std::cout <<"\033[1;31mU cannot incremented the grade cuz \033[0m"<< e.what()<<std::endl;
     }
 }
 
@@ -75,7 +75,7 @@ void Bureaucrat ::increase_grade()
 		std::cout <<"\033[34mthe Grade is decremented successfully\033[0m"<<std::endl;
     }
     catch(std::exception &e){
-        std::cout <<"\033[31m U cannot decremented the grade cuz \033[0m"<<e.what()<<std::endl;
+        std::cout <<"\033[1;31mU cannot decremented the grade cuz \033[0m"<<e.what()<<std::endl;
     }
 }
 
@@ -87,7 +87,7 @@ Bureaucrat::~Bureaucrat()
 
 std::ostream & operator<<(std::ostream &out, const Bureaucrat &obj)
 {
-    out <<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<std::endl;
+    out <<"\033[95m"<<obj.getName()<<", bureaucrat grade "<<obj.getGrade()<<"\033[0m"<<std::endl;
     return (out);
 }
 
@@ -95,9 +95,9 @@ void Bureaucrat  :: signForm(Form & obj){
 
     if (obj.getStatus())
     {
-        std::cout <<this->getName()<<" signed "<<obj.getName()<<std::endl;  
+        std::cout <<"\033[95m"<<this->getName()<<" signed "<<obj.getName()<<"\033[0m"<<std::endl;  
     }
     else{
-        std::cout <<this->getName()<<" couldn't sign "<<obj.getName()<<" because its form was not signed "<<std::endl;
+        std::cout <<"\033[95m"<<this->getName()<<" couldn't sign "<<obj.getName()<<" because its form was not signed \033[0m"<<std::endl;
     }
 }

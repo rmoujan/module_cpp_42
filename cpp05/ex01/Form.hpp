@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:57:03 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 17:55:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 18:30:16 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ class Form{
     class GradeTooHighException : public std :: exception{
         public:
         virtual const char* what()const throw(){
-            return ("\033[31mone of the grades is too high \033[0m");
+			
+			return ("\033[1;31mone of the grades is too high \033[0m");
+            // return ("\033[31mone of the grades is too high \033[0m");
         }
     };
     class GradeTooLowException : public std :: exception{
         public:
         virtual const char* what()const throw(){
-            return ("\033[31m one of the grades is too low\033[0m");
+            return ("\033[1;31mone of the grades is too low\033[0m");
         }
     };  
 };
