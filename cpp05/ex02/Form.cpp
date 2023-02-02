@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:57:05 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 18:38:28 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:33:52 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ void Form :: beSigned(Bureaucrat &obj){
 
     try{
         if (obj.getGrade() <= this->getGradeSigned())
+		{
             this->status = 1;
+		}
         else
             throw Form :: GradeTooLowException();
     }

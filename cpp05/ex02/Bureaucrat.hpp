@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 18:31:39 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/02 12:37:29 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Bureaucrat{
     void increase_grade();
 	
     void signForm(Form & obj);
-
+	void executeForm(Form const & form);
     class GradeTooHighException : public std :: exception{
         public:
         virtual const char* what()const throw(){

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:33:23 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/31 18:50:03 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/02 15:32:14 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,19 @@ void Bureaucrat  :: signForm(Form & obj){
         std::cout <<"\033[95m"<<this->getName()<<" signed "<<obj.getName()<<"\033[0m"<<std::endl;  
     }
     else{
-        std::cout <<"\033[95m"<<this->getName()<<" couldn't sign "<<obj.getName()<<" because its form was not signed \033[0m"<<std::endl;
+        std::cout <<"\033[95m"<<this->getName()<<" could not sign "<<obj.getName()<<" because his form was not signed \033[0m"<<std::endl;
     }
+}
+
+//??? Im  not surrrrrre !!
+void Bureaucrat :: executeForm(Form const & form){
+	
+	if (form.getStatus() && this->getGrade() <= form.getGradeExecuted())
+	{
+		std::cout <<"\033[95m"<<this->getName()<<" executed  "<<form.getName()<<"\033[0m"<<std::endl;
+	}
+	else
+		std::cout <<"\033[95m"<<this->getName()<<" can not executed  "<<form.getName()<<"\033[0m"<<std::endl;
+			
+	// form->execute(*this);
 }
