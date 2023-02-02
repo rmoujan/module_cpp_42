@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:51:28 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/01/29 11:55:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/01/31 19:14:48 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,25 @@ int AddPositiveIntegers(int a, int b)
 
 int main()
  {
-    try
-    {
-        cout << AddPositiveIntegers(1, 2);
-        cout<<" --------------------- "<<std::endl;
-    }
+    // try
+    // {
+    //     cout << AddPositiveIntegers(1, 2);
+    //     cout<<" --------------------- "<<std::endl;
+    // }
 
-    catch (std::invalid_argument& e)
-    {
-        std::cout <<"catch exceptions "<<std::endl;
-    }
+    // catch (std::invalid_argument& e)
+    // {
+    //     std::cout <<"catch exceptions "<<std::endl;
+    // }
 
 
-        cout <<"AFETR THROWING AN EXCEPTION"<<std::endl;
-        return -1;
-
+    //     cout <<"AFETR THROWING AN EXCEPTION"<<std::endl;
+    //     return -1;
+	char *str = "ShrubberyCreationForm";
+	int i = 0;
+	while (i < strlen(str))
+	{
+printf("%c",toupper(str[i]);
+i++;		
+	}
 }
