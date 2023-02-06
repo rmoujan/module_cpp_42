@@ -6,16 +6,17 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:24:01 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 10:44:36 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:11:35 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef B_HPP
 #define B_HPP
 #include "Base.hpp"
+
 class B : public Base{
-	public :
-	~virtual B();
-}
+	public:
+	 ~B();
+};
 
 #endif

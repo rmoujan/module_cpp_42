@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:24:11 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 10:44:48 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:11:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 #include "Base.hpp"
 
 class C : public Base{
+
 	public:
-	~virtual C();
-}
+	 ~C();
+};
 
 #endif

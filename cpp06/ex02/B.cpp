@@ -6,7 +6,14 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:23:59 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 10:24:00 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:13:37 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "B.hpp"
+
+
+B :: ~B()
+{
+	std::cout <<"Destructor of B has been invoked "<<std::endl;
+}
