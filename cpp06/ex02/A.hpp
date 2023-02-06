@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.hpp                                  :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/04 11:55:53 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 10:22:08 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/02/06 10:23:57 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/02/06 10:44:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZATION_HPP
-#define  SERIALIZATION_HPP
-
-class Serialization{
-
+#ifndef A_HPP
+#define A_HPP
+#include "Base.hpp"
+class A : public Base{
 	public:
-	Serialization ();
-	Serialization (const Serialization & ref);
-	Serialization & operator= (const Serialization & ref);
-	~Serialization ();
-
-	uintptr_t serialize(Data* ptr);
-	Data* deserialize(uintptr_t raw);
+	~virtual A();
 }
-
-
 
 #endif
