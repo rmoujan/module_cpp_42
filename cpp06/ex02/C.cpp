@@ -6,14 +6,9 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:24:09 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 15:13:44 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/08 00:03:41 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "C.hpp"
-
-C :: ~C()
-{
-	std::cout <<"Destructor of C has been invoked "<<std::endl;
-}

@@ -6,13 +6,8 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:23:54 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 14:55:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/08 00:03:22 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "A.hpp"
-
-A :: ~A()
-{
-	std::cout <<"Destructor of A has been invoked "<<std::endl;
-}

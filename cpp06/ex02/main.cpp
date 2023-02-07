@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:45:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/06 15:39:13 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/08 00:00:32 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,7 @@
 
 Base * generate(void)
 {
-	//First method :: 
-	// Base * obj1 = new A();
-	// Base * obj2 = new B();
-	// Base * obj3 = new C();
-	
-	// Base *data[3] = {obj1, obj2, obj3};
-	// int random = (rand() % 2);
-	// return (data[random]);
-	//Second Method ::
+	srand(time(NULL));
 	int random = 1 + (rand() % 3);
 	std::cout <<"random is " <<random<<std::endl;
 	if (random == 1)
@@ -47,6 +39,7 @@ Base * generate(void)
 
 void identify(Base* p)
 {
+	std::cout <<"From Identify By Pointer" <<std::endl;
 	A *obj1 = dynamic_cast<A*>(p);
 	B *obj2 = dynamic_cast<B*>(p);
 	C *obj3 = dynamic_cast<C*>(p);
@@ -60,15 +53,36 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	
+	std::cout <<"From Identify By Reference " <<std::endl;
+	try{
+		
+		A &obj1 = dynamic_cast<A &>(p);
+		std::cout <<"the type of p is A "<<std::endl;
+	}
+	catch(std::bad_cast &bc)
+	{
+	}
+	try{
+		B &obj2 = dynamic_cast<B &>(p);
+		std::cout <<"the type of p is B "<<std::endl;
+	}
+	catch(std::bad_cast &bc)
+	{
+	}
+	try{
+		C &obj3 = dynamic_cast<C &>(p);
+		std::cout <<"the type of p is C "<<std::endl;
+	}
+	catch(std::bad_cast &bc)
+	{
+	}
+
 }
 
 int main()
 {
-	// int random = rand() % 2;
-	
-	// std::cout <<random;
 	Base *result = generate();
+	identify(*result);
 	identify(result);
 	return (0);
 }

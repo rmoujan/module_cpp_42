@@ -1,9 +1,8 @@
-NAME=CONVERSION_SCALAR
+NAME=reinterpret_cast
 CPP=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 rm=rm-rf
-SRC=main.cpp\
-	ScalarConversion.cpp\
+SRC= Data.cpp\
 
 OBJ=$(subst .cpp,.o,$(SRC))
 
