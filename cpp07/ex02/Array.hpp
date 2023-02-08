@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 22:36:41 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/08 14:38:22 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/08 15:41:05 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ class Array {
 
 
    public:
+       class OutOfBounds : public std :: exception{
+        public:
+        virtual const char* what()const throw(){
+            return ("\033[1;31mOUT OF RANGE \033[0m");
+        }
+    };
 	Array()
 	{
 		data = new T();
@@ -76,21 +82,52 @@ class Array {
 	{
 		return (sizearr);
 	}
-	void getElement(int index)
+	T & operator[](int index)
 	{
-		std::cout <<sizearr<<std::endl;
 		try{
 			if (index < 0 || index >= sizearr )
 			{
-				throw (-1);
+				throw OutOfBounds();
 			}
-			std::cout <<" ELEMENT IS = "<<data[index]<<std::endl;
+			return (data[index]);
 		}
-		catch (int code)
+		catch (std::exception &e)
 		{
-			std::cout <<"OUT OF RANGE "<<std::endl;
+			std::cout <<e.what()<<std::endl;
+			exit(0);
 		}
 	}
+
+	// void getElement(int index)
+	// {
+	// 	std::cout <<sizearr<<std::endl;
+	// 	try{
+	// 		if (index < 0 || index >= sizearr )
+	// 		{
+	// 			throw OutOfBounds();
+	// 		}
+	// 		std::cout <<" ELEMENT IS = "<<data[index]<<std::endl;
+	// 	}
+	// 	catch (std::exception &e)
+	// 	{
+	// 		std::cout <<e.what()<<std::endl;
+	// 	}
+	// }
+	// void setElement(int index, T value)
+	// {
+	// 	std::cout <<sizearr<<std::endl;
+	// 	try{
+	// 		if (index < 0 || index >= sizearr )
+	// 		{
+	// 			throw OutOfBounds();
+	// 		}
+	// 		data[index]  = value;
+	// 	}
+	// 	catch (std::exception &e)
+	// 	{
+	// 		std::cout <<e.what()<<std::endl;
+	// 	}
+	// }
 };
 
 
