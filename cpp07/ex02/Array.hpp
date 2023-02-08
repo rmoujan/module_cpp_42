@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 22:36:41 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/08 15:41:05 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/08 16:04:24 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 #include <iostream>
 template <class T>
+
 class Array {
     T *data;
 	int sizearr;
 
-
-   public:
+	public:
        class OutOfBounds : public std :: exception{
         public:
         virtual const char* what()const throw(){
@@ -31,7 +31,7 @@ class Array {
 	{
 		data = new T();
 		sizearr = 0;
-		std::cout <<"default const "<<std::endl;
+		std::cout <<"Default constructor of Array has been invoked"<<std::endl;
 	
 	}
 	Array(unsigned int n)
@@ -40,30 +40,32 @@ class Array {
 		unsigned int i;
 		for(i = 0; i < n ; i++)
 		{
-			data[i] = 5;
+			data[i] = 1;
 		}
 		data[i] = '\0';
 		sizearr = n;
-		std::cout <<" const by param "<<std::endl;
+		std::cout <<"Constructor by Prameter of Array has been invoked"<<std::endl;
 	}
 	Array(const Array & ref)
 	{
 		*this= ref;
-		std::cout <<"copy const"<<std::endl;
+		std::cout <<"Constructor by Copy of Array has been invoked"<<std::endl;
 	}
 	
 	Array& operator=(const Array & ref)
 	{
-		// this->size =  ref.size;
 		this->data = new T[ref.sizearr];
 		int i = 0;
-		while (ref.data[i])
-		{
-			data[i] = ref.data[i];
-			i++;
-		}
-		data[i] = '\0';
-		std::cout <<"copy assignement "<<std::endl;
+		// if (ref.data)
+		// {
+			while (ref.data[i])
+			{
+				data[i] = ref.data[i];
+				i++;
+			}
+			data[i] = '\0';
+		// }
+		std::cout <<"Copy Assignement Operator of Array has been invoked"<<std::endl;
 		sizearr = ref.sizearr;
 		return (*this);
 	}
@@ -72,16 +74,19 @@ class Array {
 	void output()
 	{
 		int i = 0;
+		std::cout <<"FROM OUTPUT "<<std::endl;
 		while (data[i] != '\0')
 		{
 			std::cout <<data[i]<<std::endl;
 			i++;
 		}
 	}
-	int size()
+	
+	int size()const 
 	{
 		return (sizearr);
 	}
+	
 	T & operator[](int index)
 	{
 		try{
@@ -94,40 +99,9 @@ class Array {
 		catch (std::exception &e)
 		{
 			std::cout <<e.what()<<std::endl;
-			exit(0);
+			return (data[index]);
 		}
 	}
-
-	// void getElement(int index)
-	// {
-	// 	std::cout <<sizearr<<std::endl;
-	// 	try{
-	// 		if (index < 0 || index >= sizearr )
-	// 		{
-	// 			throw OutOfBounds();
-	// 		}
-	// 		std::cout <<" ELEMENT IS = "<<data[index]<<std::endl;
-	// 	}
-	// 	catch (std::exception &e)
-	// 	{
-	// 		std::cout <<e.what()<<std::endl;
-	// 	}
-	// }
-	// void setElement(int index, T value)
-	// {
-	// 	std::cout <<sizearr<<std::endl;
-	// 	try{
-	// 		if (index < 0 || index >= sizearr )
-	// 		{
-	// 			throw OutOfBounds();
-	// 		}
-	// 		data[index]  = value;
-	// 	}
-	// 	catch (std::exception &e)
-	// 	{
-	// 		std::cout <<e.what()<<std::endl;
-	// 	}
-	// }
 };
 
 
