@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 22:36:41 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/08 16:04:24 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/08 18:50:25 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,35 +36,28 @@ class Array {
 	}
 	Array(unsigned int n)
 	{
-		data = new T[n + 1];
-		unsigned int i;
-		for(i = 0; i < n ; i++)
-		{
-			data[i] = 1;
-		}
-		data[i] = '\0';
+		data = new T[n]();
 		sizearr = n;
 		std::cout <<"Constructor by Prameter of Array has been invoked"<<std::endl;
 	}
 	Array(const Array & ref)
 	{
+		data = NULL;
 		*this= ref;
 		std::cout <<"Constructor by Copy of Array has been invoked"<<std::endl;
 	}
 	
 	Array& operator=(const Array & ref)
 	{
+		if (this->data)
+			delete [] data;
 		this->data = new T[ref.sizearr];
 		int i = 0;
-		// if (ref.data)
-		// {
-			while (ref.data[i])
-			{
-				data[i] = ref.data[i];
-				i++;
-			}
-			data[i] = '\0';
-		// }
+		while (i < ref.sizearr)
+		{
+			data[i] = ref.data[i];
+			i++;
+		}
 		std::cout <<"Copy Assignement Operator of Array has been invoked"<<std::endl;
 		sizearr = ref.sizearr;
 		return (*this);
@@ -74,8 +67,7 @@ class Array {
 	void output()
 	{
 		int i = 0;
-		std::cout <<"FROM OUTPUT "<<std::endl;
-		while (data[i] != '\0')
+		while (data[i] < sizearr)
 		{
 			std::cout <<data[i]<<std::endl;
 			i++;
@@ -102,8 +94,10 @@ class Array {
 			return (data[index]);
 		}
 	}
+	~Array()
+	{
+		delete [] data;
+	}
 };
-
-
 
 #endif
