@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:21:32 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/02/10 17:49:49 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/02/10 21:10:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void Span :: addNumber(int elm)
 void Span :: output()
 {
 	std::cout <<"\nVectors ' Elements are : "<< std::endl;
-    for (int count=0; count < data.size(); ++count)
+    for (unsigned int count=0; count < data.size(); ++count)
         std::cout <<data[count] <<"  ";
 	std::cout<<std::endl;
 }
@@ -43,20 +43,23 @@ void Span :: output()
 int Span :: shortestSpan()
 {
 	int min;
-	int j;
+
 	try{
 		if (data.size() == 0 || data.size() == 1)
 			throw emptySpan();
 		std::sort(data.begin(),data.end());
 		min = data[1] - data[0];
-		for (int i = 0; i <(data.size() - 1); i++)
+		std::vector<int>::iterator ptr ;
+		std::vector<int>::iterator p ;
+		
+		for (ptr = data.begin(); ptr != (data.end() - 1); ptr++)
 		{
-			j = i + 1;
-			if ((data[j] - data[i]) <= min)
-				min = (data[j] - data[i]);
+			p = ptr + 1;
+			if (((*p) - *ptr) <= min)
+				min = ((*p) - *ptr);
 		}
+		
 		return (min);
-
 	}
 	catch(std::exception & e)
 	{
@@ -73,9 +76,8 @@ int Span :: longestSpan()
 		if (data.size() == 0 || data.size() == 1)
 			throw emptySpan();
 		std::sort(data.begin(),data.end());
-		max = data[data.size() - 1] - data[0];
+		max = *(data.end() - 1) - (*data.begin());
 		return (max);
-
 	}
 	catch(std::exception & e)
 	{
@@ -88,7 +90,7 @@ void Span :: addNumbersOnce(int arr[], int len)
 {
 	int add;
 	try{
-		if (data.size() < size )
+		if (data.size() < size)
 		{
 			add = size - data.size();
 			if (add < len)
