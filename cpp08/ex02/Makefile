@@ -1,4 +1,4 @@
-NAME=SPAN
+NAME=STACK
 CPP=clang++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 rm=rm-rf
