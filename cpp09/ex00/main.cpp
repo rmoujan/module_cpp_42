@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/16 11:24:14 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/16 12:59:36 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void ft_errno(int code) {
 
 int main(int argc, char *argv[]) {
 	// u must declare a database here and put into it the data:
-	std::string	  data;
+	std::string data;
+
 	std::ifstream infile;
 	infile.open("data.csv");
 	std::cout << "**************  ***** **** Reading from the file" << std::endl;
