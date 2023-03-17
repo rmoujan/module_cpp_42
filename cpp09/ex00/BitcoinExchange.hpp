@@ -16,11 +16,15 @@
 #include <iostream>
 
 class BitcoinExchange {
+	//ITHINK IM GONNA DECLARE A DOUBLE VECTOR THAT WILL CONTAINS THE DATA OF THE INPUT FILE 
   public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange &obj);
 	BitcoinExchange &operator=(const BitcoinExchange &obj);
 	~BitcoinExchange();
+	void output();
+
 };
 
 #endif
+

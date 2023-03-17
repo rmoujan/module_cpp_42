@@ -22,18 +22,21 @@ void ft_errno(int code) {
 }
 
 int main(int argc, char *argv[]) {
+
 	// u must declare a database here and put into it the data:
+	//	this database is as vector 2-D 
 	std::string data;
 
 	std::ifstream infile;
 	infile.open("data.csv");
 	std::cout << "**************  ***** **** Reading from the file" << std::endl;
-	// (infile >> data);
-	// std::cout << data << std::endl;
-	// (infile >> data);
-	// std::cout << data << std::endl;
+	map<string,string >base;
+	
 	while ((infile >> data))
+	{
+
 		std::cout << data << std::endl;
+	}
 	if (argc >= 2) {
 		// DO THE WORK
 		(void)argv[0];
