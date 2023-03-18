@@ -1,4 +1,4 @@
-/* ************************************************************************** */
++ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
@@ -12,7 +12,7 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange ::BitcoinExchange() {
+	BitcoinExchange ::BitcoinExchange() {
 	std::cout << "Default constructor of BitcoinExchange has been invoked " << std::endl;
 }
 
