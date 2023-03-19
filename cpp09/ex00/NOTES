@@ -1,0 +1,13 @@
+*** ABOUT EX00 ***
+1- ERROR HANDLING OF INPUT FILE:
+**THIS BEFORE SEND THE FILE TO CLASS
+A-CHEAK IF THE FIL EXIST
+B-CHEAK IF THE FILE IS NOT EMPTY
+
+**THIS AFETR SEND THE FILE TO CLASS :
+
+C-• Each line in this file must use the following format: "date | value".
+D-• A valid date will always be in the following format: Year-Month-Day.
+E-• A valid value must be either a float or a positive integer between 0 and 1000.
+
+
