@@ -1,4 +1,4 @@
-date | value
+date | value | koko
 2011-01-03 | 3
 2011-01-03 | 2
 

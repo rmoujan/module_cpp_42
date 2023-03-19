@@ -7,24 +7,50 @@
 using namespace std;
 
 int main() {
-	string fname;
-	cout << "Enter the file name: ";
-	cin >> fname;
-	string line, word;
+	// string fname;
+	// cout << "Enter the file name: ";
+	// cin >> fname;
+	// string line, word;
 
-	fstream file(fname, ios::in);
-	if (file.is_open()) {
-		while (getline(file, line)) {
+	// fstream file(fname, ios::in);
+	// if (file.is_open()) {
+	// 	while (getline(file, line)) {
 
-			stringstream str(line);
-			cout << "Line is " << line << endl;
-			while (getline(str, word, ',')) {
-				cout << "  word is " << word;
-				// cout << "  str is " << line << std::endl;
-			}
-			cout << endl;
-		}
+	// 		stringstream str(line);
+	// 		// cout << "Line is |" << line <<"|"<<endl;
+	// 			// std::cout <<getline(str, word, '|');
+	// 		getline(str, word, '|');
+	// 		cout << "  word is |" << word <<"|"<<endl;
+	// 		getline(str, word, '|');
+	// 		cout << "  word is |" << word <<"|"<<endl;
+	// 			// cout << "  str is " << line << std::endl;
+			
+	// 		cout << endl;
+	// 	}
+	// }
+	std::string word = "2011-01-03-78";
+	std::stringstream str(word);
+	std::string result;
+	int count = 0;
+	while (getline(str, result, '-'))
+	{
+		count++;
 	}
+	
+	cout<<"str is "<<count;
+//   std::string food = "hallo world 2023";
+//   std::cout << food.find("o")<<endl;
+// //   if (food.find("|") == 18446744073709551615)
+// if (food.find("h") == string::npos)
+// 		cout <<" NOT FOUND "<<endl;
+	// std::string s = "Year-Month-Day-";
+  	// size_t n = std::count(s.begin(), s.end(), '-');
+	// cout<<n;
+
+	// cout << isdigit('q');
+		// cout <<"ok";
+
+
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:24 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/19 00:30:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/19 16:56:08 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class BitcoinExchange {
 	void							   output_data(std::string file);
 
   private:
+	int check_format_line(std::string data);
 	void file_process(std::string filee);
 	void check_error(std::string line);
 };
