@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/20 02:48:44 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/20 03:40:05 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,12 +193,13 @@ void BitcoinExchange :: output_data(std::string filee, std::map<std::string, std
 	// fill the file into the base , cheak each line is correct, do the calcul then output
 	std::ifstream infile;
 	std::string	  data, key;
+	std::map<std::string, std::string>::iterator it;	
 	float value;
 	// float number;
 	infile.open(filee);
 	//data contain the whole line 
 	while (getline(infile, data)) {
-		std::cout <<data<<std::endl;
+		// std::cout <<data<<std::endl;
 		// std::cout<<std::endl;
 		if (check_format_line(data) == 0)
 		{
@@ -211,8 +212,27 @@ void BitcoinExchange :: output_data(std::string filee, std::map<std::string, std
 			continue;
 		}
 		//starting calcul :
-		std::cout <<key<<" => "<<value<<" = "<<
-		std::cout <<"key is |"<<key<<"|"<<" and value is |"<<value<<"|"<<std::endl;
+		// it = base.find(key);
+		// if(it == base.end())
+		// {
+			// it = std::lower_bound (base.begin(), base.end(), key);
+			it = base.lower_bound(key);
+			// std::cout <<"+key is "<<key<<" and first is "<<it->first<<"+"<<std::endl;
+			float rate = 0;
+			std::stringstream object;
+    		object << it->second;
+    		object >> rate;
+			std::cout <<key<<" => "<<value<<" = "<<(rate*value)<<std::endl;
+		// }
+        // else
+		// {
+		// 	float rate = 0;
+		// 	std::stringstream object;
+    	// 	object << it->second;
+    	// 	object >> rate;
+		// 	std::cout <<key<<" => "<<value<<" = "<<(rate*value)<<std::endl;
+		// }
+		// std::cout <<"key is |"<<key<<"|"<<" and value is |"<<value<<"|"<<std::endl;
 		// base.insert(std::pair<std::string, float>(key, value));
 		//hena fash khaski diri process !!!!
 	}
