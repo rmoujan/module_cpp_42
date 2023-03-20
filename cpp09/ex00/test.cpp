@@ -66,18 +66,47 @@ using namespace std;
 int main() {
 
 
-	std::string year = "09";
-	// std::cout <<year.length();
+	// std::string year = "09        ";
+	// std::string result;
+	// // std::cout <<year.length();
 
-    int number = 0;
+    // int number = 0;
 
-	// if (year.lenght() != 4)
-	// 	return (0);
-    stringstream object;
-    object << year;
-    object >> number;
-	cout <<"number is "<<number<<endl;
-	if (number < 1 || number > 12)
-		cout <<number;
+	// // if (year.lenght() != 4)
+	// // 	return (0);
+    // stringstream object;
+    // object << year;
+    // object >> number;
+	// cout <<"number is "<<number<<endl;
+	// if (number < 1 || number > 12)
+	// 	cout <<number;
+	// std::stringstream str(year);
+	// getline(str, result, ' ');
+	// cout <<"|"<<result<<"|";
 
+	    
+    // Takes only space separated C++ strings.
+	// std::string year = "          02         ";
+	// int number;
+    // stringstream ss(year);
+    // string word;
+    // while (ss >> word) { // Extract word from the stream.
+    //     cout <<"|"<<word<<"|";
+    // }
+
+	// std::stringstream ss(data);
+	// std::stringstream object;
+    // object << year;
+    // object >> number;
+    // cout <<"|"<<number<<"|";
+	// std::string data = " 02a";
+	// if (!isdigit(data[data.length() - 1]))
+	// 	cout <<"error"<<data[data.length() - 1];
+	std::string data ="390.57";
+	float value;
+	std::stringstream object;
+    object << data;
+    object >> value;
+	std::cout<<"value is "<<value;
+	
 }

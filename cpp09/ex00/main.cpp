@@ -6,11 +6,11 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/19 01:07:01 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/20 00:53:33 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "BitcoinExchange.hpp"
+#include "BitcoinExchange.hpp"
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -18,11 +18,11 @@
 #include <string>
 #include <vector>
 
-void ft_errno(int code) {
+void ft_errnoo(int code) {
 	if (code == 1) {
 		std::cout << "ERROR: COULD NOT OPEN FILE" << std::endl;
 	} else if (code == 2) {
-		std::cout << "ERROR: Database HAS WRONG FORMAT OF DATA" << std::endl;
+		std::cout << "ERROR: WRONG FORMAT OF DATA" << std::endl;
 	} else if (code == 3) {
 		std::cout << "ERROR: FILE IS EMPTY" << std::endl;
 	} else if (code == 4) {
@@ -40,7 +40,7 @@ void calcul_komma(std::string data) {
 	while (std::getline(str, key, ','))
 		count++;
 	if (count != 2)
-		ft_errno(2);
+		ft_errnoo(2);
 }
 
 // using namespace std;
@@ -53,10 +53,10 @@ void creating_database(std::map<std::string, std::string> &base) {
 
 	infile.open("data.csv");
 	if (infile == 0)
-		ft_errno(1);
+		ft_errnoo(1);
 	infile >> data;
 	if (data.empty())
-		ft_errno(3);
+		ft_errnoo(3);
 	while ((infile >> data)) {
 		// std::cout << data << std::endl;
 		// calcul_komma(data);
@@ -65,7 +65,7 @@ void creating_database(std::map<std::string, std::string> &base) {
 		std::getline(str, value, ',');
 		// std::cout << "key is " << key << " and value is |" << value << "|" << std::endl;
 		// if (key.empty() || value.empty()) {
-		// 	ft_errno(2);
+		// 	ft_errnoo(2);
 		// }
 		base.insert(std::pair<std::string, std::string>(key, value));
 	}
@@ -74,17 +74,24 @@ void creating_database(std::map<std::string, std::string> &base) {
 // cheak file, handle error and put the data into a container map
 // take the line , cheak is | exist and cheak format of date(I think 7eta tbghi t outputi)
 // f had cheak, chaeki ghi wash kayna | f line
-void cheak_file(char *filee) {
+int cheak_file(char *filee) {
 
 	std::ifstream infile;
-	std::string	  data, key, value;
+	std::string	  data;
 
 	infile.open(filee);
 	if (infile == 0)
-		ft_errno(1);
+	{
+		ft_errnoo(1);
+		return (0);
+	}
 	infile >> data;
 	if (data.empty())
-		ft_errno(3);
+	{
+		ft_errnoo(3);
+		return (0);
+	}
+	return (1);
 	// had partie andirha f cheak d file , 7it i7timal delimiter maykonsh |
 	// 7it khaski tejibii line , chekiha then dir operation
 	// while ((infile >> data)) {
@@ -99,26 +106,22 @@ void cheak_file(char *filee) {
 int main(int argc, char *argv[]) {
 
 	// std::map<std::string, std::string> base;
-	std::map<std::string, std::string> base;
+	// std::map<std::string, std::string> base;
 	// std::map<std::string, std::string> input;
 	if (argc == 2) {
-		creating_database(base);
+		// creating_database(base);
 		// std::cout << "OUTPUT MAP " << std::endl;
 		// for (auto itr = base.begin();
 		// 	 itr != base.end(); ++itr) {
 		// 	std::cout << itr->first << '\t'
 		// 			  << itr->second << '\n';
 		// }
-		cheak_file(argv[1]);
-
-		// std::cout << "OUTPUT MAP of input file " << std::endl;
-		// for (auto itr = input.begin();
-		// 	 itr != input.end(); ++itr) {
-		// 	std::cout << itr->first << '\t'
-		// 			  << itr->second << '\n';
-		// }
+		if (!cheak_file(argv[1]))
+			return (0);
+		BitcoinExchange obj;
+		obj.output_data(argv[1]);
 		return (0);
 	}
-	ft_errno(4);
+	ft_errnoo(4);
 	return (0);
 }

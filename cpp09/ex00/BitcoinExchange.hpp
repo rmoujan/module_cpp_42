@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:24 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/19 16:56:08 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/20 00:44:32 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ class BitcoinExchange {
 	~BitcoinExchange();
 	// void							   setBase();		// to set the object a map
 	std::map<std::string, std::string> getBase() const; // to return the map
-	void							   output_data(std::string file);
-
-  private:
-	int check_format_line(std::string data);
-	void file_process(std::string filee);
-	void check_error(std::string line);
+	// void							   output_data(std::string file);
+	void							output_data(std::string filee) ;
+//   private:
+// 	int check_format_line(std::string data);
+// 	void file_process(std::string filee);
+// 	void check_error(std::string line);
+// 	void ft_errno(int code);
 };
 
 #endif
