@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/20 01:01:14 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/20 02:48:44 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,9 +153,14 @@ int check_second(std::string data, float& value)
 	//check is the first char is space, if not return error
 	if (data[0] != ' ')
 		return (0);
+	//Must be one comma or nothing :
+	if (std::count(data.begin(), data.end(), ',') > 1)
+		return (0);
 	//check is the last char is not a digit, return error
 	else if(!isdigit(data[data.length() - 1]))
 		return (0);
+	//replace comma with point :
+	std::replace(data.begin(), data.end(), ',', '.');
 	std::stringstream object;
     object << data;
     object >> value;
@@ -183,7 +188,7 @@ int  check_date(std::string data, std::string& key, float& value)
 	return (1);	
 }
 
-void BitcoinExchange :: output_data(std::string filee) {
+void BitcoinExchange :: output_data(std::string filee, std::map<std::string, std::string> base) {
 
 	// fill the file into the base , cheak each line is correct, do the calcul then output
 	std::ifstream infile;
@@ -205,17 +210,11 @@ void BitcoinExchange :: output_data(std::string filee) {
 			// ft_errno(1);
 			continue;
 		}
-		// //te9deri mat inseri walo f database !!!
+		//starting calcul :
+		std::cout <<key<<" => "<<value<<" = "<<
 		std::cout <<"key is |"<<key<<"|"<<" and value is |"<<value<<"|"<<std::endl;
 		// base.insert(std::pair<std::string, float>(key, value));
 		//hena fash khaski diri process !!!!
 	}
-
-	// std::cout << "OUTPUT MAP of input file " << std::endl;
-	// for (auto itr = base.begin();
-	// 	 itr != base.end(); ++itr) {
-	// 	std::cout << itr->first << '\t'
-	// 			  << itr->second << '\n';
-	// }
 }
 

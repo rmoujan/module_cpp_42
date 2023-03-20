@@ -102,11 +102,18 @@ int main() {
 	// std::string data = " 02a";
 	// if (!isdigit(data[data.length() - 1]))
 	// 	cout <<"error"<<data[data.length() - 1];
-	std::string data ="390.57";
-	float value;
-	std::stringstream object;
-    object << data;
-    object >> value;
-	std::cout<<"value is "<<value;
-	
+	// std::string data ="390.57";
+	// float value;
+	// std::stringstream object;
+    // object << data;
+    // object >> value;
+	// std::cout<<"value is "<<value;
+
+   string str = "apple banana";
+   char search = '.';
+   char replacement = ',';
+ 
+   replace(str.begin(), str.end(), search, replacement);
+   cout << str;
+
 }

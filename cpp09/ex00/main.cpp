@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:26 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/20 00:53:33 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/20 02:48:02 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,11 @@ int cheak_file(char *filee) {
 
 int main(int argc, char *argv[]) {
 
-	// std::map<std::string, std::string> base;
+	std::map<std::string, std::string> base;
 	// std::map<std::string, std::string> base;
 	// std::map<std::string, std::string> input;
 	if (argc == 2) {
-		// creating_database(base);
+		creating_database(base);
 		// std::cout << "OUTPUT MAP " << std::endl;
 		// for (auto itr = base.begin();
 		// 	 itr != base.end(); ++itr) {
@@ -119,7 +119,7 @@ int main(int argc, char *argv[]) {
 		if (!cheak_file(argv[1]))
 			return (0);
 		BitcoinExchange obj;
-		obj.output_data(argv[1]);
+		obj.output_data(argv[1], base);
 		return (0);
 	}
 	ft_errnoo(4);
