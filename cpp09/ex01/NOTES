@@ -1,0 +1,9 @@
+Algorithme d'évaluation de suffixe
+Nous allons maintenant examiner l'algorithme sur la façon d'évaluer la notation postfixée -
+
+Étape 1 - scannez l'expression de gauche à droite
+Étape 2 - si c'est un opérande, poussez-le pour empiler
+Étape 3 - s'il s'agit d'un opérateur, tirez l'opérande de la pile et effectuez l'opération
+Étape 4 - stocker la sortie de l'étape 3, retour à la pile
+Étape 5 - analysez l'expression jusqu'à ce que tous les opérandes soient consommés
+Étape 6 - pop la pile et effectuer l'opération
