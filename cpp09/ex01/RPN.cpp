@@ -6,30 +6,11 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:38:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/21 02:26:08 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/21 04:15:04 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
-RPN :: RPN() {
-	// std::cout << "Default constructor of RPN has been invoked " << std::endl;
-}
-
-RPN :: RPN(const RPN &obj) {
-	std::cout << "Copy constructor of RPN has been invoked " << std::endl;
-	*this = obj;
-}
-
-RPN &RPN :: operator=(const RPN &obj) {
-
-	std::cout << "Copy assignment operator of RPN has been invoked " << std::endl;
-	return (*this);
-}
-
-RPN :: ~RPN() {
-	// std::cout << "Destructor of RPN has been invoked " << std::endl;
-}
 
 int valid_chars(char c)
 {
@@ -113,7 +94,7 @@ int valid_syntaxe(std:: string data)
     return (1);
 }
 
-void RPN :: calcul(std:: string data)
+void calcul(std:: string data)
 {
     std::stack<int> numbers;
     int n;
@@ -158,5 +139,4 @@ void RPN :: calcul(std:: string data)
     std::cout <<"Result is "<<numbers.top()<<std::endl;
         numbers.pop();
     }
-    // std::cout<<std::endl;
 }
