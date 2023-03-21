@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 20:38:15 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/20 20:53:57 by rmoujan          ###   ########.fr       */
+/*   Created: 2023/03/20 22:22:16 by rmoujan           #+#    #+#             */
+/*   Updated: 2023/03/20 22:27:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-int main(int argc, char *argv[])
+int main()
 {
-
-    if (argc > 1)
-    {
-        // if (argv[1][0] != '"')
-        // {
-        //     std::cout<<"ERROR : put your input inside double quotes "<<std::endl;
-        //     exit(0);
-        // }
-        RPN obj;
-        obj.calcul(argv[1]);
-        return (0);
+	std::stack<int> numbers;
+	int a,b;
+	numbers.push(10);
+	// numbers.push(3);
+	// numbers.push(4);
+	while (!numbers.empty())
+	{
+    	a = numbers.top();
+		std::cout <<"a is "<<a<<std::endl;
+    	numbers.pop();
+		// std::cout <<"CHECK "<<numbers.empty()<<std::endl;
+		if (!numbers.empty())
+		{
+			b = numbers.top();
+			std::cout <<"b is "<<b<<std::endl;
+			numbers.pop();
+		}
     }
-    std::cout <<" PLEASE ENTER AN INPUT "<<std::endl;
-    return (0);
 }
