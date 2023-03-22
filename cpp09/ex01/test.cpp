@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 22:22:16 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/20 22:27:57 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/22 14:46:13 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,11 @@
 
 int main()
 {
-	std::stack<int> numbers;
-	int a,b;
-	numbers.push(10);
-	// numbers.push(3);
-	// numbers.push(4);
-	while (!numbers.empty())
-	{
-    	a = numbers.top();
-		std::cout <<"a is "<<a<<std::endl;
-    	numbers.pop();
-		// std::cout <<"CHECK "<<numbers.empty()<<std::endl;
-		if (!numbers.empty())
-		{
-			b = numbers.top();
-			std::cout <<"b is "<<b<<std::endl;
-			numbers.pop();
-		}
+
+	std::istringstream my_stream("1 2 * / ");
+    char c;
+    while (my_stream) {
+        my_stream >> c;
+		std::cout <<"|"<<c<<"|"<<std::endl;
     }
 }
