@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:38:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/22 12:33:19 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/22 14:19:02 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void calcul(std::stack<int> &mystack, char c)
 	a = mystack.top();
 	mystack.pop();
 	b = mystack.top();
+	mystack.pop();
+	std::cout <<"a is "<<a <<" and b is "<<b<<std::endl;
 	if (b == 0)
 	{
 		std::cout << "DIVISON BY ZERO"<<std::endl;
@@ -53,7 +55,7 @@ void calcul(std::stack<int> &mystack, char c)
 	}
 	else
 	{
-		int result=	get_result(c, a, b);
+		int result=	get_result(c, b, a);
 		mystack.push(result);
 	}
 		
@@ -66,15 +68,18 @@ void process(std::string data)
 	std::stack<int> mystack;
 	char c;
 	int n;
-
+	// int i = 0;
     while (integer_stream || char_stream) {
 		integer_stream >> n;
 		char_stream >> c;
 		if (integer_stream == 0 && char_stream == 0)
+		{
+			std::cout <<"BREAK"<<std::endl;
 			break;
+		}
 		if (n != 0)
 		{
-			// std::cout <<"|"<<n<<"|";
+			std::cout <<"*"<<n<<std::endl;
 			mystack.push(n);
 		}
 		else if (c != 0)
@@ -82,9 +87,11 @@ void process(std::string data)
 			// std::cout <<"!"<<c<<"!";
 			if (mystack.size() >= 2)
 			{
+				std::cout <<"OK "<<std::endl;
 				calcul(mystack, c);
 			}
 		}
+		// std::cout <<i++<<std::endl;
     }
 	std::cout <<"Result is "<<mystack.top()<<std::endl;
 }
