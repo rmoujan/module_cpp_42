@@ -6,75 +6,27 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 20:38:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/21 04:15:04 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/22 12:33:19 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-int valid_chars(char c)
+int valid_chars(std::string c)
 {
-    if (c == ' ')
-        return (1); 
-    if (c == '+' || c == '*' || c == '/' || c == '-'  || isdigit(c))
-        return (2);
+    if (c == "+" || c == "*" || c == "/" || c == "-" || 
+		(isdigit(c[0]) && c[1] =='\0'))
+	{
+        return (1);
+	}
     return (0);
 }
 
 void ft_errno()
 {
-    std::cout<<"ERROR : PLEASE ENTER VALID DATA "<<std::endl;
+    std::cout<<"ERROR : PLEASE ENTER A VALID DATA "<<std::endl;
     exit(0);
 }
-
-int parse_data(std::string data)
-{
-    if (data.length() < 3)
-        ft_errno();
-    if (data[0] == ' ')
-    {
-        std::cout <<"1"<<std::endl;
-        ft_errno();//de preference throw an exception !!!!
-    }
-    if (data[data.length() - 1] == ' ' || isdigit(data[data.length() - 1]))
-    {
-        std::cout <<"2"<<std::endl;
-        ft_errno();
-    }
-    if (data.length() >= 2)
-    {
-        if ( !isdigit(data[0]) && ( !isdigit(data[1]) || data[1] != ' ') )
-            ft_errno();
-    }
-    for(int i = 0; i < (data.length() - 1); i++)
-    {
-        std::cout <<"3"<<std::endl;
-        if (!valid_chars(data[i]))
-        {
-            std::cout <<"3-1"<<std::endl;
-            ft_errno();
-        }
-        if (valid_chars(data[i]) == 1)
-        {
-
-            if ( valid_chars(data[i + 1]) != 2)
-            {
-                std::cout <<"3-2"<<std::endl;
-                ft_errno();
-            }
-        }
-        if (valid_chars(data[i]) == 2)
-        {
-            if ( valid_chars(data[i + 1]) != 1)
-            {
-                std::cout <<"3-3 "<<data[i]<<std::endl;
-                ft_errno();
-            }
-        }
-    }
-    return (1);
-}
-
 int get_result(char c, int a, int b)
 {
     if (c == '+')
@@ -88,55 +40,76 @@ int get_result(char c, int a, int b)
     return 0;
 }
 
-int valid_syntaxe(std:: string data)
+void calcul(std::stack<int> &mystack, char c)
 {
+	int a, b;
+	a = mystack.top();
+	mystack.pop();
+	b = mystack.top();
+	if (b == 0)
+	{
+		std::cout << "DIVISON BY ZERO"<<std::endl;
+		exit(0);
+	}
+	else
+	{
+		int result=	get_result(c, a, b);
+		mystack.push(result);
+	}
+		
 
-    return (1);
+}
+void process(std::string data)
+{
+	std::istringstream integer_stream(data);
+	std::istringstream char_stream(data);
+	std::stack<int> mystack;
+	char c;
+	int n;
+
+    while (integer_stream || char_stream) {
+		integer_stream >> n;
+		char_stream >> c;
+		if (integer_stream == 0 && char_stream == 0)
+			break;
+		if (n != 0)
+		{
+			// std::cout <<"|"<<n<<"|";
+			mystack.push(n);
+		}
+		else if (c != 0)
+		{
+			// std::cout <<"!"<<c<<"!";
+			if (mystack.size() >= 2)
+			{
+				calcul(mystack, c);
+			}
+		}
+    }
+	std::cout <<"Result is "<<mystack.top()<<std::endl;
 }
 
-void calcul(std:: string data)
+void check_error(std::string data)
 {
-    std::stack<int> numbers;
-    int n;
-    int i = 0, j = 0;
-    int tab[2];
-    int result = 0;
-    parse_data(data);
-    // valid_syntaxe(data);
-    std::cout <<"OK"<<std::endl;
-    for(int i = 0; i < data.length(); i++)
-    {
-        if (data[i] == ' ')
-            continue;
-        else if (isdigit(data[i]))
-        {
-            std::stringstream ss;
-            ss << data[i];  
-            ss >> n;
-            numbers.push(n);
-        }
-        else if (data[i] == '+' || data[i] == '/' 
-        || data[i] == '*' ||  data[i] == '-')
-        {
-            j = 0;
-            while(!numbers.empty())
-            {
-                if (j ==  2)
-                   break;
-                tab[j++] = numbers.top();
-                numbers.pop();
-            }
-            if (j == 2)
-            {
-                //do work :
-                result = get_result(data[i], tab[1], tab[0]);
-                numbers.push(result);
-            }
-        }   
+
+    std::istringstream my_stream(data);
+    std::string c;
+    while (my_stream) {
+        my_stream >> c;
+		// std::cout <<c[0]<<" | "<<c[1]<<"|"<<std::endl;
+        if (!valid_chars(c))
+			ft_errno();
     }
-    while (!numbers.empty()) {
-        // std::cout << numbers.top() <<" ";
-    std::cout <<"Result is "<<numbers.top()<<std::endl;
-        numbers.pop();
-    }
+}
+
+
+void rpn(std:: string data)
+{
+    check_error(data);
+	process(data);
+    // for (size_t i = 0; i < data.length(); i++)
+    // {
+    //     // std::cout <<"|"<<data[i]<<"|"<<std::endl;
+    // }
+	
 }
