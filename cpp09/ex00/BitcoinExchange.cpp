@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/23 00:38:40 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/23 02:42:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int check_year(std::string year)
 
 	if (number < 2009 || number > 2022)
 	{
-		std::cout <<"ERROR : invalid year, year must be included between 2000 and 2022 => "<<year<<std::endl;
+		std::cout <<"ERROR : invalid year, year must be  between 2000 and 2022 => "<<year<<std::endl;
 		return (0);
 	}
     return (1);
@@ -131,7 +131,7 @@ int check_month(std::string month)
     object >> number;
 	if (number < 1 || number > 12)
 	{
-		std::cout <<"ERROR : invalid month, month must be included between 1 and 12 => "<<month<<std::endl;
+		std::cout <<"ERROR : invalid month, month must be  between 1 and 12 => "<<month<<std::endl;
 		return (0);
 	}
     return (1);
@@ -160,14 +160,14 @@ int check_day(std::string day, std::string month)
 	{
 		if (d < 1 || d > 28)
 		{
-			std::cout <<"ERROR : invalid day, day must be included between 1 and 28 => "<<day<<std::endl;
+			std::cout <<"ERROR : invalid day, day must be  between 1 and 28 => "<<day<<std::endl;
 			return (0);
 		}
 	}
 	else
 		if (d < 1 || d > 31)
 		{
-			std::cout <<"ERROR : invalid day, day must be included between 1 and 31 => "<<day<<std::endl;
+			std::cout <<"ERROR : invalid day, day must be  between 1 and 31 => "<<day<<std::endl;
 			return (0);
 		}
     return (1);
@@ -215,7 +215,7 @@ int check_first(std::string word, std::string key)
 	return (1);
 }
 
-int check_second(std::string data, float& value)
+int check_second(std::string data, long double& value)
 {
 	if (data[0] != ' ')
 	{
@@ -235,13 +235,13 @@ int check_second(std::string data, float& value)
     object >> value;
 	if (value < 0 || value > 1000)
 	{
-		std::cout <<"ERROR : invalid Value, too large => "<<data<<std::endl;
+		std::cout <<"ERROR : too large a number ."<<std::endl;
 		return (0);
 	}
 	return (1);
 }
 
-int  check_date(std::string data, std::string& key, float& value)
+int  check_date(std::string data, std::string& key, long double& value)
 {
 	std::string word;
 	if (!isdigit(data[0]))
@@ -257,7 +257,7 @@ int  check_date(std::string data, std::string& key, float& value)
 	std::stringstream str(data);
 	getline(str, word, '|');
 	check_first(word, key);
-	std::stringstream ss(word);//remove space 
+	std::stringstream ss(word);
     ss >> key;
 	getline(str, word, '|');
 	check_second(word, value);
@@ -269,13 +269,14 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 	std::ifstream infile;
 	std::string	  data, key;
 	std::map<std::string, std::string>::iterator it;	
-	float value, value1;
-
+	long double value, value1;
+	int flag, error;
+	int j = 1;
 	infile.open(filee);
 
 	while (getline(infile, data)) 
 	{
-		// std::cout <<data<<std::endl;
+		flag = 0;
 		if (check_format_line(data) == 0)
 		{
 			continue;
@@ -284,44 +285,36 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 		{
 			continue;
 		}
-		//starting calcul :
-		int flag = 0;
-		for (it= base.begin(); it != base.end(); it++)
-		{
-			std::stringstream object1;
-    		object1 << it->second;
-    		object1 >> value1;
-		
-			if ((it->first).compare(key) == 0)
+		std::cout <<"j is "<<j++<<" ";
+			for (it= base.begin(); it != base.end(); it++)
 			{
-				flag++;
-				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
-			}
-		}
-		//calcul  using lower bound !!!
-		if (!flag)
-		{
-			it = base.lower_bound(key);
-			std::stringstream object1;
-			if (it != base.begin()) 
-			{
-    			--it;
+				std::stringstream object1;
 				object1 << it->second;
 				object1 >> value1;
-				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
-			} 
-			else 
-			{
-				object1 << it->second;
-				object1 >> value1;
-				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+			
+				if ((it->first).compare(key) == 0)
+				{
+					flag++;
+					std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+				}
 			}
-			// std::cout <<"First is "<<it->first<<" and second is "<<it->second<<std::endl;
-			// std::stringstream object1;
-			// object1 << it->second;
-			// object1 >> value1;
-			// std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
-		}
+			if (!flag)
+			{
+				it = base.lower_bound(key);
+				std::stringstream object1;
+				if (it != base.begin()) 
+				{
+					--it;
+					object1 << it->second;
+					object1 >> value1;
+					std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+				} 
+				else 
+				{
+					object1 << it->second;
+					object1 >> value1;
+					std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+				}
+			}
 	}
 }
-
