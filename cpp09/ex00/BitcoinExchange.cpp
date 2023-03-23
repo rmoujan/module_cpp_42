@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/23 02:42:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/23 23:23:55 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,7 +260,8 @@ int  check_date(std::string data, std::string& key, long double& value)
 	std::stringstream ss(word);
     ss >> key;
 	getline(str, word, '|');
-	check_second(word, value);
+	if (check_second(word, value) == 0)
+		return (0);
 	return (1);	
 }
 
@@ -273,7 +274,7 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 	int flag, error;
 	int j = 1;
 	infile.open(filee);
-
+	int k = 1;
 	while (getline(infile, data)) 
 	{
 		flag = 0;
@@ -285,36 +286,36 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 		{
 			continue;
 		}
-		std::cout <<"j is "<<j++<<" ";
-			for (it= base.begin(); it != base.end(); it++)
+		for (it = base.begin(); it != base.end(); it++)
+		{
+			std::stringstream object1;
+			object1 << it->second;
+			object1 >> value1;
+		
+			if ((it->first).compare(key) == 0)
 			{
-				std::stringstream object1;
+				flag++;
+				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+			}
+		}
+		if (!flag)
+		{
+			it = base.lower_bound(key);
+			std::stringstream object1;
+			if (it != base.begin()) 
+			{
+				--it;
 				object1 << it->second;
 				object1 >> value1;
-			
-				if ((it->first).compare(key) == 0)
-				{
-					flag++;
-					std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
-				}
-			}
-			if (!flag)
+				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+			} 
+			else 
 			{
-				it = base.lower_bound(key);
-				std::stringstream object1;
-				if (it != base.begin()) 
-				{
-					--it;
-					object1 << it->second;
-					object1 >> value1;
-					std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
-				} 
-				else 
-				{
-					object1 << it->second;
-					object1 >> value1;
-					std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
-				}
+				object1 << it->second;
+				object1 >> value1;
+				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
 			}
+		}
+		k++;
 	}
 }
