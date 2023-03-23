@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/22 23:16:08 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/23 00:38:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,20 +145,6 @@ int check_day(std::string day, std::string month)
 	if (day.length() != 2)
 	{
 		std::cout <<"ERROR : invalid day, day required 2 digits => "<<day<<std::endl;
-			// for (int i = 0; i < day.length(); i++)
-			// {
-			// 	if (day[i] == ' ')
-			// 	{
-			// 		std::cout<<"SPACE\n";
-
-			// 	}
-			// 	else if (day[i] == '\0')
-			// 	{
-			// 		std::cout<<"back zer\n";
-
-			// 	}
-			// 	std::cout <<"|"<<day[i]<<"|"<<std::endl;
-			// }
 		return (0);
 	}
 
@@ -205,18 +191,6 @@ int check_first(std::string word, std::string key)
 		return (0);
 	}
 	std::string r = word.substr(0, (word.length() - 1));
-		// for (int i = 0; i < r.length(); i++)
-		// {
-		// 	if (r[i] == ' ')
-		// 	{
-		// 		std::cout<<"SPACE\n";
-		// 	}
-		// 	else if (r[i] == '\0')
-		// 	{
-		// 		std::cout<<"back zer\n";
-		// 	}
-		// 	std::cout <<"|"<<r[i]<<"|"<<std::endl;
-		// }
 	std::stringstream str(r);
 	while (getline(str, result, '-'))
 	{
@@ -233,7 +207,7 @@ int check_first(std::string word, std::string key)
 		}
 		count++;
 	}
-	if (count != 2)
+	if (count != 3)
 	{
 		std::cout <<"ERROR : invalid Date => "<<word<<std::endl;
 		return (0);
@@ -244,9 +218,15 @@ int check_first(std::string word, std::string key)
 int check_second(std::string data, float& value)
 {
 	if (data[0] != ' ')
+	{
+		std::cout <<"ERROR : invalid Value => "<<data<<std::endl;
 		return (0);
+	}
 	if (std::count(data.begin(), data.end(), ',') > 1)
+	{
+		std::cout <<"ERROR : invalid Value => "<<data<<std::endl;
 		return (0);
+	}
 	else if(!isdigit(data[data.length() - 1]))
 		return (0);
 	std::replace(data.begin(), data.end(), ',', '.');
@@ -254,7 +234,10 @@ int check_second(std::string data, float& value)
     object << data;
     object >> value;
 	if (value < 0 || value > 1000)
+	{
+		std::cout <<"ERROR : invalid Value, too large => "<<data<<std::endl;
 		return (0);
+	}
 	return (1);
 }
 
@@ -274,8 +257,8 @@ int  check_date(std::string data, std::string& key, float& value)
 	std::stringstream str(data);
 	getline(str, word, '|');
 	check_first(word, key);
-	std::stringstream ss(word);
-    ss >> key; 
+	std::stringstream ss(word);//remove space 
+    ss >> key;
 	getline(str, word, '|');
 	check_second(word, value);
 	return (1);	
@@ -286,7 +269,7 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 	std::ifstream infile;
 	std::string	  data, key;
 	std::map<std::string, std::string>::iterator it;	
-	float value;
+	float value, value1;
 
 	infile.open(filee);
 
@@ -300,6 +283,44 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 		if (check_date(data, key, value) == 0)
 		{
 			continue;
+		}
+		//starting calcul :
+		int flag = 0;
+		for (it= base.begin(); it != base.end(); it++)
+		{
+			std::stringstream object1;
+    		object1 << it->second;
+    		object1 >> value1;
+		
+			if ((it->first).compare(key) == 0)
+			{
+				flag++;
+				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+			}
+		}
+		//calcul  using lower bound !!!
+		if (!flag)
+		{
+			it = base.lower_bound(key);
+			std::stringstream object1;
+			if (it != base.begin()) 
+			{
+    			--it;
+				object1 << it->second;
+				object1 >> value1;
+				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+			} 
+			else 
+			{
+				object1 << it->second;
+				object1 >> value1;
+				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
+			}
+			// std::cout <<"First is "<<it->first<<" and second is "<<it->second<<std::endl;
+			// std::stringstream object1;
+			// object1 << it->second;
+			// object1 >> value1;
+			// std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
 		}
 	}
 }

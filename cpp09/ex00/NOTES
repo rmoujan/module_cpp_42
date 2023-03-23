@@ -1,13 +1,13 @@
-*** ABOUT EX00 ***
-1- ERROR HANDLING OF INPUT FILE:
-**THIS BEFORE SEND THE FILE TO CLASS
-A-CHEAK IF THE FIL EXIST
-B-CHEAK IF THE FILE IS NOT EMPTY
 
-**THIS AFETR SEND THE FILE TO CLASS :
+2011-01-03 => 3 = 0.9
+2011-01-03 => 2 = 0.6
+2011-01-03 => 1 = 0.3
+2011-01-03 => 1.2 = 0.36
+2011-01-09 => 1 = 0.32
+Error: not a positive number.
+Error: bad input => 2001-42-42
+2012-01-11 => 1 = 7.1
+Error: too large a number.
 
-C-• Each line in this file must use the following format: "date | value".
-D-• A valid date will always be in the following format: Year-Month-Day.
-E-• A valid value must be either a float or a positive integer between 0 and 1000.
 
-
+The lower bound function returns an iterator to the element in the map that has a key that is equal to or greater than the given key. If no such element is found, it returns an iterator to the end of the map.
