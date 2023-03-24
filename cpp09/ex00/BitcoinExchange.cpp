@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:18:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/23 23:23:55 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/24 03:40:55 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ int check_day(std::string day, std::string month)
 }
 
 
-int check_first(std::string word, std::string key)
+int check_first(std::string word)
 {
 	std::string result;
 	std::string month;
@@ -256,7 +256,7 @@ int  check_date(std::string data, std::string& key, long double& value)
 	}
 	std::stringstream str(data);
 	getline(str, word, '|');
-	check_first(word, key);
+	check_first(word);
 	std::stringstream ss(word);
     ss >> key;
 	getline(str, word, '|');
@@ -271,10 +271,8 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 	std::string	  data, key;
 	std::map<std::string, std::string>::iterator it;	
 	long double value, value1;
-	int flag, error;
-	int j = 1;
+	int flag;
 	infile.open(filee);
-	int k = 1;
 	while (getline(infile, data)) 
 	{
 		flag = 0;
@@ -316,6 +314,5 @@ void output_data(std::string filee, std::map<std::string, std::string> base)
 				std::cout <<key<<" => "<<value<<" = "<<(value*value1)<<std::endl;
 			}
 		}
-		k++;
 	}
 }
