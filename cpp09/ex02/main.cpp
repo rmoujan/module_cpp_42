@@ -6,7 +6,7 @@
 /*   By: rmoujan <rmoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 10:10:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2023/03/25 00:25:58 by rmoujan          ###   ########.fr       */
+/*   Updated: 2023/03/25 01:58:13 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void get_integers(char *data, std::vector<long double> &vec, std::deque<long dou
 		std::stringstream object;
 		object << word;
 		object >> value;
-		std::cout <<"value IS "<<value<<std::endl;
 		vec.push_back(value);
 		li.push_back(value);
 		if (value < 0 || value > 2147483647)
@@ -46,8 +45,6 @@ void check_error(std::string data)
 	}
 	for (size_t i = 0; i < (data.length() - 1) ; i++)
 	{
-
-		// std::cout <<"HHH" <<data[i + 1]<<std::endl;
 		if (data[i] == '.' && data[i + 1] == '.')
 		{
 			std::cout <<"PLEASE ENTER ONLY POSITIVE VALUE "<<std::endl;
@@ -103,26 +100,20 @@ int main(int argc, char *argv[])
 	std::vector<long double>::iterator it; 
 	std::clock_t time_span1;
 	std::clock_t time_span2;
-	// std::cout << argc << std::endl;
-	// (void )argv;
+
 	if (argc >= 2)
 	{
-		std::cout << "hellos" << std::endl;
 		global_check(argv, argc, vec, li);
-		// check_error(argv);
-		// get_integers(argv, vec, li);
-
-		std::cout <<"Before li: ";
+		std::cout <<"Before : ";
 		for (it1 = li.begin(); it1 != li.end(); ++it1)
         	std::cout << " " << *it1;
-		// std::cout <<"\nBefore li: ";
-		// sort(vec, li, time_span1, time_span2);
-		std::cout <<"\nAFTER vec:  ";
-		for (it = vec.begin(); it != vec.end(); ++it)
-        	std::cout << " " << *it;
+		sort(vec, li, time_span1, time_span2);
 
-		// std::cout <<std::endl;
-		// output_time(time_span1, time_span2, vec, li);
+		std::cout <<"\nAFTER :  ";
+		for (it1 = li.begin(); it1 != li.end(); ++it1)
+        	std::cout << " " << *it1;
+		std::cout <<std::endl<<std::endl;
+		output_time(time_span1, time_span2, vec, li);
 		return (0);
 		
 	}
